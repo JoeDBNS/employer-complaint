@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Employer Complaint</title>
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" type="image/ico" href="./assets/images/favicon.ico" />
+
+	<!-- Bootstrap v4.3.1 -->
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" type="text/css" href="./css/index.css">
+</head>
+
+<body>
+	<a id="skip-to-content" href="#app-content">Skip navigation</a>
+	<div id="app-container" class="container-fluid p-0">
+		<nav id="app-nav" class="row m-0">
+			<h1 class="nav-text text-sm-left text-center">Employer Complaint System</h1>
+			<!-- <div class="nav-text text-sm-left text-center" v-show="page === 'index'">Employer Complaint System</div>
+			<div v-cloak class="nav-text text-sm-left text-center" v-show="page !== 'index'">{{page}}</div> -->
+
+			<div class="col p-0">
+				<div class="container-fluid">
+					<div id="nav-paths" class="row">
+						<div tabindex="0" class="nav-path" v-bind:class="{ 'nav-path-selected': page === 'login' }" @click="UpdatePage('login')" @keypress.enter="UpdatePage('login')" @keypress.space="UpdatePage('login')">
+							<div class="nav-path-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
+							<div class="nav-path-text">Login</div>
+						</div>
+
+						<div tabindex="0" class="nav-path" v-bind:class="{ 'nav-path-selected': page === 'index' }" @click="UpdatePage('index')" @keypress.enter="UpdatePage('index')" @keypress.space="UpdatePage('index')">
+							<div class="nav-path-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></div>
+							<div class="nav-path-text">Home</div>
+						</div>
+
+						<div tabindex="0" class="nav-path" v-bind:class="{ 'nav-path-selected': page === 'complaint' }" @click="UpdatePage('complaint')" @keypress.enter="UpdatePage('complaint')" @keypress.space="UpdatePage('complaint')">
+							<div class="nav-path-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></div>
+							<div class="nav-path-text">Complaint</div>
+						</div>
+
+						<div tabindex="0" class="nav-path" v-bind:class="{ 'nav-path-selected': page === 'report' }" @click="UpdatePage('report')" @keypress.enter="UpdatePage('report')" @keypress.space="UpdatePage('report')">
+							<div class="nav-path-icon"><?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" id="svg10" version="1.1" class="feather feather-users" stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="currentColor" fill="none" viewBox="0 0 24 24" height="24" width="24"><metadata id="metadata16"><rdf:RDF><cc:Work rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs id="defs14" /><path style="stroke-width:1.57754219" id="path2" d="M 14.442827,19.796179 V 17.785146 A 2.4749856,4.0220668 0 0 0 11.967842,13.763079 H 7.0178713 a 2.4749856,4.0220668 0 0 0 -2.4749857,4.022067 v 2.011033" /><ellipse style="stroke-width:1.74542952" ry="3.4154208" rx="3.5679631" id="circle4" cy="7.9152541" cx="9.5593224" /><path style="stroke-width:1.65644431" id="path6" d="M 19.170861,18.382269 V 16.685137 A 3.2334636,3.3942644 0 0 0 16.745763,13.401186" /><path style="stroke-width:1.492764" id="path8" d="m 15.539941,5.2145444 a 3.1913378,2.7929907 0 0 1 0,5.4114186" /></svg></div>
+							<div class="nav-path-text">Report</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+		<main id="app-content" class="container-fluid">
+			<div id="app-page-loading" class="container-fluid p-0" v-show="page === null">
+				<small>Loading...</small>
+			</div>
+
+			<div v-cloak id="app-page-login" class="container-fluid p-0" v-show="page === 'login'">
+				<div class="row justify-content-center">
+					<div class="login-content col-xl-6 col-lg-8 col-md-10 col-12 mt-md-5 mt-0">
+						<div class="container-fluid">
+							<div class="row">
+								<form class="login-form col-md-7 col-12" method="post" autocomplete="off">
+									<div class="container p-0">
+										<div class="row justify-content-center">
+											<div class="form-email col-md-12 col-sm-8 col-12">
+												<label for="login-form-email" class="login-input-label">Email</label>
+												<input id="login-form-email" class="login-input" name="login-form-email" type="email">
+											</div>
+
+											<div class="form-pass col-md-12 col-sm-8 col-12 mt-4">
+												<label for="login-form-password" class="login-input-label">Password</label>
+												<input id="login-form-password" class="login-input" name="login-form-password" type="password">
+											</div>
+										</div>
+
+										<div class="row justify-content-center mt-5">
+											<button id="login-form-submit" class="btn-main text-center" type="button" @click="loadingLogin = !loadingLogin">
+												<span v-show="!loadingLogin">Log In</span>
+												<span v-show="loadingLogin">Loading</span>
+												<span class="login-form-submit-loading" v-show="loadingLogin">
+													<svg width="36px"  height="36px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-rolling" style="background: none;"><circle cx="50" cy="50" fill="none" ng-attr-stroke-width="{{config.width}}" ng-attr-r="{{config.radius}}" ng-attr-stroke-dasharray="{{config.dasharray}}" stroke-width="14" r="42" stroke-dasharray="197.92033717615698 67.97344572538566" transform="rotate(137.894 50 50)"><animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;360 50 50" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform></circle></svg>
+												</span>
+											</button>
+										</div>
+									</div>
+								</form>
+
+								<div class="login-help col-md-5 col-12 mt-md-0 mt-5">
+									<div class="login-help-header text-center">Help Center</div>
+									<hr class="login-help-hr">
+									<div class="login-help-content mt-3">
+										<p>If you need assistance, please contact _____</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div v-cloak id="app-page-index" class="container-fluid p-0" v-show="page === 'index'">
+				<div class="row">
+					<div id="app-notif" class="col-lg-6 col-12">
+						<div class="app-notif-content container">
+							<div class="app-notif-title">Notifications</div>
+
+							<hr>
+
+							<div class="notification row">
+								<div class="notification-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-award"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg></div>
+								<div class="notification-subject col"><span class="notification-subject-target">Joe Davis</span> has been working here for 2 years!</div>
+							</div>
+
+							<div class="notification row">
+								<div class="notification-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-gift"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg></div>
+								<div class="notification-subject col"><span class="notification-subject-target">Steve French</span> is turning 4 today!</div>
+							</div>
+
+							<div class="notification notification-urgent row">
+								<div class="notification-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></div>
+								<div class="notification-subject col"><span class="notification-subject-target">Charley Day</span> has requested time off</div>
+							</div>
+
+							<div class="notification notification-urgent row">
+								<div class="notification-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-dollar-sign"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div>
+								<div class="notification-subject col"><span class="notification-subject-target">Bruce Green</span> has submitted a reimbursement request</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div v-cloak id="app-page-complaint" class="container-fluid p-0" v-show="page === 'complaint'">
+				Complaint
+			</div>
+
+			<div v-cloak id="app-page-report" class="container-fluid p-0" v-show="page === 'report'">
+				<div class="row">
+					<div class="report-controls">
+						<button>print report</button>
+					</div>
+				</div>
+
+				<div class="row justify-content-center mt-3">
+					<table class="report-table">
+						<thead class="table-head text-center">
+							<tr class="table-row">
+								<th>ID</th>
+								<th>Status</th>
+								<th>Type</th>
+								<th>Complainant</th>
+								<th>Respondent</th>
+								<th>MSFW</th>
+								<th>Date Filed</th>
+								<th>Filed From</th>
+								<th></th>
+							</tr>
+						</thead>
+	
+						<tbody class="table-body">
+							<tr tabindex="0" class="table-row" v-for="(complaint, index) in complaints" v-show="index - reportTablePage < 19 && index + 1 >= reportTablePage">
+								<td class="row-id text-center">{{complaint.id}}</td>
+								<!-- <td class="row-status text-center">
+									<div class="status-marker" v-bind:class="{'status-marker-active': complaint.status === 'active', 'status-marker-inactive': complaint.status === 'inactive'}">
+										{{complaint.status}}
+									</div>
+								</td> -->
+								<td class="row-status text-center">
+									<div class="status-marker">
+										<div v-bind:class="{'status-marker-active': complaint.status === 'active', 'status-marker-inactive': complaint.status === 'inactive'}"></div>
+									</div>
+									<div class="status-text text-left">{{complaint.status}}</div>
+								</td>
+								<td class="row-type text-center">{{complaint.type}}</td>
+								<td class="row-complainant">{{complaint.claimanant}}</td>
+								<td class="row-respondent">{{complaint.respondent}}</td>
+								<td class="row-msfw">{{complaint.msfw}}</td>
+								<td class="row-filed-date text-center">{{complaint.filed_date}}</td>
+								<td class="row-filed-office text-center">{{complaint.filed_office}}</td>
+								<td class="row-icons d-flex justify-content-center">
+									<div class="icons-edit"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-3"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg></div>
+									<div class="icons-print"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-printer"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg></div>
+									<div class="icons-note"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder-plus"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path><line x1="12" y1="11" x2="12" y2="17"></line><line x1="9" y1="14" x2="15" y2="14"></line></svg></div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="row justify-content-center mt-3">
+					<button @click="reportTablePage != 1 ? reportTablePage -= 20 : null">prev</button>
+					<button @click="reportTablePage <= (complaints.length - 20) ? reportTablePage += 20 : null">next</button>
+				</div>
+			</div>
+		</main>
+	</div>
+
+
+	<!-- Vue.js -->
+	<script type="text/javascript" src="./js/vue.min.js"></script>
+
+	<!-- Custom JS -->
+	<script type="text/javascript" src="./js/index.js"></script>
+</body>
+
+</html>
