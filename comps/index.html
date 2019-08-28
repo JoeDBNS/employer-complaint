@@ -136,12 +136,26 @@
 
 			<div v-cloak id="app-page-complaint" class="container-fluid p-0" v-show="page === 'complaint'">
 				Complaint
+				<br><br>
+				<form>
+					<label for="testInput1">Complainant
+						<input type="text" id="testInput1">
+					</label>
+					<br>
+					<label for="testInput2">Respondent
+						<input type="text" id="testInput2">
+					</label>
+					<br>
+					<label for="testInput3">Description
+						<input type="text" id="testInput3">
+					</label>
+				</form>
 			</div>
 
 			<div v-cloak id="app-page-report" class="container-fluid p-0" v-show="page === 'report'">
 				<div class="row">
 					<div class="report-controls">
-						<button>print report</button>
+						<button class="btn-main">print report</button>
 					</div>
 				</div>
 
@@ -192,8 +206,8 @@
 				</div>
 
 				<div class="row justify-content-center mt-3">
-					<button @click="reportTablePage != 1 ? reportTablePage -= 20 : null">prev</button>
-					<button @click="reportTablePage <= (complaints.length - 20) ? reportTablePage += 20 : null">next</button>
+					<button class="btn-main" @click="reportTablePage != 1 ? reportTablePage -= 20 : null">prev</button>
+					<button class="btn-main" @click="reportTablePage <= (complaints.length - 20) ? reportTablePage += 20 : null">next</button>
 				</div>
 			</div>
 		</main>

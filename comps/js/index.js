@@ -32,7 +32,7 @@ var MainVue = new Vue({
 			},
 			{
 				id: '3',
-				type: 'complaint',
+				type: 'pending',
 				claimanant: 'Evyn Carrel',
 				respondent: 'Tagopia',
 				msfw: true,
@@ -86,7 +86,7 @@ var MainVue = new Vue({
 			},
 			{
 				id: '9',
-				type: 'violation',
+				type: 'pending',
 				claimanant: 'Theodoric Langland',
 				respondent: 'Tazz',
 				msfw: true,

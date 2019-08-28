@@ -120,7 +120,7 @@ body {
 		font-size: 15px;
 		font-weight: 600;
 		user-select: none;
-		transition: all linear .15s;
+		transition: all linear .05s;
 	}
 	.btn-main:hover {
 		background-color: #2C7AFF;
@@ -182,6 +182,9 @@ body {
 		border: 1px solid #75a3f3;
 		box-shadow: 0 0 2px rgb(100, 157, 255), 0 0 2px rgb(92, 152, 255) inset;
 		outline: none;
+	}
+	#login-form-submit {
+		transition: all linear .15s;
 	}
 	.login-form-submit-loading svg {
 		position: relative;
