@@ -7,8 +7,9 @@ var MainVue = new Vue({
 			'login',
 			'index',
 			'complaint',
-			'report'
+			'logs'
 		],
+		modal: false,
 		page: 0,
 		loadingLogin: false,
 		complaints: [
@@ -499,7 +500,7 @@ var MainVue = new Vue({
 				status: 'inactive'
 			}
 		],
-		reportTablePage: 1
+		logsTablePage: 1
 	},
 	methods: {
 		UpdatePage: function(newPage) {

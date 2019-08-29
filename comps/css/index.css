@@ -20,7 +20,7 @@ body {
 	}
 	.nav-text {
 		margin-top: 12px;
-		font-size: 18px;
+		font-size: 	1.125rem;
 		text-transform: capitalize;
 	}
 	#nav-paths {
@@ -62,7 +62,7 @@ body {
 		width: 20px;
 	}
 	.nav-path-text {
-		font-size: 12px;
+		font-size: 0.75rem;
 	}
 	@media only screen and (min-width: 0px) and (max-width: 575px) {
 		#app-nav {
@@ -70,7 +70,7 @@ body {
 		}
 		.nav-text {
 			width: 100%;
-			font-size: 20px;
+			font-size: 1.25rem;
 			margin-bottom: 10px;
 		}
 		#nav-paths {
@@ -117,7 +117,7 @@ body {
 		border-radius: 8px;
 		box-shadow: 0 0 1px #2C7AFF;
 		color: #1b5ac7;
-		font-size: 15px;
+		font-size: 0.9375rem;
 		font-weight: 600;
 		user-select: none;
 		transition: all linear .05s;
@@ -134,17 +134,67 @@ body {
 	}
 	.btn-main:active {
 		-webkit-transform: scale(0.94);
-    	transform: scale(0.94);
+		transform: scale(0.94);
 		box-shadow: none;
+	}
+
+/* Modal */
+	.app-page-modal {
+		display: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(14, 31, 53, 0.5);
+		color: black;
+		z-index: 998;
+		pointer-events: none;
+		user-select: none;
+	}
+	.app-page-modal-show {
+		display: block;
+		pointer-events: all;
+		user-select: auto;
+	}
+	.modal-container {
+		position: relative;
+		top: 200px;
+		height: 400px;
+		width: 700px;
+		margin: auto;
+		background-color: white;
+		border: 1px solid #a3ccff;
+		border-radius: 14px;
+		transition: .1s all;
+	}
+	.modal-close {
+		position: absolute;
+		top: 9px;
+		right: 9px;
+		padding: 3px;
+		background-color: transparent;
+		border: 1px solid white;
+		border-radius: 14px;
+		box-shadow: 0 0 2px -2px #ffd6d6 inset;
+		cursor: pointer;
+		transition: linear .1s all;
+	}
+	.modal-close:hover {
+		border-color: #ffd6d6;
+		box-shadow: 0 0 2px 15px #ffd6d6 inset;
+	}
+	.modal-close svg {
+		color: red;
 	}
 
 /* Login */
 	.login-content {
 		background-color: white;
 		padding: 12px 14px;
-		border: 1px solid #5898e8;
+		border: 1px solid #a3ccff;
 		border-radius: 50px;
-    	box-shadow: 0 0 3px -1px #bad4ff;
+		box-shadow: 0 0 4px -1px #bad4ff;
 	}
 	.login-help {
 		background-color: #f4f4f4;
@@ -156,7 +206,7 @@ body {
 		margin: 5px 0;
 	}
 	.login-help-content {
-		font-size: 14px;
+		font-size: 0.875rem;
 	}
 	.login-form {
 		padding: 40px;
@@ -165,7 +215,7 @@ body {
 		width: 100%;
 		margin-bottom: 0;
 		padding-left: 7px;
-		font-size: 14px;
+		font-size: 0.875rem;
 		color: #144497;
 		user-select: none;
 	}
@@ -182,6 +232,18 @@ body {
 		border: 1px solid #75a3f3;
 		box-shadow: 0 0 2px rgb(100, 157, 255), 0 0 2px rgb(92, 152, 255) inset;
 		outline: none;
+	}
+	.login-form-input-help {
+		height: 0;
+		position: relative;
+		left: 8px;
+		font-size: .875rem;
+		color: transparent;
+		transition: .1s all;
+	}
+	.login-form-input-help-show {
+		height: 1rem;
+		color: #E64423;
 	}
 	#login-form-submit {
 		transition: all linear .15s;
@@ -203,22 +265,22 @@ body {
 /* Index */
 	/* Notification */
 		.app-notif-content {
-			background-color: white;
-			padding: 8px 13px;
+			padding: 8px 20px;
 			margin-top: 4px;
-			border: 1px solid #cacaca;
-			border-radius: 5px;
-			box-shadow: 0 0 2px #6cb1c8 inset;
+			background-color: white;
+			border: 1px solid #a3ccff;
+			border-radius: 8px;
+			box-shadow: 0 0 4px -1px #bad4ff;
 		}
 		.app-notif-title {
 			margin: 8px 0;
-			font-size: 24px;
+			font-size: 1.5rem;
 			color: #2b384a;
 			text-align: center;
 		}
 		.app-notif-content hr {
 			width: 70%;
-			margin: 8px auto;
+			margin: 4px auto 20px auto;
 		}
 		.notification {
 			background-color: #fbfdff;
@@ -256,20 +318,24 @@ body {
 		.notification-subject {
 			padding-top: 4px;
 			color: #2b384a;
-			font-size: 16px;
+			font-size: 1rem;
 		}
 		.notification-subject-target {
 			font-weight: bold;
 		}
 
-/* Report */
+/* Logs */
 	/* table */
-	.report-table {
-		/* background-color: white; */
+	.logs-table-container {
+		height: 657px;
+		display: block;
 		width: 90%;
 		margin: auto;
+	}
+	.logs-table {
+		/* background-color: white; */
 		/* border-radius: 8px; */
-    	/* box-shadow: 0 0 3px -1px grey; */
+		/* box-shadow: 0 0 3px -1px grey; */
 		border-collapse: separate;
 		border-spacing: 0;
 		overflow: hidden;
@@ -280,9 +346,9 @@ body {
 		/* box-shadow: 0 -1px 0 #929292 inset; */
 	}
 	.table-head th {
-		background-color: #434a5e;
+		background-color: #3c6dd1;
 		padding: 2px 0;
-		font-size: 14px;
+		font-size: 0.875rem;
 	}
 	.table-head .table-row th:first-child {
 		border-radius: 7px 0 0 2px;
@@ -292,10 +358,10 @@ body {
 		border-radius: 0 7px 2px 0;
 	}
 	.table-body {
-		font-size: 15px;
+		font-size: 0.9375rem;
 	}
 	.table-body .table-row:hover {
-		background-color: #f2f2f2;
+		background-color: #f3f3f3;
 		cursor: pointer;
 	}
 	.table-body .table-row td {
@@ -303,15 +369,15 @@ body {
 		padding: 4px 12px 2px 12px;
 		border-bottom: 1px solid;
 		border-right: 1px solid;
-		border-color: #bebebe #e0e0e0;
+		border-color: #aabde4 #e1eeff;
 	}
 	.table-body .table-row td:first-child {
-		border-left: 1px solid #bebebe;
+		border-left: 1px solid #aabde4;
 		border-radius: 2px 0 0 2px;
 	}
 	.table-body .table-row td:last-child {
 		width: 104px;
-		border-right: 1px solid #bebebe;
+		border-right: 1px solid #aabde4;
 		border-radius: 0 2px 2px 0;
 	}
 	.table-body .table-row:hover, .table-body .table-row:hover td {
@@ -348,14 +414,14 @@ body {
 
 	/* .status-marker-active {
 		width: 50%;
-    	margin: auto;
+		margin: auto;
 		background-color: #e7ffe9;
 		box-shadow: 0 0 0px 1px #add7ab;
 		border-radius: 10px;
 	}
 	.status-marker-inactive {
 		width: 50%;
-    	margin: auto;
+		margin: auto;
 		background-color: #f8f8f8;
 		box-shadow: 0 0 0px 1px #cdcdcd;
 		border-radius: 10px;
