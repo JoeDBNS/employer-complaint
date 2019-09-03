@@ -137,6 +137,33 @@ body {
 		transform: scale(0.94);
 		box-shadow: none;
 	}
+	/* Drop Down Menu */
+		.drop-menu {
+			float: right;
+			margin-left: 8px;
+			user-select: none;
+		}
+		.drop-menu-options {
+			background-color: #f3f8fe;
+			position: absolute;
+			top: 38px;
+			border: 2px solid #2c7aff;
+			border-radius: 8px;
+			font-size: 0.9375rem;
+			font-weight: 600;
+			color: #1b5ac7;
+			z-index: 1;
+			overflow: hidden;
+		}
+		.drop-menu-options-option {
+			padding: 6px 13px;
+			cursor: pointer;
+			transition: all linear .05s;
+		}
+		.drop-menu-options-option:hover {
+			background-color: #2C7AFF;
+			color: white;
+		}
 
 /* Modal */
 	.app-page-modal {
@@ -191,8 +218,8 @@ body {
 /* Login */
 	.login-content {
 		background-color: white;
-		padding: 12px 14px;
-		border: 1px solid #a3ccff;
+		padding: 18px;
+		border: 1px solid #76b3ff;
 		border-radius: 50px;
 		box-shadow: 0 0 4px -1px #bad4ff;
 	}
@@ -239,6 +266,7 @@ body {
 		left: 8px;
 		font-size: .875rem;
 		color: transparent;
+		user-select: none;
 		transition: .1s all;
 	}
 	.login-form-input-help-show {
@@ -269,7 +297,7 @@ body {
 			margin-top: 4px;
 			background-color: white;
 			border: 1px solid #a3ccff;
-			border-radius: 8px;
+			border-radius: 9px;
 			box-shadow: 0 0 4px -1px #bad4ff;
 		}
 		.app-notif-title {
@@ -288,7 +316,7 @@ body {
 			cursor: pointer;
 			user-select: none;
 			border: 1px solid #dee3e9;
-			border-radius: 6px;
+			border-radius: 9px;
 			margin: 6px 0;
 			box-shadow: 0 0 1px #4f78b3;
 			transition: all linear .1s;
@@ -325,29 +353,27 @@ body {
 		}
 
 /* Logs */
-	/* table */
 	.logs-table-container {
-		height: 657px;
+		height: 687px;
 		display: block;
 		width: 90%;
 		margin: auto;
 	}
 	.logs-table {
-		/* background-color: white; */
-		/* border-radius: 8px; */
-		/* box-shadow: 0 0 3px -1px grey; */
-		border-collapse: separate;
-		border-spacing: 0;
+		border-collapse: collapse;
+		width: 100%;
+		background-color: #0071BC;
+		border-radius: 9px;
+		border: 2px solid lightgray;
 		overflow: hidden;
-		user-select: none;
 	}
 	.table-head {
 		color: white;
 		/* box-shadow: 0 -1px 0 #929292 inset; */
 	}
 	.table-head th {
-		background-color: #3c6dd1;
-		padding: 2px 0;
+		background-color: #0071BC;
+		padding: 4px 0 3px 0;
 		font-size: 0.875rem;
 	}
 	.table-head .table-row th:first-child {
@@ -366,18 +392,17 @@ body {
 	}
 	.table-body .table-row td {
 		background-color: white;
-		padding: 4px 12px 2px 12px;
-		border-bottom: 1px solid;
-		border-right: 1px solid;
-		border-color: #aabde4 #e1eeff;
+		padding: 4px 12px 3px 12px;
+		border-bottom: 1px solid #dee2e6;
+		border-right: 1px solid #dee2e6;
+	}
+	.table-body .table-row:nth-child(even) td {
+		background-color: #f4f7ff;
 	}
 	.table-body .table-row td:first-child {
-		border-left: 1px solid #aabde4;
 		border-radius: 2px 0 0 2px;
 	}
 	.table-body .table-row td:last-child {
-		width: 104px;
-		border-right: 1px solid #aabde4;
 		border-radius: 0 2px 2px 0;
 	}
 	.table-body .table-row:hover, .table-body .table-row:hover td {
@@ -389,6 +414,8 @@ body {
 		background-color: #dddddd;
 	}
 	.row-icons [class^="icons-"] {
+		float: left;
+		width: 22%;
 		margin: 0 5px;
 		transition: .05s all;
 	}
@@ -410,22 +437,6 @@ body {
 	.row-icons [class^="icons-"]:hover svg {
 		color: #398ABF;
 	}
-
-
-	/* .status-marker-active {
-		width: 50%;
-		margin: auto;
-		background-color: #e7ffe9;
-		box-shadow: 0 0 0px 1px #add7ab;
-		border-radius: 10px;
-	}
-	.status-marker-inactive {
-		width: 50%;
-		margin: auto;
-		background-color: #f8f8f8;
-		box-shadow: 0 0 0px 1px #cdcdcd;
-		border-radius: 10px;
-	} */
 	.status-text {
 		float: left;
 		width: 70%;
@@ -448,6 +459,35 @@ body {
 	.status-marker-inactive {
 		background-color: #f8f8f8;
 		box-shadow: 0 0 0px 1px #cdcdcd;
+	}
+
+
+	.tabCol1 {
+		width: 70px;
+	}
+	.tabCol2 {
+		width: 120px;
+	}
+	.tabCol3 {
+		width: 120px;
+	}
+	.tabCol4 {
+		width: auto;
+	}
+	.tabCol5 {
+		width: auto;
+	}
+	.tabCol6 {
+		width: 70px;
+	}
+	.tabCol7 {
+		width: 120px;
+	}
+	.tabCol8 {
+		width: 120px;
+	}
+	.tabCol9 {
+		width: 120px;
 	}
 
 

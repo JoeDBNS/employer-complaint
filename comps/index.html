@@ -14,6 +14,9 @@
 	<!-- Bootstrap v4.3.1 -->
 	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
 
+	<!-- flatpickr -->
+	<link rel="stylesheet" type="text/css" href="./css/flatpickr.min.css">
+
 	<!-- Custom CSS -->
 	<link rel="stylesheet" type="text/css" href="./css/index.css">
 </head>
@@ -45,7 +48,7 @@
 						</div>
 
 						<div tabindex="0" class="nav-path" v-bind:class="{ 'nav-path-selected': page === 'logs' }" @click="UpdatePage('logs')" @keypress.enter="UpdatePage('logs')" @keypress.space="UpdatePage('logs')">
-							<div class="nav-path-icon"><?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" id="svg10" version="1.1" class="feather feather-users" stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="currentColor" fill="none" viewBox="0 0 24 24" height="24" width="24"><metadata id="metadata16"><rdf:RDF><cc:Work rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs id="defs14" /><path style="stroke-width:1.57754219" id="path2" d="M 14.442827,19.796179 V 17.785146 A 2.4749856,4.0220668 0 0 0 11.967842,13.763079 H 7.0178713 a 2.4749856,4.0220668 0 0 0 -2.4749857,4.022067 v 2.011033" /><ellipse style="stroke-width:1.74542952" ry="3.4154208" rx="3.5679631" id="circle4" cy="7.9152541" cx="9.5593224" /><path style="stroke-width:1.65644431" id="path6" d="M 19.170861,18.382269 V 16.685137 A 3.2334636,3.3942644 0 0 0 16.745763,13.401186" /><path style="stroke-width:1.492764" id="path8" d="m 15.539941,5.2145444 a 3.1913378,2.7929907 0 0 1 0,5.4114186" /></svg></div>
+							<div class="nav-path-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-archive"><polyline points="21 8 21 21 3 21 3 8"></polyline><rect x="1" y="3" width="22" height="5"></rect><line x1="10" y1="12" x2="14" y2="12"></line></svg></div>
 							<div class="nav-path-text">Logs</div>
 						</div>
 					</div>
@@ -81,7 +84,7 @@
 											<div class="form-pass col-md-12 col-sm-8 col-12 mt-4">
 												<label for="login-form-password" class="login-input-label">Password</label>
 												<input id="login-form-password" class="login-input" name="login-form-password" type="password">
-												<div class="login-form-input-help">* Password input has a problem</div>
+												<div class="login-form-input-help" v-bind:class="{'login-form-input-help-show': showLoginError}">* Password input has a problem</div>
 											</div>
 										</div>
 
@@ -89,7 +92,7 @@
 											<button id="login-form-submit" class="btn-main text-center" type="button" @click="loadingLogin = !loadingLogin">
 												<span v-show="!loadingLogin">Log In</span>
 												<span v-show="loadingLogin">Loading</span>
-												<span class="login-form-submit-loading" v-show="loadingLogin">
+												<span class="login-form-submit-loading" v-show="loadingLogin" @click="showLoginError = !showLoginError">
 													<svg width="36px" height="36px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-rolling" style="background: none;"><circle cx="50" cy="50" fill="none" ng-attr-stroke-width="{{config.width}}" ng-attr-r="{{config.radius}}" ng-attr-stroke-dasharray="{{config.dasharray}}" stroke-width="14" r="42" stroke-dasharray="197.92033717615698 67.97344572538566" transform="rotate(137.894 50 50)"><animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;360 50 50" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform></circle></svg>
 												</span>
 											</button>
@@ -164,50 +167,82 @@
 
 			<div v-cloak id="app-page-logs" class="container-fluid p-0" v-show="page === 'logs'">
 				<div class="logs-table-container row justify-content-center mt-3">
-					<div class="col-12 text-right mb-3">
-						<div class="logs-controls">
-							<button class="btn-main" @click="modal = true">Print Logs</button> <!-- if there is not a filter -->
-							<button class="btn-main" @click="modal = true" hidden>Print Logs From Filter</button> <!-- if there is a filter -->
-							<button class="btn-main" @click="modal = true">Print Predefined Reports</button>
+					<div class="col-12 mb-3">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-6 p-0">
+									<button class="btn-main" aria-label="Filter Logs" @click="logsTableShowFilter = !logsTableShowFilter"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sliders"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg></button>
+								</div>
+
+								<div class="col-6 p-0 text-right">
+									<button class="btn-main" @click="modal = true">Print Logs</button> <!-- if there is not a filter -->
+									<button class="btn-main" @click="modal = true" hidden>Print Logs From Filter</button> <!-- if there is a filter -->
+
+									<div class="drop-menu">
+										<div class="drop-menu-trigger">
+											<button class="btn-main" @click="logsTableShowPrintPredefinedDrop = !logsTableShowPrintPredefinedDrop; document.getElementsByClassName('drop-menu-options')[0].focus();">Print Predefined Reports</button>
+										</div>
+
+										<div class="drop-menu-options text-left" v-show="logsTableShowPrintPredefinedDrop">
+											<div class="drop-menu-options-option" tabindex="0" @click="logsTableShowPrintPredefinedDrop = !logsTableShowPrintPredefinedDrop; modal = true;">Complaint Report</div>
+											<div class="drop-menu-options-option" tabindex="0" @click="logsTableShowPrintPredefinedDrop = !logsTableShowPrintPredefinedDrop; modal = true;">Violation Report</div>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 
 					<table class="logs-table col-12">
 						<thead class="table-head text-center">
 							<tr class="table-row">
-								<th>ID</th>
-								<th>Status</th>
-								<th>Type</th>
-								<th>Complainant</th>
-								<th>Respondent</th>
-								<th>MSFW</th>
-								<th>Date Filed</th>
-								<th>Filed From</th>
-								<th></th>
+								<th class="tabCol1">ID</th>
+								<th class="tabCol2">Status</th>
+								<th class="tabCol3">Type</th>
+								<th class="tabCol4">Complainant</th>
+								<th class="tabCol5">Respondent</th>
+								<th class="tabCol6">MSFW</th>
+								<th class="tabCol7">Date Filed</th>
+								<th class="tabCol8">Filed From</th>
+								<th class="tabCol9"></th>
+							</tr>
+							<tr class="rowSearchInputs" v-show="logsTableShowFilter">
+								<th class="tabCol1"><input type="text" id="searchInputId" class="col-12"></th>
+
+								<th class="tabCol2">
+									<select name="searchInputStatus" id="searchInputStatus" class="col-12">
+										<option value=""></option>
+										<option value="inactive">inactive</option>
+										<option value="active">active</option>
+									</select>
+								</th>
+
+								<th class="tabCol3"><input type="text" id="searchInputType" class="col-12"></th>
+								<th class="tabCol4"><input type="text" id="searchInputComplainant" class="col-12"></th>
+								<th class="tabCol5"><input type="text" id="searchInputRespondent" class="col-12"></th>
+								<th class="tabCol6"><input type="text" id="searchInputMSFW" class="col-12"></th>
+								<th class="tabCol7"><input type="text" id="searchInputDateFiled" class="col-12"></th>
+								<th class="tabCol8"><input type="text" id="searchInputFiledFrom" class="col-12"></th>
+								<th class="tabCol9"></th>
 							</tr>
 						</thead>
 	
 						<tbody class="table-body">
-							<tr tabindex="0" class="table-row" v-for="(complaint, index) in complaints" v-show="index - logsTablePage < 19 && index + 1 >= logsTablePage">
-								<td class="row-id text-center">{{complaint.id}}</td>
-								<!-- <td class="row-status text-center">
-									<div class="status-marker" v-bind:class="{'status-marker-active': complaint.status === 'active', 'status-marker-inactive': complaint.status === 'inactive'}">
-										{{complaint.status}}
-									</div>
-								</td> -->
-								<td class="row-status text-center">
+							<tr tabindex="0" class="table-row dataRow" v-for="(complaint, index) in complaints" v-show="index - logsTablePage < 19 && index + 1 >= logsTablePage">
+								<td class="tabCol1 row-id text-center">{{complaint.id}}</td>
+								<td class="tabCol2 row-status text-center">
 									<div class="status-marker">
 										<div v-bind:class="{'status-marker-active': complaint.status === 'active', 'status-marker-inactive': complaint.status === 'inactive'}"></div>
 									</div>
 									<div class="status-text text-left">{{complaint.status}}</div>
 								</td>
-								<td class="row-type text-center">{{complaint.type}}</td>
-								<td class="row-complainant">{{complaint.claimanant}}</td>
-								<td class="row-respondent">{{complaint.respondent}}</td>
-								<td class="row-msfw">{{complaint.msfw}}</td>
-								<td class="row-filed-date text-center">{{complaint.filed_date}}</td>
-								<td class="row-filed-office text-center">{{complaint.filed_office}}</td>
-								<td class="row-icons d-flex justify-content-center">
+								<td class="tabCol3 row-type text-center">{{complaint.type}}</td>
+								<td class="tabCol4 row-complainant">{{complaint.claimanant}}</td>
+								<td class="tabCol5 row-respondent">{{complaint.respondent}}</td>
+								<td class="tabCol6 row-msfw text-center">{{complaint.msfw}}</td>
+								<td class="tabCol7 row-filed-date text-center">{{complaint.filed_date}}</td>
+								<td class="tabCol8 row-filed-office text-center">{{complaint.filed_office}}</td>
+								<td class="tabCol9 row-icons">
 									<div class="icons-edit"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-3"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg></div>
 									<div class="icons-print"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-printer"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg></div>
 									<div class="icons-note"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder-plus"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path><line x1="12" y1="11" x2="12" y2="17"></line><line x1="9" y1="14" x2="15" y2="14"></line></svg></div>
@@ -231,6 +266,9 @@
 
 	<!-- Vue.js -->
 	<script type="text/javascript" src="./js/vue.min.js"></script>
+
+	<!-- flatpickr -->
+	<script type="text/javascript" src="./js/flatpickr.min.js"></script>
 
 	<!-- Custom JS -->
 	<script type="text/javascript" src="./js/index.js"></script>

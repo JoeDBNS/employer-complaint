@@ -1,3 +1,6 @@
+var timeout = null;
+
+
 // Vue
 var MainVue = new Vue({
 	el: '#app-container',
@@ -12,6 +15,7 @@ var MainVue = new Vue({
 		modal: false,
 		page: 0,
 		loadingLogin: false,
+		showLoginError: false,
 		complaints: [
 			{
 				id: '1',
@@ -500,13 +504,24 @@ var MainVue = new Vue({
 				status: 'inactive'
 			}
 		],
-		logsTablePage: 1
+		logsTablePage: 1,
+		logsTableShowFilter: false,
+		logsTableShowPrintPredefinedDrop: false
 	},
 	methods: {
 		UpdatePage: function(newPage) {
 			MainVue.page = newPage;
 			SetUrlPageParam(newPage);
 		}
+	// },
+	// watch: {
+	// 	logsTableFilterValues: {
+	// 		handler(val, oldVal){
+	// 			console.log('Item Changed')
+	// 			console.log(val)
+	// 	  },
+	// 	  deep: true
+	// 	}
 	}
 });
 
@@ -514,6 +529,8 @@ var MainVue = new Vue({
 window.addEventListener('load', function() {
 	GetUrlParams();
 	SetPageFromUrlParam();
+
+	flatpickr(document.getElementById('searchInputDateFiled'), {mode: "range", dateFormat: "m/d/Y"});
 });
 
 function GetUrlParams() {
