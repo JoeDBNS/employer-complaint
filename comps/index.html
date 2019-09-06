@@ -102,6 +102,10 @@
 												</span>
 											</button>
 										</div>
+
+										<div class="row justify-content-center">
+											<a id="forgot-password-link" href="#passwordForgotten" @click="modal = true">Forgot Password?</a>
+										</div>
 									</div>
 								</form>
 
@@ -156,7 +160,7 @@
 						<h1>Complaint Form</h1>
 						<p>Please provide the required information as labeled with an asterisk so that we may contact you to discuss your request.</p>
 					</div>
-				
+
 					<div class="complaint-form-page-content container justify-content-center">
 						<div class="container">
 							<div class="form-group row">
@@ -165,94 +169,39 @@
 									<label for="inputFirstName" class="input-label-format input-label-format-null input-label-format-required">First Name</label>
 									<div class="input-required-text">* First Name is required</div>
 								</div>
-				
+
 								<div class="app-page-content-question col-md-3 col-sm-12">
 									<input type="text" id="inputMiddleInitial" name="middle_initial" class="col input-field input-format" maxlength="1">
 									<label for="inputMiddleInitial" class="input-label-format input-label-format-null">Middle Initial</label>
 								</div>
-				
+
 								<div class="app-page-content-question col-md-5 col-sm-12">
 									<input type="text" id="inputLastName" name="last_name" class="col input-field input-format input-required" aria-label="* Last Name">
 									<label for="inputLastName" class="input-label-format input-label-format-null input-label-format-required">Last Name</label>
 									<div class="input-required-text">* Last Name is required</div>
 								</div>
 							</div>
-				
-							<div class="form-group row">
-								<div class="app-page-content-question col-md-6 col-sm-12">
-									<select id="inputSalutation" name="salutation" class="col input-field input-format-select">
-										<option></option>
-										<option>Mr.</option>
-										<option>Mrs.</option>
-										<option>Ms.</option>
-										<option>Dr.</option>
-										<option>Bishop</option>
-										<option>Captain</option>
-										<option>Chief</option>
-										<option>Commander</option>
-										<option>Commissioner</option>
-										<option>Father</option>
-										<option>Governor</option>
-										<option>Lieutenant</option>
-										<option>Lt.</option>
-										<option>Major</option>
-										<option>Mayor</option>
-										<option>Rabbi</option>
-										<option>Reverend</option>
-										<option>The Honorable</option>
-										<option>Sergeant</option>
-										<option>Sheriff</option>
-										<option>Sister</option>
-									</select>
-									<label for="inputSalutation" class="input-label-format input-label-format-null">Salutation</label>
-								</div>
-				
-								<div class="app-page-content-question col-md-6 col-sm-12">
-									<select id="inputSuffix" name="suffix" class="col input-field input-format-select">
-										<option></option>
-										<option>Jr.</option>
-										<option>Sr.</option>
-										<option>II</option>
-										<option>III</option>
-										<option>IV</option>
-										<option>Other</option>
-									</select>
-									<label for="inputSuffix" class="input-label-format input-label-format-null">Suffix</label>
-								</div>
-							</div>
-				
+
 							<div class="form-group row mt-5">
-								<div class="app-page-content-question col-md-7 col-sm-12">
-									<input type="email" id="inputEmail" name="email" class="col input-field input-format">
-									<label for="inputEmail" class="input-label-format input-label-format-null">Email</label>
-								</div>
-				
-								<div class="app-page-content-question col-md-5 col-sm-12">
-									<input type="tel" id="inputPhone" name="phone" class="col input-field input-format input-field-phone">
-									<label for="inputPhone" class="input-label-format input-label-format-null">Phone Number</label>
-								</div>
-							</div>
-				
-							<div class="form-group row">
 								<div class="app-page-content-question col-md-7 col-sm-12">
 									<input type="text" id="inputAddressLine1" name="address_line_1" class="col input-field input-format input-required" aria-label="* Address Line 1">
 									<label for="inputAddressLine1" class="input-label-format input-label-format-null input-label-format-required">Address Line 1</label>
 									<div class="input-required-text">* Address Line 1 is required</div>
 								</div>
-				
+
 								<div class="app-page-content-question col-md-5 col-sm-12">
 									<input type="text" id="inputAddressLine2" name="address_line_2" class="col input-field input-format">
 									<label for="inputAddressLine2" class="input-label-format input-label-format-null">Address Line 2</label>
 								</div>
 							</div>
-				
+
 							<div class="form-group row">
 								<div class="app-page-content-question col-md-7 col-sm-12">
 									<input type="text" id="inputCity" name="city" class="col input-field input-format input-required" aria-label="* City">
 									<label for="inputCity" class="input-label-format input-label-format-null input-label-format-required">City</label>
 									<div class="input-required-text">* City is required</div>
 								</div>
-				
+
 								<div class="app-page-content-question col-md-5 col-sm-12">
 									<select id="inputState" name="state" class="col input-field input-format-select input-required" aria-label="* State">
 										<option></option>
@@ -310,14 +259,14 @@
 									<label for="inputState" class="input-label-format selectLabel input-label-format-null input-label-format-required">State</label>
 									<div class="input-required-select">* State is required</div>
 								</div>
-				
+
 								<div class="app-page-content-question col-md-5 col-sm-12">
 									<input type="text" id="inputZip" name="zip" class="col input-field input-format input-required input-field-zip" aria-label="* Zip">
 									<label for="inputZip" class="input-label-format input-label-format-null input-label-format-required">Zip</label>
 									<div class="input-required-text">* Zip is required</div>
 								</div>
 							</div>
-				
+
 							<div class="form-group row mt-5">
 								<div class="app-page-content-question col-md-5 col-sm-12">
 									<input type="text" id="inputDateOfHarm" name="date_of_harm" class="col input-field input-format input-required input-field-date" placeholder="mm/dd/yyyy" aria-label="* Most Recent Date Of Harm">
@@ -325,19 +274,19 @@
 									<div class="input-required-text">* Most Recent Date Of Harm is required</div>
 								</div>
 								<div class="app-page-content-question col-md-7 col-sm-12">
-										<select id="inputAreaOfComplaint" name="area_of_complaint" class="col input-field input-format-select input-required" aria-label="* Area Of Complaint">
-											<option></option>
-											<option>Employment</option>
-											<option>Education</option>
-											<option>Housing</option>
-											<option>Law Enforcement</option>
-											<option>Public Service/Accommodation</option>
-										</select>
-										<label for="inputAreaOfComplaint" class="input-label-format input-label-format-null input-label-format-required">Area Of Complaint</label>
-										<div class="input-required-select">* Area Of Complaint is required</div>
-									</div>
+									<select id="inputAreaOfComplaint" name="area_of_complaint" class="col input-field input-format-select input-required" aria-label="* Area Of Complaint">
+										<option></option>
+										<option>Employment</option>
+										<option>Education</option>
+										<option>Housing</option>
+										<option>Law Enforcement</option>
+										<option>Public Service/Accommodation</option>
+									</select>
+									<label for="inputAreaOfComplaint" class="input-label-format input-label-format-null input-label-format-required">Area Of Complaint</label>
+									<div class="input-required-select">* Area Of Complaint is required</div>
+								</div>
 							</div>
-				
+
 							<div class="form-group row">
 								<div class="app-page-content-question col-12">
 									<textarea id="inputRequestReason" name="request_reason" class="col input-format-textarea input-field input-required" maxlength="4000" rows="6" cols="1000" aria-label="* Describe Your Request"></textarea>
@@ -345,7 +294,7 @@
 									<div class="input-required-textarea">* Request Description is required</div>
 								</div>
 							</div>
-				
+
 							<div class="form-group row justify-content-center">
 								<div class="row col-md-12 col-sm-12 justify-content-center">
 									<fieldset id="inputRequestedBy" class="input-label-format-set container">
@@ -353,132 +302,63 @@
 										<div class="row text-center justify-content-center">
 											<input data-input-id="inputRequestedBy" type="radio" id="inputRequestedBySelf" class="input-format-radio input-field input-required" name="requested_by" value="self">
 											<label class="input-label-format-radio" for="inputRequestedBySelf">Self</label>
-				
+
 											<input data-input-id="inputRequestedBy" type="radio" id="inputRequestedByOrg" class="input-format-radio input-field" name="requested_by" value="org">
 											<label class="input-label-format-radio" for="inputRequestedByOrg">Organization</label>
-				
+
 											<div class="input-required-radio">* Requested On Behalf Of is required</div>
 										</div>
 									</fieldset>
 								</div>
 							</div>
-				
-							<div data-input-reference="inputRequestedBy" data-input-pass="self" class="app-page-content-row-hidden" hidden>
-								<div class="form-group row justify-content-center mt-5">
-									<div class="app-page-content-question col-md-5 col-sm-12">
-										<input type="text" id="inputDateOfBirth" name="date_of_birth" class="col input-field input-format input-required-nocheck input-field-date" placeholder="mm/dd/yyyy" aria-label="* Date of Birth">
-										<label for="inputDateOfBirth" class="input-label-format input-label-format-null input-label-format-required">Date of Birth</label>
-										<div class="input-required-text">* Date of Birth is required</div>
-									</div>
-								</div>
-				
-								<div class="queFormRadio form-group row justify-content-center">
-									<div class="row col-md-12 col-sm-12 justify-content-center">
-										<fieldset id="inputSelfComplaintAgainst" class="input-label-format-set container">
-											<legend class="input-label-format-set input-label-format-required row text-center justify-content-center" for="inputSelfComplaintAgainst" aria-label="* Is your complaint against a person (such as a landlord) or an organization (such as an employer, housing complex, restaurant or police department)?">Is your complaint against a person (such as a landlord) or an organization (such as an employer, housing complex, restaurant or police department)?</legend>
-											<div class="row text-center justify-content-center">
-												<input data-input-id="inputComplaintAgainst" data-input-reference-clear="inputRequestedBy" type="radio" id="inputSelfComplaintAgainstPerson" class="input-format-radio input-field input-required-nocheck" name="self_complaint_against" value="person">
-												<label class="input-label-format-radio" for="inputSelfComplaintAgainstPerson">Person</label>
-				
-												<input data-input-id="inputComplaintAgainst" data-input-reference-clear="inputRequestedBy" type="radio" id="inputSelfComplaintAgainstOrg" class="input-format-radio input-field" name="self_complaint_against" value="org">
-												<label class="input-label-format-radio" for="inputSelfComplaintAgainstOrg">Organization</label>
-				
-												<div class="input-required-radio">* Complaint Against is required</div>
-											</div>
-										</fieldset>
-									</div>
-								</div>
-							</div>
-				
+
 							<div data-input-reference="inputRequestedBy" data-input-pass="org" class="app-page-content-row-hidden" hidden>
-								<div class="form-group row">
+								<div class="form-group row mt-5">
 									<div class="app-page-content-question col-md-12 col-sm-12">
 										<p class="text-center font-weight-bold">Please provide the following information for the company or organization for which you are making this request.</p>
 									</div>
 								</div>
-				
-								<div class="form-group row">
+
+								<div class="form-group row mt-4">
 									<div class="app-page-content-question col-md-12 col-sm-12">
 										<input type="text" id="inputOrgName" name="org_name" class="col input-field input-format input-required-nocheck" aria-label="* Organization Name">
 										<label for="inputOrgName" class="input-label-format input-label-format-null input-label-format-required">Organization Name</label>
 										<div class="input-required-text">* Organization Name is required</div>
 									</div>
 								</div>
-				
-								<div class="form-group row">
-									<div class="app-page-content-question col-md-12 col-sm-12">
-										<select id="inputOrgType" name="org_type" class="col input-field input-format-select input-required-nocheck" aria-label="* Type of Business">
-											<option></option>
-											<option>Agriculture, Forestry, Fishing &amp; Hunting</option>
-											<option>Business Services</option>
-											<option>Chemical &amp; Allied Products</option>
-											<option>City Government</option>
-											<option>College or University</option>
-											<option>County Government</option>
-											<option>Eating/Drinking Establishment</option>
-											<option>Employment Agency</option>
-											<option>Finance and Insurance</option>
-											<option>Financial Institution</option>
-											<option>Food &amp; Kindred Products</option>
-											<option>Food Stores</option>
-											<option>Hotel or Motel</option>
-											<option>Machinery</option>
-											<option>Medical Care Service</option>
-											<option>Metal Industries</option>
-											<option>Other</option>
-											<option>Other Durable Goods</option>
-											<option>Other Retail Trade</option>
-											<option>Print, Publish, Paper</option>
-											<option>Private Educational Institute</option>
-											<option>Real Estate Developer</option>
-											<option>Real Estate; Rental; Leasing</option>
-											<option>Recreational Services</option>
-											<option>Regular Third Party</option>
-											<option>School Districts</option>
-											<option>Special Third Party</option>
-											<option>State Government</option>
-											<option>Transportation</option>
-											<option>Union</option>
-											<option>Utilities</option>
-											<option>Wholesale Trade</option>
-										</select>
-										<label for="inputOrgType" class="input-label-format input-label-format-null input-label-format-required">Type of Business</label>
-										<div class="input-required-select">* Type of Business is required</div>
-									</div>
-								</div>
-				
-								<div class="form-group row">
+
+								<div class="form-group row mt-5">
 									<div class="app-page-content-question col-md-7 col-sm-12">
 										<input type="email" id="inputOrgEmail" name="org_email" class="col input-field input-format">
 										<label for="inputOrgEmail" class="input-label-format input-label-format-null">Email</label>
 									</div>
-				
+
 									<div class="app-page-content-question col-md-5 col-sm-12">
 										<input type="tel" id="inputOrgPhone" name="org_phone" class="col input-field input-format input-field-phone">
 										<label for="inputOrgPhone" class="input-label-format input-label-format-null">Phone Number</label>
 									</div>
 								</div>
-				
-								<div class="form-group row">
+
+								<div class="form-group row mt-5">
 									<div class="app-page-content-question col-md-7 col-sm-12">
 										<input type="text" id="inputOrgAddressLine1" name="org_address_line_1" class="col input-field input-format input-required-nocheck" aria-label="* Address Line 1">
 										<label for="inputOrgAddressLine1" class="input-label-format input-label-format-null input-label-format-required">Address Line 1</label>
 										<div class="input-required-text">* Address Line 1 is required</div>
 									</div>
-				
+
 									<div class="app-page-content-question col-md-5 col-sm-12">
 										<input type="text" id="inputOrgAddressLine2" name="org_address_line_2" class="col input-field input-format">
 										<label for="inputOrgAddressLine2" class="input-label-format input-label-format-null">Address Line 2</label>
 									</div>
 								</div>
-				
+
 								<div class="form-group row">
 									<div class="app-page-content-question col-md-7 col-sm-12">
 										<input type="text" id="inputOrgCity" name="org_city" class="col input-field input-format input-required-nocheck" aria-label="* City">
 										<label for="inputOrgCity" class="input-label-format input-label-format-null input-label-format-required">City</label>
 										<div class="input-required-text">* City is required</div>
 									</div>
-				
+
 									<div class="app-page-content-question col-md-5 col-sm-12">
 										<select id="inputOrgState" name="org_state" class="col input-field input-format-select input-required-nocheck" aria-label="* State">
 											<option></option>
@@ -537,7 +417,7 @@
 										<div class="input-required-select">* State is required</div>
 									</div>
 								</div>
-				
+
 								<div class="form-group row">
 									<div class="app-page-content-question col-md-5 col-sm-12">
 										<input type="text" id="inputOrgZip" name="org_zip" class="col input-field input-format input-required-nocheck input-field-zip" aria-label="* Zip">
@@ -545,363 +425,10 @@
 										<div class="input-required-text">* Zip is required</div>
 									</div>
 								</div>
-				
-								<div class="queFormRadio form-group row justify-content-center">
-									<div class="row col-md-8 col-sm-12 justify-content-center">
-										<fieldset id="inputComplaintAgainst" class="input-label-format-set container">
-											<legend class="input-label-format-set input-label-format-required row text-center justify-content-center" for="inputOrgComplaintAgainst" aria-label="* Is the complaint against an individual or an organization?">Is the complaint against an individual or an organization?</legend>
-											<div class="row text-center justify-content-center">
-												<input data-input-id="inputComplaintAgainst" data-input-reference-clear="inputRequestedBy" type="radio" id="inputOrgComplaintAgainstIndividual" class="input-format-radio input-field input-required-nocheck" name="org_complaint_against" value="person" aria-label="* ">
-												<label class="input-label-format-radio" for="inputOrgComplaintAgainstIndividual">Individual</label>
-				
-												<input data-input-id="inputComplaintAgainst" data-input-reference-clear="inputRequestedBy" type="radio" id="inputOrgComplaintAgainstOrg" class="input-format-radio input-field" name="org_complaint_against" value="org">
-												<label class="input-label-format-radio" for="inputOrgComplaintAgainstOrg">Organization</label>
-				
-												<div class="input-required-radio">* Complaint Against is required</div>
-											</div>
-										</fieldset>
-									</div>
-								</div>
 							</div>
-				
-							<div data-input-reference="inputComplaintAgainst" data-input-pass="person" data-input-reference-hide="inputRequestedBy" class="app-page-content-row-hidden" hidden>
-								<div class="form-group row">
-									<div class="app-page-content-question col-md-12 col-sm-12">
-										<p class="text-center font-weight-bold">Please provide the following information for the individual that you are making this complaint against.</p>
-									</div>
-								</div>
-				
-								<div class="form-group row">
-									<div class="app-page-content-question col-md-4 col-sm-12">
-										<input type="text" id="inputAgainstIndvFirstName" name="against_indv_first_name" class="col input-field input-format input-required-nocheck" aria-label="* First Name">
-										<label for="inputAgainstIndvFirstName" class="input-label-format input-label-format-null input-label-format-required">First Name</label>
-										<div class="input-required-text">* First Name is required</div>
-									</div>
-				
-									<div class="app-page-content-question col-md-3 col-sm-12">
-										<input type="text" id="inputAgainstIndvMiddleInitial" name="against_indv_middle_initial" class="col input-field input-format" maxlength="1">
-										<label for="inputAgainstIndvMiddleInitial" class="input-label-format input-label-format-null">Middle Initial</label>
-									</div>
-				
-									<div class="app-page-content-question col-md-5 col-sm-12">
-										<input type="text" id="inputAgainstIndvLastName" name="against_indv_last_name" class="col input-field input-format input-required-nocheck" aria-label="* Last Name">
-										<label for="inputAgainstIndvLastName" class="input-label-format input-label-format-null input-label-format-required">Last Name</label>
-										<div class="input-required-text">* Last Name is required</div>
-									</div>
-								</div>
-				
-								<div class="form-group row">
-									<div class="app-page-content-question col-md-6 col-sm-12">
-										<select id="inputAgainstIndvSalutation" name="against_indv_salutation" class="col input-field input-format-select">
-											<option></option>
-											<option>Mr.</option>
-											<option>Mrs.</option>
-											<option>Ms.</option>
-											<option>Dr.</option>
-											<option>Bishop</option>
-											<option>Captain</option>
-											<option>Chief</option>
-											<option>Commander</option>
-											<option>Commissioner</option>
-											<option>Father</option>
-											<option>Governor</option>
-											<option>Lieutenant</option>
-											<option>Lt.</option>
-											<option>Major</option>
-											<option>Mayor</option>
-											<option>Rabbi</option>
-											<option>Reverend</option>
-											<option>The Honorable</option>
-											<option>Sergeant</option>
-											<option>Sheriff</option>
-											<option>Sister</option>
-										</select>
-										<label for="inputAgainstIndvSalutation" class="input-label-format input-label-format-null">Salutation</label>
-									</div>
-				
-									<div class="app-page-content-question col-md-6 col-sm-12">
-										<select id="inputAgainstIndvSuffix" name="against_indv_suffix" class="col input-field input-format-select">
-											<option></option>
-											<option>Jr.</option>
-											<option>Sr.</option>
-											<option>II</option>
-											<option>III</option>
-											<option>IV</option>
-											<option>Other</option>
-										</select>
-										<label for="inputAgainstIndvSuffix" class="input-label-format input-label-format-null">Suffix</label>
-									</div>
-								</div>
-				
-								<div class="form-group row">
-									<div class="app-page-content-question col-md-7 col-sm-12">
-										<input type="email" id="inputAgainstIndvEmail" name="against_indv_email" class="col input-field input-format">
-										<label for="inputAgainstIndvEmail" class="input-label-format input-label-format-null">Email</label>
-									</div>
-				
-									<div class="app-page-content-question col-md-5 col-sm-12">
-										<input type="tel" id="inputAgainstIndvPhone" name="against_indv_phone" class="col input-field input-format input-field-phone">
-										<label for="inputAgainstIndvPhone" class="input-label-format input-label-format-null">Phone Number</label>
-									</div>
-								</div>
-				
-								<div class="form-group row">
-									<div class="app-page-content-question col-md-7 col-sm-12">
-										<input type="text" id="inputAgainstIndvAddressLine1" name="against_indv_address_line_1" class="col input-field input-format input-required-nocheck" aria-label="* Address Line 1">
-										<label for="inputAgainstIndvAddressLine1" class="input-label-format input-label-format-null input-label-format-required">Address Line 1</label>
-										<div class="input-required-text">* Address Line 1 is required</div>
-									</div>
-									
-									<div class="app-page-content-question col-md-5 col-sm-12">
-										<input type="text" id="inputAgainstIndvAddressLine2" name="against_indv_address_line_2" class="col input-field input-format">
-										<label for="inputAgainstIndvAddressLine2" class="input-label-format input-label-format-null">Address Line 2</label>
-									</div>
-								</div>
-				
-								<div class="form-group row">
-									<div class="app-page-content-question col-md-7 col-sm-12">
-										<input type="text" id="inputAgainstIndvCity" name="against_indv_city" class="col input-field input-format input-required-nocheck" aria-label="* City">
-										<label for="inputAgainstIndvCity" class="input-label-format input-label-format-null input-label-format-required">City</label>
-										<div class="input-required-text">* City is required</div>
-									</div>
-				
-									<div class="app-page-content-question col-md-5 col-sm-12">
-										<select id="inputAgainstIndvState" name="against_indv_state" class="col input-field input-format-select input-required-nocheck" aria-label="* State">
-											<option></option>
-											<option>Alabama</option>
-											<option>Alaska</option>
-											<option>Arizona</option>
-											<option>Arkansas</option>
-											<option>California</option>
-											<option>Colorado</option>
-											<option>Connecticut</option>
-											<option>Delaware</option>
-											<option>Florida</option>
-											<option>Georgia</option>
-											<option>Hawaii</option>
-											<option>Idaho</option>
-											<option>Illinois</option>
-											<option>Indiana</option>
-											<option>Iowa</option>
-											<option>Kansas</option>
-											<option>Kentucky</option>
-											<option>Louisiana</option>
-											<option>Maine</option>
-											<option>Maryland</option>
-											<option>Massachusetts</option>
-											<option>Michigan</option>
-											<option>Minnesota</option>
-											<option>Mississippi</option>
-											<option>Missouri</option>
-											<option>Montana</option>
-											<option>Nebraska</option>
-											<option>Nevada</option>
-											<option>New Hampshire</option>
-											<option>New Jersey</option>
-											<option>New Mexico</option>
-											<option>New York</option>
-											<option>North Carolina</option>
-											<option>North Dakota</option>
-											<option>Ohio</option>
-											<option>Oklahoma</option>
-											<option>Oregon</option>
-											<option>Pennsylvania</option>
-											<option>Rhode Island</option>
-											<option>South Carolina</option>
-											<option>South Dakota</option>
-											<option>Tennessee</option>
-											<option>Texas</option>
-											<option>Utah</option>
-											<option>Vermont</option>
-											<option>Virginia</option>
-											<option>Washington</option>
-											<option>West Virginia</option>
-											<option>Wisconsin</option>
-											<option>Wyoming</option>
-										</select>
-										<label for="inputAgainstIndvState" class="input-label-format selectLabel input-label-format-null input-label-format-required">State</label>
-										<div class="input-required-select">* Zip is required</div>
-									</div>
-				
-									<div class="app-page-content-question col-md-5 col-sm-12">
-										<input type="text" id="inputAgainstIndvZip" name="against_indv_zip" class="col input-field input-format input-required-nocheck input-field-zip" aria-label="* Zip">
-										<label for="inputAgainstIndvZip" class="input-label-format input-label-format-null input-label-format-required">Zip</label>
-										<div class="input-required-text">* Zip is required</div>
-									</div>
-								</div>
-							</div>
-				
-							<div data-input-reference="inputComplaintAgainst" data-input-pass="org" data-input-reference-hide="inputRequestedBy" class="app-page-content-row-hidden" hidden>
-								<div class="form-group row">
-									<div class="app-page-content-question col-md-12 col-sm-12">
-										<p class="text-center font-weight-bold">Please provide the following information for the company or organization that you are making this complaint against.</p>
-									</div>
-								</div>
-				
-								<div class="form-group row">
-									<div class="app-page-content-question col-md-12 col-sm-12">
-										<input type="text" id="inputAgainstOrgName" name="against_org_name" class="col input-field input-format input-required-nocheck" aria-label="* Organization Name">
-										<label for="inputAgainstOrgName" class="input-label-format input-label-format-null input-label-format-required">Organization Name</label>
-										<div class="input-required-text">* Organization Name is required</div>
-									</div>
-								</div>
-				
-								<div class="form-group row">
-									<div class="app-page-content-question col-md-12 col-sm-12">
-										<select id="inputAgainstOrgType" name="against_org_type" class="col input-field input-format-select input-required-nocheck" aria-label="* Type of Business">
-											<option></option>
-											<option>Agriculture, Forestry, Fishing &amp; Hunting</option>
-											<option>Business Services</option>
-											<option>Chemical &amp; Allied Products</option>
-											<option>City Government</option>
-											<option>College or University</option>
-											<option>County Government</option>
-											<option>Eating/Drinking Establishment</option>
-											<option>Employment Agency</option>
-											<option>Finance and Insurance</option>
-											<option>Financial Institution</option>
-											<option>Food &amp; Kindred Products</option>
-											<option>Food Stores</option>
-											<option>Hotel or Motel</option>
-											<option>Machinery</option>
-											<option>Medical Care Service</option>
-											<option>Metal Industries</option>
-											<option>Other</option>
-											<option>Other Durable Goods</option>
-											<option>Other Retail Trade</option>
-											<option>Print, Publish, Paper</option>
-											<option>Private Educational Institute</option>
-											<option>Real Estate Developer</option>
-											<option>Real Estate; Rental; Leasing</option>
-											<option>Recreational Services</option>
-											<option>Regular Third Party</option>
-											<option>School Districts</option>
-											<option>Special Third Party</option>
-											<option>State Government</option>
-											<option>Transportation</option>
-											<option>Union</option>
-											<option>Utilities</option>
-											<option>Wholesale Trade</option>
-										</select>
-										<label for="inputAgainstOrgType" class="input-label-format input-label-format-null input-label-format-required">Type of Business</label>
-										<div class="input-required-select">* Type of Business is required</div>
-									</div>
-								</div>
-				
-								<div class="form-group row">
-									<div class="app-page-content-question col-md-6 col-sm-12">
-										<select id="inputAgainstOrgEstimatedEmployeeCount" name="estimated_employee_count" class="col input-field input-format-select input-required-nocheck" aria-label="* Estimated Employee Count">
-											<option></option>
-											<option>14 Employees or Less</option>
-											<option>15 Employees or More</option>
-										</select>
-										<label for="inputAgainstOrgEstimatedEmployeeCount" class="input-label-format input-label-format-null input-label-format-required">Estimated Employee Count</label>
-										<div class="input-required-select">* Estimated Employee Count is required</div>
-									</div>
-								</div>
-				
-								<div class="form-group row">
-									<div class="app-page-content-question col-md-7 col-sm-12">
-										<input type="email" id="inputAgainstOrgEmail" name="against_org_email" class="col input-field input-format">
-										<label for="inputAgainstOrgEmail" class="input-label-format input-label-format-null">Email</label>
-									</div>
-				
-									<div class="app-page-content-question col-md-5 col-sm-12">
-										<input type="tel" id="inputAgainstOrgPhone" name="against_org_phone" class="col input-field input-format input-field-phone">
-										<label for="inputAgainstOrgPhone" class="input-label-format input-label-format-null">Phone Number</label>
-									</div>
-								</div>
-				
-								<div class="form-group row">
-									<div class="app-page-content-question col-md-7 col-sm-12">
-										<input type="text" id="inputAgainstOrgAddressLine1" name="against_org_address_line_1" class="col input-field input-format input-required-nocheck" aria-label="* Address Line 1">
-										<label for="inputAgainstOrgAddressLine1" class="input-label-format input-label-format-null input-label-format-required">Address Line 1</label>
-										<div class="input-required-text">* Address Line 1 is required</div>
-									</div>
-				
-									<div class="app-page-content-question col-md-5 col-sm-12">
-										<input type="text" id="inputAgainstOrgAddressLine2" name="against_org_address_line_2" class="col input-field input-format">
-										<label for="inputAgainstOrgAddressLine2" class="input-label-format input-label-format-null">Address Line 2</label>
-									</div>
-								</div>
-				
-								<div class="form-group row">
-									<div class="app-page-content-question col-md-7 col-sm-12">
-										<input type="text" id="inputAgainstOrgCity" name="against_org_city" class="col input-field input-format input-required-nocheck" aria-label="* City">
-										<label for="inputAgainstOrgCity" class="input-label-format input-label-format-null input-label-format-required">City</label>
-										<div class="input-required-text">* City is required</div>
-									</div>
-				
-									<div class="app-page-content-question col-md-5 col-sm-12">
-										<select id="inputAgainstOrgState" name="against_org_state" class="col input-field input-format-select input-required-nocheck" aria-label="* State">
-											<option></option>
-											<option>Alabama</option>
-											<option>Alaska</option>
-											<option>Arizona</option>
-											<option>Arkansas</option>
-											<option>California</option>
-											<option>Colorado</option>
-											<option>Connecticut</option>
-											<option>Delaware</option>
-											<option>Florida</option>
-											<option>Georgia</option>
-											<option>Hawaii</option>
-											<option>Idaho</option>
-											<option>Illinois</option>
-											<option>Indiana</option>
-											<option>Iowa</option>
-											<option>Kansas</option>
-											<option>Kentucky</option>
-											<option>Louisiana</option>
-											<option>Maine</option>
-											<option>Maryland</option>
-											<option>Massachusetts</option>
-											<option>Michigan</option>
-											<option>Minnesota</option>
-											<option>Mississippi</option>
-											<option>Missouri</option>
-											<option>Montana</option>
-											<option>Nebraska</option>
-											<option>Nevada</option>
-											<option>New Hampshire</option>
-											<option>New Jersey</option>
-											<option>New Mexico</option>
-											<option>New York</option>
-											<option>North Carolina</option>
-											<option>North Dakota</option>
-											<option>Ohio</option>
-											<option>Oklahoma</option>
-											<option>Oregon</option>
-											<option>Pennsylvania</option>
-											<option>Rhode Island</option>
-											<option>South Carolina</option>
-											<option>South Dakota</option>
-											<option>Tennessee</option>
-											<option>Texas</option>
-											<option>Utah</option>
-											<option>Vermont</option>
-											<option>Virginia</option>
-											<option>Washington</option>
-											<option>West Virginia</option>
-											<option>Wisconsin</option>
-											<option>Wyoming</option>
-										</select>
-										<label for="inputAgainstOrgState" class="input-label-format input-label-format-null input-label-format-required">State</label>
-										<div class="input-required-select">* State is required</div>
-									</div>
-								</div>
-				
-								<div class="form-group row">
-									<div class="app-page-content-question col-md-5 col-sm-12">
-										<input type="text" id="inputAgainstOrgZip" name="against_org_zip" class="col input-field input-format input-required-nocheck input-field-zip" aria-label="* Zip">
-										<label for="inputAgainstOrgZip" class="input-label-format input-label-format-null input-label-format-required">Zip</label>
-										<div class="input-required-text">* Zip is required</div>
-									</div>
-								</div>
-							</div>
-				
-							<div class="app-page-content-row-buttons row justify-content-center">
-								<button id="btn-submit" class="btn-main text-center" type="button">Submit</button>
+
+							<div class="app-page-content-row-buttons row justify-content-center mt-5">
+								<button id="btn-complaint-submit" class="btn-main text-center btn-submit" type="button">Submit</button>
 							</div>
 						</div>
 					</div>
@@ -909,7 +436,7 @@
 			</div>
 
 			<div v-cloak id="app-page-complaint-view" class="container-fluid p-0" v-show="page === 'complaint-view'">
-				<form id="complaint-form" method="post" autocomplete="off">
+				<form id="complaint-view-form" method="post" autocomplete="off">
 					<div class="complaint-form-tabs">
 						<div class="form-tab form-tab-active">Info</div>
 						<div class="form-tab">Resolution</div>
@@ -929,7 +456,7 @@
 									<label for="inputFirstName" class="input-label-format input-label-format-null input-label-format-required">First Name</label>
 									<div class="input-required-text">* First Name is required</div>
 								</div>
-				
+
 								<div class="app-page-content-question col-md-3 col-sm-12">
 									<input type="text" id="inputMiddleInitial" name="middle_initial" class="col input-field input-format" maxlength="1">
 									<label for="inputMiddleInitial" class="input-label-format input-label-format-null">Middle Initial</label>
@@ -1048,7 +575,7 @@
 							</div>
 
 							<div class="app-page-content-row-buttons row justify-content-center">
-								<button id="btn-submit" class="btn-main text-center" type="button">Save & Update</button>
+								<button id="btn-complaint-update" class="btn-main text-center btn-submit" type="button">Save & Update</button>
 							</div>
 						</div>
 					</div>
@@ -1065,8 +592,8 @@
 								</div>
 
 								<div class="col-6 p-0 text-right">
-									<button class="btn-main" @click="modal = true">Print Logs</button> <!-- if there is not a filter -->
-									<button class="btn-main" @click="modal = true" hidden>Print Logs From Filter</button> <!-- if there is a filter -->
+							<button class="btn-main" @click="modal = true">Print Logs</button> <!-- if there is not a filter -->
+							<button class="btn-main" @click="modal = true" hidden>Print Logs From Filter</button> <!-- if there is a filter -->
 
 									<div class="drop-menu">
 										<div class="drop-menu-trigger">

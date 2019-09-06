@@ -595,15 +595,6 @@ var MainVue = new Vue({
 			MainVue.page = newPage;
 			SetUrlPageParam(newPage);
 		}
-	// },
-	// watch: {
-	// 	logsTableFilterValues: {
-	// 		handler(val, oldVal){
-	// 			console.log('Item Changed')
-	// 			console.log(val)
-	// 	  },
-	// 	  deep: true
-	// 	}
 	}
 });
 
@@ -661,18 +652,23 @@ function InitFieldListeners() {
 }
 
 function SubmitButtonListener() {
-    document.getElementById('btn-submit').addEventListener('click', function () {
-        emptyRequiredFields = CheckRequiredFields();
-        if (emptyRequiredFields.length === 0) {
-            document.getElementById('app-form').submit();
-        }
-        else {
-            emptyRequiredFields.forEach(function(element) {
-                element.classList.add('input-required-failed');
-            });
-            emptyRequiredFields[0].focus();
-        }
-    });
+	Array.from(document.getElementsByClassName('btn-submit')).forEach(function(submit_button) {
+		submit_button.addEventListener('click', function() {
+			var parentForm = this.parentElement.parentElement.parentElement.parentElement;
+
+			emptyRequiredFields = CheckRequiredFields(this.parentElement.parentElement.parentElement.parentElement);
+			if (emptyRequiredFields.length === 0) {
+				// parentForm.submit();
+				confirm(parentForm.id + ' Submitted!')
+			}
+			else {
+				emptyRequiredFields.forEach(function(element) {
+					element.classList.add('input-required-failed');
+				});
+				emptyRequiredFields[0].focus();
+			}
+		});
+	});
 }
 
 function CheckFieldChanged(element) {
@@ -695,10 +691,10 @@ function CheckFieldChanged(element) {
     }
 }
 
-function CheckRequiredFields() {
+function CheckRequiredFields(form) {
     var emptyElements = [];
 
-    Array.from(document.querySelectorAll('.input-required')).forEach(function(element) {
+    Array.from(form.querySelectorAll('.input-required')).forEach(function(element) {
         switch (element.type) {
             case 'text':
             case 'textarea':

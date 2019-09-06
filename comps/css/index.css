@@ -168,7 +168,7 @@ body {
 	.input-required-text, .input-required-select, .input-required-textarea {
 		display: none;
 		position: absolute;
-		left: 15px;
+		left: 22px;
 		font-size: .875rem;
 		color: #E64423;
 	}
@@ -179,13 +179,13 @@ body {
 		color: #E64423;
 	}
 	.input-required-text {
-		top: 50px;
+		top: 45px;
 	}
 	.input-required-textarea {
-		top: 192px;
+		top: 187px;
 	}
 	.input-required-select {
-		top: 52px;
+		top: 45px;
 	}
 	.input-required-radio {
 		top: 70px;
@@ -479,6 +479,11 @@ body {
 	#login-form-submit:hover .login-form-submit-loading svg {
 		stroke: white !important;
 	}
+	#forgot-password-link {
+		margin-top: 16px;
+		color: #0071eb;
+		font-size: 0.875rem;
+	}
 
 /* Index */
 	/* Notification */
@@ -578,6 +583,19 @@ body {
 	}
 	.complaint-form-page-content {
 		margin-top: 30px;
+	}
+
+/* Complaint View Form */
+	#complaint-view-form {
+		position: relative;
+		top: 45px;
+		padding: 18px;
+		margin: auto;
+		width: 80%;
+		background-color: white;
+		border: 1px solid #76b3ff;
+		border-radius: 14px;
+		box-shadow: 0 0 4px -1px #bad4ff;
 	}
 
 /* Logs */
