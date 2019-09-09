@@ -124,7 +124,7 @@
 
 			<div v-cloak id="app-page-index" class="container-fluid p-0" v-show="page === 'index'">
 				<div class="row">
-					<div id="app-notif" class="col-lg-6 col-12">
+					<div id="app-notif" class="col-lg-4 col-12">
 						<div class="app-notif-content container">
 							<div class="app-notif-title">Notifications</div>
 
@@ -438,10 +438,10 @@
 			<div v-cloak id="app-page-complaint-view" class="container-fluid p-0" v-show="page === 'complaint-view'">
 				<form id="complaint-view-form" method="post" autocomplete="off">
 					<div class="complaint-form-tabs">
-						<div class="form-tab form-tab-active">Info</div>
-						<div class="form-tab">Resolution</div>
-						<div class="form-tab">Follow-Up</div>
-						<div class="form-tab">Notes</div>
+						<div tabindex="0" class="form-tab" v-bind:class="{'form-tab-active': complaintViewFormTab === 'info'}" @click="complaintViewFormTab = 'info'" @keypress.enter="complaintViewFormTab = 'info'" @keypress.space="complaintViewFormTab = 'info'">Info</div>
+						<div tabindex="0" class="form-tab" v-bind:class="{'form-tab-active': complaintViewFormTab === 'resolution'}" @click="complaintViewFormTab = 'resolution'" @keypress.enter="complaintViewFormTab = 'resolution'" @keypress.space="complaintViewFormTab = 'resolution'">Resolution</div>
+						<div tabindex="0" class="form-tab" v-bind:class="{'form-tab-active': complaintViewFormTab === 'followup'}" @click="complaintViewFormTab = 'followup'" @keypress.enter="complaintViewFormTab = 'followup'" @keypress.space="complaintViewFormTab = 'followup'">Follow-Up</div>
+						<div tabindex="0" class="form-tab" v-bind:class="{'form-tab-active': complaintViewFormTab === 'notes'}" @click="complaintViewFormTab = 'notes'" @keypress.enter="complaintViewFormTab = 'notes'" @keypress.space="complaintViewFormTab = 'notes'">Notes</div>
 					</div>
 
 					<div class="complaint-form-main-title container justify-content-center text-center">
