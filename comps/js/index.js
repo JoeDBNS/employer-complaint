@@ -92,12 +92,14 @@ var MainVue = new Vue({
 			'index',
 			'complaint',
 			'complaint-view',
-			'logs'
+			'logs',
+			'manage'
 		],
 		modal: false,
 		page: 0,
 		loadingLogin: false,
 		showLoginError: false,
+		dashTablePage: 1,
 		complaints: [
 			{
 				id: '1',

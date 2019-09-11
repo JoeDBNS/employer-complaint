@@ -32,29 +32,29 @@
 			<div class="col p-0">
 				<div class="container-fluid">
 					<div id="nav-paths" class="row">
-						<div tabindex="0" class="nav-path" v-bind:class="{ 'nav-path-selected': page === 'login' }" @click="UpdatePage('login')" @keypress.enter="UpdatePage('login')" @keypress.space="UpdatePage('login')">
+						<!-- <div tabindex="0" class="nav-path" v-bind:class="{ 'nav-path-selected': page === 'login' }" @click="UpdatePage('login')" @keypress.enter="UpdatePage('login')" @keypress.space="UpdatePage('login')">
 							<div class="nav-path-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
 							<div class="nav-path-text">Login</div>
-						</div>
+						</div> -->
 
 						<div tabindex="0" class="nav-path" v-bind:class="{ 'nav-path-selected': page === 'index' }" @click="UpdatePage('index')" @keypress.enter="UpdatePage('index')" @keypress.space="UpdatePage('index')">
 							<div class="nav-path-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></div>
 							<div class="nav-path-text">Home</div>
 						</div>
 
-						<div tabindex="0" class="nav-path" v-bind:class="{ 'nav-path-selected': page === 'complaint' }" @click="UpdatePage('complaint')" @keypress.enter="UpdatePage('complaint')" @keypress.space="UpdatePage('complaint')">
+						<div tabindex="0" class="nav-path" v-bind:class="{ 'nav-path-selected': page === 'complaint-view' }" @click="UpdatePage('complaint-view')" @keypress.enter="UpdatePage('complaint-view')" @keypress.space="UpdatePage('complaint-view')">
 							<div class="nav-path-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></div>
 							<div class="nav-path-text">Complaint</div>
-						</div>
-
-						<div tabindex="0" class="nav-path" v-bind:class="{ 'nav-path-selected': page === 'complaint-view' }" @click="UpdatePage('complaint-view')" @keypress.enter="UpdatePage('complaint-view')" @keypress.space="UpdatePage('complaint-view')">
-							<div class="nav-path-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-briefcase"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div>
-							<div class="nav-path-text">View</div>
 						</div>
 
 						<div tabindex="0" class="nav-path" v-bind:class="{ 'nav-path-selected': page === 'logs' }" @click="UpdatePage('logs')" @keypress.enter="UpdatePage('logs')" @keypress.space="UpdatePage('logs')">
 							<div class="nav-path-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-archive"><polyline points="21 8 21 21 3 21 3 8"></polyline><rect x="1" y="3" width="22" height="5"></rect><line x1="10" y1="12" x2="14" y2="12"></line></svg></div>
 							<div class="nav-path-text">Logs</div>
+						</div>
+
+						<div tabindex="0" class="nav-path" v-bind:class="{ 'nav-path-selected': page === 'manage' }" @click="UpdatePage('manage')" @keypress.enter="UpdatePage('manage')" @keypress.space="UpdatePage('manage')">
+							<div class="nav-path-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></div>
+							<div class="nav-path-text">Manage</div>
 						</div>
 					</div>
 				</div>
@@ -113,7 +113,10 @@
 									<div class="login-help-header text-center">Help Center</div>
 									<hr class="login-help-hr">
 									<div class="login-help-content mt-3">
-										<p>If you need assistance, please contact _____</p>
+										<p>Click the button below for assistance.</p>
+										<p class="text-center">
+											<button id="login-form-submit" class="btn-main btn-gray text-center" type="button">Click Me</button>
+										</p>
 									</div>
 								</div>
 							</div>
@@ -122,34 +125,78 @@
 				</div>
 			</div>
 
-			<div v-cloak id="app-page-index" class="container-fluid p-0" v-show="page === 'index'">
+			<div v-cloak id="app-page-dash" class="container-fluid p-0" v-show="page === 'index'">
 				<div class="row">
-					<div id="app-notif" class="col-lg-4 col-12">
-						<div class="app-notif-content container">
-							<div class="app-notif-title">Notifications</div>
+					<div id="dash-notif" class="col-lg-6 col-12">
+						<div class="dash-content container">
+							<div class="dash-notif-title">Notifications</div>
 
 							<hr>
 
-							<div class="notification row">
-								<div class="notification-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-award"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg></div>
-								<div class="notification-subject col"><span class="notification-subject-target">Joe Davis</span> has been working here for 2 years!</div>
-							</div>
-
-							<div class="notification row">
-								<div class="notification-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-gift"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg></div>
-								<div class="notification-subject col"><span class="notification-subject-target">Steve French</span> is turning 4 today!</div>
-							</div>
-
-							<div class="notification notification-urgent row">
-								<div class="notification-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></div>
-								<div class="notification-subject col"><span class="notification-subject-target">Charley Day</span> has requested time off</div>
-							</div>
-
-							<div class="notification notification-urgent row">
-								<div class="notification-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-dollar-sign"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div>
-								<div class="notification-subject col"><span class="notification-subject-target">Bruce Green</span> has submitted a reimbursement request</div>
+							<div class="dash-notif-content container p-0">
+								<div class="notification row">
+									<div class="notification-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-award"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg></div>
+									<div class="notification-subject col"><span class="notification-subject-target">Joe Davis</span> has been working here for 2 years!</div>
+								</div>
+	
+								<div class="notification notification-urgent row">
+									<div class="notification-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></div>
+									<div class="notification-subject col"><span class="notification-subject-target">Charley Day</span> has requested time off</div>
+								</div>
 							</div>
 						</div>
+					</div>
+
+					<div id="dash-report" class="col-lg-6 col-12">
+						<div class="container p-0 mb-3">
+							<button class="btn-main col" @click="UpdatePage('complaint')" @keypress.enter="UpdatePage('complaint')" @keypress.space="UpdatePage('complaint')">Create New Complaint</button>
+						</div>
+
+						<div class="dash-content container">
+							<div class="dash-report-title">Reports</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div id="dash-logs" class="col-12">
+						<table class="app-table col-12">
+							<thead class="table-head text-center">
+								<tr class="table-row">
+									<th class="tabCol1 row-id">ID</th>
+									<th class="tabCol2 row-status">Status</th>
+									<th class="tabCol3 row-type">Type</th>
+									<th class="tabCol4 row-complainant">Complainant</th>
+									<th class="tabCol5 row-respondent">Respondent</th>
+									<th class="tabCol6 row-msfw">MSFW</th>
+									<th class="tabCol7 row-filed-date">Date Filed</th>
+									<th class="tabCol8 row-filed-office">Created By</th>
+								</tr>
+							</thead>
+		
+							<tbody class="table-body">
+								<tr tabindex="0" class="table-row dataRow" v-for="(complaint, index) in complaints" v-show="index - dashTablePage < 14 && index + 1 >= dashTablePage">
+									<td class="tabCol1 row-id text-center">{{complaint.id}}</td>
+									<td class="tabCol2 row-status text-center">
+										<div class="status-marker">
+											<div v-bind:class="{'status-marker-active': complaint.status === 'active', 'status-marker-inactive': complaint.status === 'inactive'}"></div>
+										</div>
+										<div class="status-text text-left">{{complaint.status}}</div>
+									</td>
+									<td class="tabCol3 row-type text-center">{{complaint.type}}</td>
+									<td class="tabCol4 row-complainant">{{complaint.claimanant}}</td>
+									<td class="tabCol5 row-respondent">{{complaint.respondent}}</td>
+									<td class="tabCol6 row-msfw text-center">{{complaint.msfw}}</td>
+									<td class="tabCol7 row-filed-date text-center">{{complaint.filed_date}}</td>
+									<td class="tabCol8 row-filed-office text-center">{{complaint.filed_office}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="col-12 text-center mt-3">
+						<button class="btn-main mr-2" v-show="dashTablePage != 1" @click="dashTablePage -= 15">Prev</button>
+						<button class="btn-main ml-2" v-show="dashTablePage <= (complaints.length - 15)" @click="dashTablePage += 15">Next</button>
 					</div>
 				</div>
 			</div>
@@ -442,6 +489,7 @@
 						<div tabindex="0" class="form-tab" v-bind:class="{'form-tab-active': complaintViewFormTab === 'resolution'}" @click="complaintViewFormTab = 'resolution'" @keypress.enter="complaintViewFormTab = 'resolution'" @keypress.space="complaintViewFormTab = 'resolution'">Resolution</div>
 						<div tabindex="0" class="form-tab" v-bind:class="{'form-tab-active': complaintViewFormTab === 'followup'}" @click="complaintViewFormTab = 'followup'" @keypress.enter="complaintViewFormTab = 'followup'" @keypress.space="complaintViewFormTab = 'followup'">Follow-Up</div>
 						<div tabindex="0" class="form-tab" v-bind:class="{'form-tab-active': complaintViewFormTab === 'notes'}" @click="complaintViewFormTab = 'notes'" @keypress.enter="complaintViewFormTab = 'notes'" @keypress.space="complaintViewFormTab = 'notes'">Notes</div>
+						<div tabindex="0" class="form-tab" v-bind:class="{'form-tab-active': complaintViewFormTab === 'history'}" @click="complaintViewFormTab = 'history'" @keypress.enter="complaintViewFormTab = 'history'" @keypress.space="complaintViewFormTab = 'history'">History</div>
 					</div>
 
 					<div class="complaint-form-main-title container justify-content-center text-center">
@@ -452,57 +500,57 @@
 						<div class="container">
 							<div class="form-group row">
 								<div class="app-page-content-question col-md-4 col-sm-12">
-									<input type="text" id="inputFirstName" name="first_name" class="col input-field input-format input-required" aria-label="* First Name">
-									<label for="inputFirstName" class="input-label-format input-label-format-null input-label-format-required">First Name</label>
+									<input type="text" id="inputFirstName2" name="first_name" class="col input-field input-format input-required" aria-label="* First Name">
+									<label for="inputFirstName2" class="input-label-format input-label-format-null input-label-format-required">First Name</label>
 									<div class="input-required-text">* First Name is required</div>
 								</div>
 
 								<div class="app-page-content-question col-md-3 col-sm-12">
-									<input type="text" id="inputMiddleInitial" name="middle_initial" class="col input-field input-format" maxlength="1">
-									<label for="inputMiddleInitial" class="input-label-format input-label-format-null">Middle Initial</label>
+									<input type="text" id="inputMiddleInitial2" name="middle_initial" class="col input-field input-format" maxlength="1">
+									<label for="inputMiddleInitial2" class="input-label-format input-label-format-null">Middle Initial</label>
 								</div>
 
 								<div class="app-page-content-question col-md-5 col-sm-12">
-									<input type="text" id="inputLastName" name="last_name" class="col input-field input-format input-required" aria-label="* Last Name">
-									<label for="inputLastName" class="input-label-format input-label-format-null input-label-format-required">Last Name</label>
+									<input type="text" id="inputLastName2" name="last_name" class="col input-field input-format input-required" aria-label="* Last Name">
+									<label for="inputLastName2" class="input-label-format input-label-format-null input-label-format-required">Last Name</label>
 									<div class="input-required-text">* Last Name is required</div>
 								</div>
 							</div>
 
 							<div class="form-group row mt-5">
 								<div class="app-page-content-question col-md-7 col-sm-12">
-									<input type="email" id="inputEmail" name="email" class="col input-field input-format">
-									<label for="inputEmail" class="input-label-format input-label-format-null">Email</label>
+									<input type="email" id="inputEmail2" name="email" class="col input-field input-format">
+									<label for="inputEmail2" class="input-label-format input-label-format-null">Email</label>
 								</div>
 
 								<div class="app-page-content-question col-md-5 col-sm-12">
-									<input type="tel" id="inputPhone" name="phone" class="col input-field input-format input-field-phone">
-									<label for="inputPhone" class="input-label-format input-label-format-null">Phone Number</label>
+									<input type="tel" id="inputPhone2" name="phone" class="col input-field input-format input-field-phone">
+									<label for="inputPhone2" class="input-label-format input-label-format-null">Phone Number</label>
 								</div>
 							</div>
 
 							<div class="form-group row">
 								<div class="app-page-content-question col-md-7 col-sm-12">
-									<input type="text" id="inputAddressLine1" name="address_line_1" class="col input-field input-format input-required" aria-label="* Address Line 1">
-									<label for="inputAddressLine1" class="input-label-format input-label-format-null input-label-format-required">Address Line 1</label>
+									<input type="text" id="inputAddressLine12" name="address_line_1" class="col input-field input-format input-required" aria-label="* Address Line 1">
+									<label for="inputAddressLine12" class="input-label-format input-label-format-null input-label-format-required">Address Line 1</label>
 									<div class="input-required-text">* Address Line 1 is required</div>
 								</div>
 
 								<div class="app-page-content-question col-md-5 col-sm-12">
-									<input type="text" id="inputAddressLine2" name="address_line_2" class="col input-field input-format">
-									<label for="inputAddressLine2" class="input-label-format input-label-format-null">Address Line 2</label>
+									<input type="text" id="inputAddressLine22" name="address_line_2" class="col input-field input-format">
+									<label for="inputAddressLine22" class="input-label-format input-label-format-null">Address Line 2</label>
 								</div>
 							</div>
 
 							<div class="form-group row">
 								<div class="app-page-content-question col-md-7 col-sm-12">
-									<input type="text" id="inputCity" name="city" class="col input-field input-format input-required" aria-label="* City">
-									<label for="inputCity" class="input-label-format input-label-format-null input-label-format-required">City</label>
+									<input type="text" id="inputCity2" name="city" class="col input-field input-format input-required" aria-label="* City">
+									<label for="inputCity2" class="input-label-format input-label-format-null input-label-format-required">City</label>
 									<div class="input-required-text">* City is required</div>
 								</div>
 
 								<div class="app-page-content-question col-md-5 col-sm-12">
-									<select id="inputState" name="state" class="col input-field input-format-select input-required" aria-label="* State">
+									<select id="inputState2" name="state" class="col input-field input-format-select input-required" aria-label="* State">
 										<option></option>
 										<option>Alabama</option>
 										<option>Alaska</option>
@@ -555,21 +603,21 @@
 										<option>Wisconsin</option>
 										<option>Wyoming</option>
 									</select>
-									<label for="inputState" class="input-label-format selectLabel input-label-format-null input-label-format-required">State</label>
+									<label for="inputState2" class="input-label-format selectLabel input-label-format-null input-label-format-required">State</label>
 									<div class="input-required-select">* State is required</div>
 								</div>
 
 								<div class="app-page-content-question col-md-5 col-sm-12">
-									<input type="text" id="inputZip" name="zip" class="col input-field input-format input-required input-field-zip" aria-label="* Zip">
-									<label for="inputZip" class="input-label-format input-label-format-null input-label-format-required">Zip</label>
+									<input type="text" id="inputZip2" name="zip" class="col input-field input-format input-required input-field-zip" aria-label="* Zip">
+									<label for="inputZip2" class="input-label-format input-label-format-null input-label-format-required">Zip</label>
 									<div class="input-required-text">* Zip is required</div>
 								</div>
 							</div>
 
 							<div class="form-group row">
 								<div class="app-page-content-question col-12">
-									<textarea id="inputRequestReason" name="request_reason" class="col input-format-textarea input-field input-required" maxlength="4000" rows="6" cols="1000" aria-label="* Describe Your Request"></textarea>
-									<label for="inputRequestReason" class="input-label-format input-label-format-required input-label-format-null">Describe Your Request</label>
+									<textarea id="inputRequestReason2" name="request_reason" class="col input-format-textarea input-field input-required" maxlength="4000" rows="6" cols="1000" aria-label="* Describe Your Request"></textarea>
+									<label for="inputRequestReason2" class="input-label-format input-label-format-required input-label-format-null">Describe Your Request</label>
 									<div class="input-required-textarea">* Request Description is required</div>
 								</div>
 							</div>
@@ -592,8 +640,8 @@
 								</div>
 
 								<div class="col-6 p-0 text-right">
-							<button class="btn-main" @click="modal = true">Print Logs</button> <!-- if there is not a filter -->
-							<button class="btn-main" @click="modal = true" hidden>Print Logs From Filter</button> <!-- if there is a filter -->
+									<button class="btn-main" @click="modal = true">Print Logs</button> <!-- if there is not a filter -->
+									<button class="btn-main" @click="modal = true" hidden>Print Logs From Filter</button> <!-- if there is a filter -->
 
 									<div class="drop-menu">
 										<div class="drop-menu-trigger">
@@ -603,6 +651,8 @@
 										<div class="drop-menu-options text-left" v-show="logsTableShowPrintPredefinedDrop">
 											<div class="drop-menu-options-option" tabindex="0" @click="logsTableShowPrintPredefinedDrop = !logsTableShowPrintPredefinedDrop; modal = true;">Complaint Report</div>
 											<div class="drop-menu-options-option" tabindex="0" @click="logsTableShowPrintPredefinedDrop = !logsTableShowPrintPredefinedDrop; modal = true;">Violation Report</div>
+											<div class="drop-menu-options-option" tabindex="0" @click="logsTableShowPrintPredefinedDrop = !logsTableShowPrintPredefinedDrop; modal = true;">ES Summary Report</div>
+											<div class="drop-menu-options-option" tabindex="0" @click="logsTableShowPrintPredefinedDrop = !logsTableShowPrintPredefinedDrop; modal = true;">Non-ES Summary Report</div>
 										</div>
 									</div>
 								</div>
@@ -610,7 +660,7 @@
 						</div>
 					</div>
 
-					<table class="logs-table col-12">
+					<table id="app-table-logs" class="app-table col-12">
 						<thead class="table-head text-center">
 							<tr class="table-row">
 								<th class="tabCol1">ID</th>
@@ -620,7 +670,7 @@
 								<th class="tabCol5">Respondent</th>
 								<th class="tabCol6">MSFW</th>
 								<th class="tabCol7">Date Filed</th>
-								<th class="tabCol8">Filed From</th>
+								<th class="tabCol8">Created By</th>
 								<th class="tabCol9"></th>
 							</tr>
 							<tr class="rowSearchInputs" v-show="logsTableShowFilter">
@@ -676,6 +726,10 @@
 					<button class="btn-main mr-2" v-show="logsTablePage != 1" @click="logsTablePage -= 20">Prev</button>
 					<button class="btn-main ml-2" v-show="logsTablePage <= (complaints.length - 20)" @click="logsTablePage += 20">Next</button>
 				</div>
+			</div>
+
+			<div v-cloak id="app-page-manage" class="container-fluid p-0" v-show="page === 'manage'">
+				Manage
 			</div>
 		</main>
 	</div>
