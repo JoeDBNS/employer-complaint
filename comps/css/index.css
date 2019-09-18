@@ -26,6 +26,9 @@ body {
 	.form-group {
 		margin-bottom: 0;
 	}
+	.app-page-content-question {
+		margin-bottom: 30px;
+	}
 	.input-label-format {
 		position: absolute;
 		top: -12px;
@@ -92,7 +95,6 @@ body {
 		min-height: 42px;
 		border-radius: 6px;
 		border: 1px solid #c2c7cb;
-		margin-bottom: 30px;
 		transition: all .2s;
 	}
 	.input-format, .input-format-textarea {
@@ -273,12 +275,17 @@ body {
 
 /* App */
 	#app-content {
-		padding: 24px 25px 0 25px;
+		padding: 12px 25px 0 25px;
 		margin-top: 54px;
 	}
 	@media only screen and (min-width: 0px) and (max-width: 767px) {
 		#app-content {
 			padding: 10px 25px;
+		}
+	}
+	@media only screen and (min-width: 0px) and (max-width: 575px) {
+		#app-content {
+			margin-top: 108px;
 		}
 	}
 
@@ -305,7 +312,7 @@ body {
 		padding: 6px 18px;
 		background-color: #f0f7ff;
 		border: 1px solid #2C7AFF;
-		border-radius: 8px;
+		border-radius: 12px;
 		box-shadow: 0 0 1px #2C7AFF;
 		color: #1b5ac7;
 		font-size: 0.9375rem;
@@ -332,7 +339,7 @@ body {
 		padding: 6px 18px;
 		background-color: white;
 		border: 1px solid gray;
-		border-radius: 8px;
+		border-radius: 12px;
 		box-shadow: 0 0 1px gray;
 		color: rgb(73, 73, 73);
 		font-size: 0.9375rem;
@@ -351,6 +358,33 @@ body {
 		outline: none;
 	}
 	.btn-gray:active {
+		-webkit-transform: scale(0.94);
+		transform: scale(0.94);
+		box-shadow: none;
+	}
+	.btn-notification {
+		padding: 1px 30px;
+		background-color: white;
+		border: 1px solid rgb(165, 165, 165);
+		border-radius: 8px;
+		box-shadow: 0 0 1px gray;
+		color: rgb(73, 73, 73);
+		font-size: 0.9375rem;
+		font-weight: 600;
+		user-select: none;
+		transition: all linear .05s;
+	}
+	.btn-notification:hover {
+		background-color: #2C7AFF;
+		color: white;
+		border: 1px solid #1b5ac7;
+	}
+	.btn-notification:focus {
+		border: 1px solid #3063bd;
+		box-shadow: 0 0 2px #2C7AFF, 0 0 3px #2C7AFF inset;
+		outline: none;
+	}
+	.btn-notification:active {
 		-webkit-transform: scale(0.94);
 		transform: scale(0.94);
 		box-shadow: none;
@@ -387,17 +421,18 @@ body {
 	.app-table {
 		border-collapse: collapse;
 		width: 100%;
-		background-color: #0071BC;
+		background-color: #a3ccff;
 		border-radius: 8px;
 		border: 2px solid lightgray;
 		overflow: hidden;
+		user-select: none;
 	}
 	.table-head {
-		color: white;
+		color: #464646;
 		/* box-shadow: 0 -1px 0 #929292 inset; */
 	}
 	.table-head th {
-		background-color: #0071BC;
+		background-color: #a3ccff;
 		padding: 4px 0 3px 0;
 		font-size: 0.875rem;
 	}
@@ -654,8 +689,11 @@ body {
 	}
 
 /* Dashboard */
+	#app-page-dash {
+		margin-top: 14px;
+	}
 	.dash-content {
-		padding: 8px 20px;
+		padding: 8px 12px;
 		background-color: white;
 		border: 1px solid #a3ccff;
 		border-radius: 8px;
@@ -672,22 +710,23 @@ body {
 			margin: 4px auto 16px auto;
 		}
 		.dash-notif-content {
-			height: 216px;
+			height: 208px;
+			height: 251px;
 		}
 		.notification {
 			background-color: #fbfdff;
 			padding: 4px;
 			cursor: pointer;
 			user-select: none;
-			border: 1px solid #dee3e9;
+			border: 1px solid rgb(165, 165, 165);
 			border-radius: 8px;
 			margin: 6px 0;
 			box-shadow: 0 0 1px #4f78b3;
 			transition: all linear .1s;
 		}
 		.notification:hover {
+			background-color: #e7f4ff;
 			border: 1px solid #9cb1cf;
-			box-shadow: 0 0 2px #7a96be inset;
 		}
 		.notification-urgent {
 			border-color: pink;
@@ -708,7 +747,8 @@ body {
 			color: #3b4b61;
 		}
 		.notification-subject {
-			padding-top: 4px;
+			padding-top: 2px;
+			padding-left: 8px;
 			color: #2b384a;
 			font-size: 1rem;
 		}
@@ -717,8 +757,50 @@ body {
 		}
 	/* Logs */
 		#dash-logs {
-			margin-top: 26px;
+			margin-top: 24px;
 			height: 481px;
+		}
+		#app-table-dash-logs {
+			box-shadow: 0 0 4px -1px #bad4ff;
+		}
+		#app-table-dash-logs .table-head .table-row-search input,
+		#app-table-dash-logs .table-head .table-row-search select {
+			height: 0;
+			padding: 0;
+			border: none;
+		}
+		#app-table-dash-logs .table-head .table-row-search th {
+			padding: 0;
+		}
+		#app-table-dash-logs .table-head .table-row-search {
+			line-height: 0;
+		}
+		#app-table-dash-logs .row-id {
+			width: 70px;
+		}
+		#app-table-dash-logs .row-status {
+			width: 120px;
+		}
+		#app-table-dash-logs .row-type {
+			width: 120px;
+		}
+		#app-table-dash-logs .row-complainant {
+			width: auto;
+		}
+		#app-table-dash-logs .row-respondent {
+			width: auto;
+		}
+		#app-table-dash-logs .row-msfw {
+			width: 70px;
+		}
+		#app-table-dash-logs .row-filed-date {
+			width: 120px;
+		}
+		#app-table-dash-logs .row-filed-office {
+			width: 120px;
+		}
+		#app-table-dash-logs .row-icons {
+			width: 120px;
 		}
 
 /* Complaint Form */
@@ -727,7 +809,7 @@ body {
 		top: 45px;
 		padding: 18px;
 		margin: auto;
-		width: 80%;
+		width: 90%;
 		background-color: white;
 		border: 1px solid #76b3ff;
 		border-radius: 14px;
@@ -775,7 +857,7 @@ body {
 		top: 45px;
 		padding: 18px;
 		margin: auto;
-		width: 80%;
+		width: 90%;
 		background-color: white;
 		border: 1px solid #76b3ff;
 		border-radius: 14px;
@@ -784,10 +866,48 @@ body {
 
 /* Logs */
 	.logs-table-container {
-		height: 687px;
+		height: 746px;
 		display: block;
 		width: 90%;
 		margin: auto;
+		transition: linear .075s all;
+	}
+	.logs-table-container-extend {
+		height: 772px;
+	}
+	#app-table-logs {
+		background-color: #0071BC;
+	}
+	#app-table-logs .table-head {
+		color: white;
+	}
+	#app-table-logs .table-head th {
+		background-color: #0071BC;
+	}
+	#app-table-logs .table-head .table-row-search input,
+	#app-table-logs .table-head .table-row-search select {
+		margin-top: -2px;
+		height: 24px;
+		padding: 1px 10px;
+		border: 1px solid #0071bc;
+		border-radius: 3px;
+		vertical-align: top;
+		transition: linear .075s all;
+	}
+	#app-table-logs .table-head .table-row-search {
+		transition: linear .075s all;
+	}
+	#app-table-logs .table-head .table-row-search input:focus,
+	#app-table-logs .table-head .table-row-search select:focus {
+		outline: none;
+	}
+	#app-table-logs .table-head .table-row-search-hide input,
+	#app-table-logs .table-head .table-row-search-hide select {
+		height: 0;
+		padding: 0;
+	}
+	#app-table-logs .table-head .table-row-search-hide {
+		line-height: 0;
 	}
 	#app-table-logs .row-id {
 		width: 70px;

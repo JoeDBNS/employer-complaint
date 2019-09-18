@@ -51,11 +51,6 @@
 							<div class="nav-path-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-archive"><polyline points="21 8 21 21 3 21 3 8"></polyline><rect x="1" y="3" width="22" height="5"></rect><line x1="10" y1="12" x2="14" y2="12"></line></svg></div>
 							<div class="nav-path-text">Logs</div>
 						</div>
-
-						<div tabindex="0" class="nav-path" v-bind:class="{ 'nav-path-selected': page === 'manage' }" @click="UpdatePage('manage')" @keypress.enter="UpdatePage('manage')" @keypress.space="UpdatePage('manage')">
-							<div class="nav-path-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></div>
-							<div class="nav-path-text">Manage</div>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -129,66 +124,102 @@
 				<div class="row">
 					<div id="dash-notif" class="col-lg-6 col-12">
 						<div class="dash-content container">
-							<div class="dash-notif-title">Notifications</div>
+							<!-- <div class="dash-notif-title">Notifications</div> -->
 
-							<hr>
+							<!-- <hr> -->
 
 							<div class="dash-notif-content container p-0">
 								<div class="notification row">
-									<div class="notification-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-award"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg></div>
-									<div class="notification-subject col"><span class="notification-subject-target">Joe Davis</span> has been working here for 2 years!</div>
+									<div class="notification-subject col">Complaint A0012 Needs <b>Pre-Submission Review</b></div>
+									<div class="notification-open">
+										<button class="btn-notification">Open</button>
+									</div>
 								</div>
-	
-								<div class="notification notification-urgent row">
-									<div class="notification-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></div>
-									<div class="notification-subject col"><span class="notification-subject-target">Charley Day</span> has requested time off</div>
+
+								<!-- <div class="notification notification-urgent row"> -->
+								<div class="notification row">
+									<div class="notification-subject col">Complaint C0008 <b>Follow-Up</b> within 8 days</div>
+									<div class="notification-open">
+										<button class="btn-notification">Open</button>
+									</div>
 								</div>
+
+								<div class="notification row">
+									<div class="notification-subject col">Complaint B0004 <b>Expires</b> in 2 days</div>
+									<div class="notification-open">
+										<button class="btn-notification">Open</button>
+									</div>
+								</div>
+
+								<!-- <div class="notification row">
+									<div class="notification-subject col">https://dribbble.com/shots/6544691-ReCars-UI-Kit-Personal-Information</div>
+									<div class="notification-open">
+										<button class="btn-notification">Open</button>
+									</div>
+								</div> -->
+
+								<!-- <div class="notification row">
+									<div class="notification-subject col">https://dribbble.com/shots/3931975-Psikea-Account-Settings</div>
+									<div class="notification-open">
+										<button class="btn-notification">Open</button>
+									</div>
+								</div> -->
 							</div>
 						</div>
 					</div>
 
 					<div id="dash-report" class="col-lg-6 col-12">
-						<div class="container p-0 mb-3">
-							<button class="btn-main col" @click="UpdatePage('complaint')" @keypress.enter="UpdatePage('complaint')" @keypress.space="UpdatePage('complaint')">Create New Complaint</button>
+						<div class="container text-center p-0 mb-3">
+							<button class="btn-main col-8" @click="UpdatePage('complaint')" @keypress.enter="UpdatePage('complaint')" @keypress.space="UpdatePage('complaint')">Create New Complaint</button>
 						</div>
 
-						<div class="dash-content container">
+						<!-- <div class="dash-content container">
 							<div class="dash-report-title">Reports</div>
-						</div>
+						</div> -->
 					</div>
 				</div>
 
 				<div class="row">
 					<div id="dash-logs" class="col-12">
-						<table class="app-table col-12">
+						<table id="app-table-dash-logs" class="app-table col-12">
 							<thead class="table-head text-center">
 								<tr class="table-row">
-									<th class="tabCol1 row-id">ID</th>
-									<th class="tabCol2 row-status">Status</th>
-									<th class="tabCol3 row-type">Type</th>
-									<th class="tabCol4 row-complainant">Complainant</th>
-									<th class="tabCol5 row-respondent">Respondent</th>
-									<th class="tabCol6 row-msfw">MSFW</th>
-									<th class="tabCol7 row-filed-date">Date Filed</th>
-									<th class="tabCol8 row-filed-office">Created By</th>
+									<th class="row-col-1 row-id">ID</th>
+									<th class="row-col-2 row-status">Status</th>
+									<th class="row-col-3 row-type">Type</th>
+									<th class="row-col-4 row-complainant">Complainant</th>
+									<th class="row-col-5 row-respondent">Respondent</th>
+									<th class="row-col-6 row-msfw">MSFW</th>
+									<th class="row-col-7 row-filed-date">Date Filed</th>
+									<th class="row-col-8 row-filed-office">Created By</th>
+								</tr>
+								<tr class="table-row-search text-center">
+									<th class="row-col-1"><input type="text" class="col-12"></th>
+									<th class="row-col-2"><input type="text" class="col-12"></th>
+									<th class="row-col-3"><input type="text" class="col-12"></th>
+									<th class="row-col-4"><input type="text" class="col-12"></th>
+									<th class="row-col-5"><input type="text" class="col-12"></th>
+									<th class="row-col-6"><input type="text" class="col-12"></th>
+									<th class="row-col-7"><input type="text" class="col-12"></th>
+									<th class="row-col-8"><input type="text" class="col-12"></th>
 								</tr>
 							</thead>
-		
+
 							<tbody class="table-body">
-								<tr tabindex="0" class="table-row dataRow" v-for="(complaint, index) in complaints" v-show="index - dashTablePage < 14 && index + 1 >= dashTablePage">
-									<td class="tabCol1 row-id text-center">{{complaint.id}}</td>
-									<td class="tabCol2 row-status text-center">
+								<tr tabindex="0" class="table-row dataRow" v-for="(complaint, index) in complaints_dashboard" v-show="index - dashTablePage < 14 && index + 1 >= dashTablePage">
+									<td class="row-col-1 row-id text-center">{{complaint.id}}</td>
+									<td class="row-col-2 row-status text-center">
 										<div class="status-marker">
 											<div v-bind:class="{'status-marker-active': complaint.status === 'active', 'status-marker-inactive': complaint.status === 'inactive'}"></div>
 										</div>
 										<div class="status-text text-left">{{complaint.status}}</div>
 									</td>
-									<td class="tabCol3 row-type text-center">{{complaint.type}}</td>
-									<td class="tabCol4 row-complainant">{{complaint.claimanant}}</td>
-									<td class="tabCol5 row-respondent">{{complaint.respondent}}</td>
-									<td class="tabCol6 row-msfw text-center">{{complaint.msfw}}</td>
-									<td class="tabCol7 row-filed-date text-center">{{complaint.filed_date}}</td>
-									<td class="tabCol8 row-filed-office text-center">{{complaint.filed_office}}</td>
+									<td class="row-col-3 row-type text-center">{{complaint.type}}</td>
+									<td class="row-col-4 row-complainant">{{complaint.claimanant}}</td>
+									<td class="row-col-5 row-respondent">{{complaint.respondent}}</td>
+									<td class="row-col-6 row-msfw text-center">{{complaint.msfw}}</td>
+									<td class="row-col-7 row-filed-date text-center">{{complaint.filed_date}}</td>
+									<td class="row-col-8 row-filed-office text-center">{{complaint.filed_office}}</td>
 								</tr>
 							</tbody>
 						</table>
@@ -196,7 +227,7 @@
 
 					<div class="col-12 text-center mt-3">
 						<button class="btn-main mr-2" v-show="dashTablePage != 1" @click="dashTablePage -= 15">Prev</button>
-						<button class="btn-main ml-2" v-show="dashTablePage <= (complaints.length - 15)" @click="dashTablePage += 15">Next</button>
+						<button class="btn-main ml-2" v-show="dashTablePage <= (complaints_dashboard.length - 15)" @click="dashTablePage += 15">Next</button>
 					</div>
 				</div>
 			</div>
@@ -492,146 +523,266 @@
 						<div tabindex="0" class="form-tab" v-bind:class="{'form-tab-active': complaintViewFormTab === 'history'}" @click="complaintViewFormTab = 'history'" @keypress.enter="complaintViewFormTab = 'history'" @keypress.space="complaintViewFormTab = 'history'">History</div>
 					</div>
 
-					<div class="complaint-form-main-title container justify-content-center text-center">
-						<h1>Complaint View Form</h1>
-					</div>
+					<div v-show="complaintViewFormTab === 'info'">
+						<div class="complaint-form-main-title container justify-content-center text-center">
+							<h1>Complaint View Form</h1>
+						</div>
 
-					<div class="complaint-form-page-content container justify-content-center">
-						<div class="container">
-							<div class="form-group row">
-								<div class="app-page-content-question col-md-4 col-sm-12">
-									<input type="text" id="inputFirstName2" name="first_name" class="col input-field input-format input-required" aria-label="* First Name">
-									<label for="inputFirstName2" class="input-label-format input-label-format-null input-label-format-required">First Name</label>
-									<div class="input-required-text">* First Name is required</div>
+						<div class="complaint-form-page-content container justify-content-center">
+							<div class="container">
+								<div class="form-group row">
+									<div class="app-page-content-question col-md-4 col-sm-12">
+										<input type="text" id="inputFirstName2" name="first_name" class="col input-field input-format input-required" aria-label="* First Name">
+										<label for="inputFirstName2" class="input-label-format input-label-format-null input-label-format-required">First Name</label>
+										<div class="input-required-text">* First Name is required</div>
+									</div>
+
+									<div class="app-page-content-question col-md-3 col-sm-12">
+										<input type="text" id="inputMiddleInitial2" name="middle_initial" class="col input-field input-format" maxlength="1">
+										<label for="inputMiddleInitial2" class="input-label-format input-label-format-null">Middle Initial</label>
+									</div>
+
+									<div class="app-page-content-question col-md-5 col-sm-12">
+										<input type="text" id="inputLastName2" name="last_name" class="col input-field input-format input-required" aria-label="* Last Name">
+										<label for="inputLastName2" class="input-label-format input-label-format-null input-label-format-required">Last Name</label>
+										<div class="input-required-text">* Last Name is required</div>
+									</div>
 								</div>
 
-								<div class="app-page-content-question col-md-3 col-sm-12">
-									<input type="text" id="inputMiddleInitial2" name="middle_initial" class="col input-field input-format" maxlength="1">
-									<label for="inputMiddleInitial2" class="input-label-format input-label-format-null">Middle Initial</label>
+								<div class="form-group row mt-5">
+									<div class="app-page-content-question col-md-7 col-sm-12">
+										<input type="email" id="inputEmail2" name="email" class="col input-field input-format">
+										<label for="inputEmail2" class="input-label-format input-label-format-null">Email</label>
+									</div>
+
+									<div class="app-page-content-question col-md-5 col-sm-12">
+										<input type="tel" id="inputPhone2" name="phone" class="col input-field input-format input-field-phone">
+										<label for="inputPhone2" class="input-label-format input-label-format-null">Phone Number</label>
+									</div>
 								</div>
 
-								<div class="app-page-content-question col-md-5 col-sm-12">
-									<input type="text" id="inputLastName2" name="last_name" class="col input-field input-format input-required" aria-label="* Last Name">
-									<label for="inputLastName2" class="input-label-format input-label-format-null input-label-format-required">Last Name</label>
-									<div class="input-required-text">* Last Name is required</div>
-								</div>
-							</div>
+								<div class="form-group row">
+									<div class="app-page-content-question col-md-7 col-sm-12">
+										<input type="text" id="inputAddressLine12" name="address_line_1" class="col input-field input-format input-required" aria-label="* Address Line 1">
+										<label for="inputAddressLine12" class="input-label-format input-label-format-null input-label-format-required">Address Line 1</label>
+										<div class="input-required-text">* Address Line 1 is required</div>
+									</div>
 
-							<div class="form-group row mt-5">
-								<div class="app-page-content-question col-md-7 col-sm-12">
-									<input type="email" id="inputEmail2" name="email" class="col input-field input-format">
-									<label for="inputEmail2" class="input-label-format input-label-format-null">Email</label>
-								</div>
-
-								<div class="app-page-content-question col-md-5 col-sm-12">
-									<input type="tel" id="inputPhone2" name="phone" class="col input-field input-format input-field-phone">
-									<label for="inputPhone2" class="input-label-format input-label-format-null">Phone Number</label>
-								</div>
-							</div>
-
-							<div class="form-group row">
-								<div class="app-page-content-question col-md-7 col-sm-12">
-									<input type="text" id="inputAddressLine12" name="address_line_1" class="col input-field input-format input-required" aria-label="* Address Line 1">
-									<label for="inputAddressLine12" class="input-label-format input-label-format-null input-label-format-required">Address Line 1</label>
-									<div class="input-required-text">* Address Line 1 is required</div>
+									<div class="app-page-content-question col-md-5 col-sm-12">
+										<input type="text" id="inputAddressLine22" name="address_line_2" class="col input-field input-format">
+										<label for="inputAddressLine22" class="input-label-format input-label-format-null">Address Line 2</label>
+									</div>
 								</div>
 
-								<div class="app-page-content-question col-md-5 col-sm-12">
-									<input type="text" id="inputAddressLine22" name="address_line_2" class="col input-field input-format">
-									<label for="inputAddressLine22" class="input-label-format input-label-format-null">Address Line 2</label>
-								</div>
-							</div>
+								<div class="form-group row">
+									<div class="app-page-content-question col-md-7 col-sm-12">
+										<input type="text" id="inputCity2" name="city" class="col input-field input-format input-required" aria-label="* City">
+										<label for="inputCity2" class="input-label-format input-label-format-null input-label-format-required">City</label>
+										<div class="input-required-text">* City is required</div>
+									</div>
 
-							<div class="form-group row">
-								<div class="app-page-content-question col-md-7 col-sm-12">
-									<input type="text" id="inputCity2" name="city" class="col input-field input-format input-required" aria-label="* City">
-									<label for="inputCity2" class="input-label-format input-label-format-null input-label-format-required">City</label>
-									<div class="input-required-text">* City is required</div>
+									<div class="app-page-content-question col-md-5 col-sm-12">
+										<select id="inputState2" name="state" class="col input-field input-format-select input-required" aria-label="* State">
+											<option></option>
+											<option>Alabama</option>
+											<option>Alaska</option>
+											<option>Arizona</option>
+											<option>Arkansas</option>
+											<option>California</option>
+											<option>Colorado</option>
+											<option>Connecticut</option>
+											<option>Delaware</option>
+											<option>Florida</option>
+											<option>Georgia</option>
+											<option>Hawaii</option>
+											<option>Idaho</option>
+											<option>Illinois</option>
+											<option>Indiana</option>
+											<option>Iowa</option>
+											<option>Kansas</option>
+											<option>Kentucky</option>
+											<option>Louisiana</option>
+											<option>Maine</option>
+											<option>Maryland</option>
+											<option>Massachusetts</option>
+											<option>Michigan</option>
+											<option>Minnesota</option>
+											<option>Mississippi</option>
+											<option>Missouri</option>
+											<option>Montana</option>
+											<option>Nebraska</option>
+											<option>Nevada</option>
+											<option>New Hampshire</option>
+											<option>New Jersey</option>
+											<option>New Mexico</option>
+											<option>New York</option>
+											<option>North Carolina</option>
+											<option>North Dakota</option>
+											<option>Ohio</option>
+											<option>Oklahoma</option>
+											<option>Oregon</option>
+											<option>Pennsylvania</option>
+											<option>Rhode Island</option>
+											<option>South Carolina</option>
+											<option>South Dakota</option>
+											<option>Tennessee</option>
+											<option>Texas</option>
+											<option>Utah</option>
+											<option>Vermont</option>
+											<option>Virginia</option>
+											<option>Washington</option>
+											<option>West Virginia</option>
+											<option>Wisconsin</option>
+											<option>Wyoming</option>
+										</select>
+										<label for="inputState2" class="input-label-format selectLabel input-label-format-null input-label-format-required">State</label>
+										<div class="input-required-select">* State is required</div>
+									</div>
+
+									<div class="app-page-content-question col-md-5 col-sm-12">
+										<input type="text" id="inputZip2" name="zip" class="col input-field input-format input-required input-field-zip" aria-label="* Zip">
+										<label for="inputZip2" class="input-label-format input-label-format-null input-label-format-required">Zip</label>
+										<div class="input-required-text">* Zip is required</div>
+									</div>
 								</div>
 
-								<div class="app-page-content-question col-md-5 col-sm-12">
-									<select id="inputState2" name="state" class="col input-field input-format-select input-required" aria-label="* State">
-										<option></option>
-										<option>Alabama</option>
-										<option>Alaska</option>
-										<option>Arizona</option>
-										<option>Arkansas</option>
-										<option>California</option>
-										<option>Colorado</option>
-										<option>Connecticut</option>
-										<option>Delaware</option>
-										<option>Florida</option>
-										<option>Georgia</option>
-										<option>Hawaii</option>
-										<option>Idaho</option>
-										<option>Illinois</option>
-										<option>Indiana</option>
-										<option>Iowa</option>
-										<option>Kansas</option>
-										<option>Kentucky</option>
-										<option>Louisiana</option>
-										<option>Maine</option>
-										<option>Maryland</option>
-										<option>Massachusetts</option>
-										<option>Michigan</option>
-										<option>Minnesota</option>
-										<option>Mississippi</option>
-										<option>Missouri</option>
-										<option>Montana</option>
-										<option>Nebraska</option>
-										<option>Nevada</option>
-										<option>New Hampshire</option>
-										<option>New Jersey</option>
-										<option>New Mexico</option>
-										<option>New York</option>
-										<option>North Carolina</option>
-										<option>North Dakota</option>
-										<option>Ohio</option>
-										<option>Oklahoma</option>
-										<option>Oregon</option>
-										<option>Pennsylvania</option>
-										<option>Rhode Island</option>
-										<option>South Carolina</option>
-										<option>South Dakota</option>
-										<option>Tennessee</option>
-										<option>Texas</option>
-										<option>Utah</option>
-										<option>Vermont</option>
-										<option>Virginia</option>
-										<option>Washington</option>
-										<option>West Virginia</option>
-										<option>Wisconsin</option>
-										<option>Wyoming</option>
-									</select>
-									<label for="inputState2" class="input-label-format selectLabel input-label-format-null input-label-format-required">State</label>
-									<div class="input-required-select">* State is required</div>
+								<div class="form-group row">
+									<div class="app-page-content-question col-12">
+										<textarea id="inputRequestReason2" name="request_reason" class="col input-format-textarea input-field input-required" maxlength="4000" rows="6" cols="1000" aria-label="* Describe Your Request"></textarea>
+										<label for="inputRequestReason2" class="input-label-format input-label-format-required input-label-format-null">Describe Your Request</label>
+										<div class="input-required-textarea">* Request Description is required</div>
+									</div>
 								</div>
 
-								<div class="app-page-content-question col-md-5 col-sm-12">
-									<input type="text" id="inputZip2" name="zip" class="col input-field input-format input-required input-field-zip" aria-label="* Zip">
-									<label for="inputZip2" class="input-label-format input-label-format-null input-label-format-required">Zip</label>
-									<div class="input-required-text">* Zip is required</div>
+								<div class="app-page-content-row-buttons row justify-content-center">
+									<button id="btn-complaint-update" class="btn-main text-center btn-submit" type="button">Save & Update</button>
 								</div>
-							</div>
-
-							<div class="form-group row">
-								<div class="app-page-content-question col-12">
-									<textarea id="inputRequestReason2" name="request_reason" class="col input-format-textarea input-field input-required" maxlength="4000" rows="6" cols="1000" aria-label="* Describe Your Request"></textarea>
-									<label for="inputRequestReason2" class="input-label-format input-label-format-required input-label-format-null">Describe Your Request</label>
-									<div class="input-required-textarea">* Request Description is required</div>
-								</div>
-							</div>
-
-							<div class="app-page-content-row-buttons row justify-content-center">
-								<button id="btn-complaint-update" class="btn-main text-center btn-submit" type="button">Save & Update</button>
 							</div>
 						</div>
 					</div>
+
+					<div v-show="complaintViewFormTab === 'followup'">
+						<div class="complaint-form-main-title container justify-content-center text-center">
+							<h1>Follow-Up</h1>
+						</div>
+
+						<div class="complaint-form-page-content container justify-content-center">
+							<div class="container">
+								<div class="form-group row">
+									<div class="app-page-content-question col-12">
+										<textarea id="inputRequestReason2" name="request_reason" class="col input-format-textarea input-field input-required" maxlength="4000" rows="6" cols="1000" aria-label="* Describe Your Request"></textarea>
+										<label for="inputRequestReason2" class="input-label-format input-label-format-required input-label-format-null">Describe Your Request</label>
+										<div class="input-required-textarea">* Request Description is required</div>
+									</div>
+								</div>
+
+								<div class="app-page-content-row-buttons row justify-content-center">
+									<button id="btn-complaint-update" class="btn-main text-center btn-submit" type="button">Save & Update</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div v-show="complaintViewFormTab === 'resolution'">
+						<div class="complaint-form-main-title container justify-content-center text-center">
+							<h1>Resolution</h1>
+						</div>
+
+						<div class="complaint-form-page-content container justify-content-center">
+							<div class="container">
+								<div class="form-group row">
+									<div class="app-page-content-question col-md-4 col-sm-12">
+										<input type="text" id="inputFirstName2" name="first_name" class="col input-field input-format input-required" aria-label="* First Name">
+										<label for="inputFirstName2" class="input-label-format input-label-format-null input-label-format-required">First Name</label>
+										<div class="input-required-text">* First Name is required</div>
+									</div>
+
+									<div class="app-page-content-question col-md-3 col-sm-12">
+										<input type="text" id="inputMiddleInitial2" name="middle_initial" class="col input-field input-format" maxlength="1">
+										<label for="inputMiddleInitial2" class="input-label-format input-label-format-null">Middle Initial</label>
+									</div>
+
+									<div class="app-page-content-question col-md-5 col-sm-12">
+										<input type="text" id="inputLastName2" name="last_name" class="col input-field input-format input-required" aria-label="* Last Name">
+										<label for="inputLastName2" class="input-label-format input-label-format-null input-label-format-required">Last Name</label>
+										<div class="input-required-text">* Last Name is required</div>
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<div class="app-page-content-question col-12">
+										<textarea id="inputRequestReason2" name="request_reason" class="col input-format-textarea input-field input-required" maxlength="4000" rows="6" cols="1000" aria-label="* Describe Your Request"></textarea>
+										<label for="inputRequestReason2" class="input-label-format input-label-format-required input-label-format-null">Describe Your Request</label>
+										<div class="input-required-textarea">* Request Description is required</div>
+									</div>
+								</div>
+
+								<div class="app-page-content-row-buttons row justify-content-center">
+									<button id="btn-complaint-update" class="btn-main text-center btn-submit" type="button">Save & Update</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div v-show="complaintViewFormTab === 'notes'">
+						<div class="complaint-form-main-title container justify-content-center text-center">
+							<h1>Notes</h1>
+						</div>
+
+						<div class="complaint-form-page-content container justify-content-center">
+							<div class="container">
+								<div class="form-group row">
+									<div class="app-page-content-question col-md-4 col-sm-12">
+										<input type="text" id="inputFirstName2" name="first_name" class="col input-field input-format input-required" aria-label="* First Name">
+										<label for="inputFirstName2" class="input-label-format input-label-format-null input-label-format-required">First Name</label>
+										<div class="input-required-text">* First Name is required</div>
+									</div>
+
+									<div class="app-page-content-question col-md-3 col-sm-12">
+										<input type="text" id="inputMiddleInitial2" name="middle_initial" class="col input-field input-format" maxlength="1">
+										<label for="inputMiddleInitial2" class="input-label-format input-label-format-null">Middle Initial</label>
+									</div>
+
+									<div class="app-page-content-question col-md-5 col-sm-12">
+										<input type="text" id="inputLastName2" name="last_name" class="col input-field input-format input-required" aria-label="* Last Name">
+										<label for="inputLastName2" class="input-label-format input-label-format-null input-label-format-required">Last Name</label>
+										<div class="input-required-text">* Last Name is required</div>
+									</div>
+								</div>
+
+								<div class="app-page-content-row-buttons row justify-content-center">
+									<button id="btn-complaint-update" class="btn-main text-center btn-submit" type="button">Save & Update</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div v-show="complaintViewFormTab === 'history'">
+						<div class="complaint-form-main-title container justify-content-center text-center">
+							<h1>History</h1>
+						</div>
+
+						<div class="complaint-form-page-content container justify-content-center">
+							<div class="container">
+								<div class="form-group row">
+									<div class="app-page-content-question col-md-3 col-sm-12">
+										<input type="text" id="inputMiddleInitial2" name="middle_initial" class="col input-field input-format" maxlength="1">
+										<label for="inputMiddleInitial2" class="input-label-format input-label-format-null">Middle Initial</label>
+									</div>
+								</div>
+
+								<div class="app-page-content-row-buttons row justify-content-center">
+									<button id="btn-complaint-update" class="btn-main text-center btn-submit" type="button">Save & Update</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
 				</form>
 			</div>
 
 			<div v-cloak id="app-page-logs" class="container-fluid p-0" v-show="page === 'logs'">
-				<div class="logs-table-container row justify-content-center mt-3">
+				<div class="logs-table-container row justify-content-center mt-3" v-bind:class="{'logs-table-container-extend': logsTableShowFilter}">
 					<div class="col-12 mb-3">
 						<div class="container-fluid">
 							<div class="row">
@@ -663,20 +814,21 @@
 					<table id="app-table-logs" class="app-table col-12">
 						<thead class="table-head text-center">
 							<tr class="table-row">
-								<th class="tabCol1">ID</th>
-								<th class="tabCol2">Status</th>
-								<th class="tabCol3">Type</th>
-								<th class="tabCol4">Complainant</th>
-								<th class="tabCol5">Respondent</th>
-								<th class="tabCol6">MSFW</th>
-								<th class="tabCol7">Date Filed</th>
-								<th class="tabCol8">Created By</th>
-								<th class="tabCol9"></th>
+								<th class="row-col-1">ID</th>
+								<th class="row-col-2">Status</th>
+								<th class="row-col-3">Type</th>
+								<th class="row-col-4">Complainant</th>
+								<th class="row-col-5">Respondent</th>
+								<th class="row-col-6">MSFW</th>
+								<th class="row-col-7">Date Filed</th>
+								<th class="row-col-8">Created By</th>
+								<th class="row-col-9"></th>
 							</tr>
-							<tr class="rowSearchInputs" v-show="logsTableShowFilter">
-								<th class="tabCol1"><input type="text" id="searchInputId" class="col-12"></th>
+							<!-- <tr class="table-row-search text-center" v-show="logsTableShowFilter"> -->
+							<tr class="table-row-search text-center" v-bind:class="{'table-row-search-hide': !logsTableShowFilter}">
+								<th class="row-col-1"><input type="text" id="searchInputId" class="col-12"></th>
 
-								<th class="tabCol2">
+								<th class="row-col-2">
 									<select name="searchInputStatus" id="searchInputStatus" class="col-12">
 										<option value=""></option>
 										<option value="inactive">inactive</option>
@@ -684,32 +836,40 @@
 									</select>
 								</th>
 
-								<th class="tabCol3"><input type="text" id="searchInputType" class="col-12"></th>
-								<th class="tabCol4"><input type="text" id="searchInputComplainant" class="col-12"></th>
-								<th class="tabCol5"><input type="text" id="searchInputRespondent" class="col-12"></th>
-								<th class="tabCol6"><input type="text" id="searchInputMSFW" class="col-12"></th>
-								<th class="tabCol7"><input type="text" id="searchInputDateFiled" class="col-12"></th>
-								<th class="tabCol8"><input type="text" id="searchInputFiledFrom" class="col-12"></th>
-								<th class="tabCol9"></th>
+								<th class="row-col-3"><input type="text" id="searchInputType" class="col-12"></th>
+								<th class="row-col-4"><input type="text" id="searchInputComplainant" class="col-12"></th>
+								<th class="row-col-5"><input type="text" id="searchInputRespondent" class="col-12"></th>
+
+								<th class="row-col-6">
+									<select name="searchInputMSFW" id="searchInputMSFW" class="col-12">
+										<option value=""></option>
+										<option value="Yes">Yes</option>
+										<option value="No">No</option>
+									</select>
+								</th>
+
+								<th class="row-col-7"><input type="text" id="searchInputDateFiled" class="col-12"></th>
+								<th class="row-col-8"><input type="text" id="searchInputFiledFrom" class="col-12"></th>
+								<th class="row-col-9"></th>
 							</tr>
 						</thead>
 	
 						<tbody class="table-body">
-							<tr tabindex="0" class="table-row dataRow" v-for="(complaint, index) in complaints" v-show="index - logsTablePage < 19 && index + 1 >= logsTablePage">
-								<td class="tabCol1 row-id text-center">{{complaint.id}}</td>
-								<td class="tabCol2 row-status text-center">
+							<tr tabindex="0" class="table-row dataRow" v-for="(complaint, index) in complaints" v-show="index - logsTablePage < 21 && index + 1 >= logsTablePage">
+								<td class="row-col-1 row-id text-center">{{complaint.id}}</td>
+								<td class="row-col-2 row-status text-center">
 									<div class="status-marker">
 										<div v-bind:class="{'status-marker-active': complaint.status === 'active', 'status-marker-inactive': complaint.status === 'inactive'}"></div>
 									</div>
 									<div class="status-text text-left">{{complaint.status}}</div>
 								</td>
-								<td class="tabCol3 row-type text-center">{{complaint.type}}</td>
-								<td class="tabCol4 row-complainant">{{complaint.claimanant}}</td>
-								<td class="tabCol5 row-respondent">{{complaint.respondent}}</td>
-								<td class="tabCol6 row-msfw text-center">{{complaint.msfw}}</td>
-								<td class="tabCol7 row-filed-date text-center">{{complaint.filed_date}}</td>
-								<td class="tabCol8 row-filed-office text-center">{{complaint.filed_office}}</td>
-								<td class="tabCol9 row-icons">
+								<td class="row-col-3 row-type text-center">{{complaint.type}}</td>
+								<td class="row-col-4 row-complainant">{{complaint.claimanant}}</td>
+								<td class="row-col-5 row-respondent">{{complaint.respondent}}</td>
+								<td class="row-col-6 row-msfw text-center">{{complaint.msfw}}</td>
+								<td class="row-col-7 row-filed-date text-center">{{complaint.filed_date}}</td>
+								<td class="row-col-8 row-filed-office text-center">{{complaint.filed_office}}</td>
+								<td class="row-col-9 row-icons">
 									<div class="icons-edit"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-3"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg></div>
 									<div class="icons-print"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-printer"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg></div>
 									<div class="icons-note"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder-plus"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path><line x1="12" y1="11" x2="12" y2="17"></line><line x1="9" y1="14" x2="15" y2="14"></line></svg></div>
@@ -720,16 +880,12 @@
 				</div>
 
 				<div class="row justify-content-center mt-3">
-					<!-- <button class="btn-main mr-2" @click="logsTablePage != 1 ? logsTablePage -= 20 : null">Prev</button>
-					<button class="btn-main ml-2" @click="logsTablePage <= (complaints.length - 20) ? logsTablePage += 20 : null">Next</button> -->
+					<!-- <button class="btn-main mr-2" @click="logsTablePage != 1 ? logsTablePage -= 22 : null">Prev</button>
+					<button class="btn-main ml-2" @click="logsTablePage <= (complaints.length - 22) ? logsTablePage += 22 : null">Next</button> -->
 
-					<button class="btn-main mr-2" v-show="logsTablePage != 1" @click="logsTablePage -= 20">Prev</button>
-					<button class="btn-main ml-2" v-show="logsTablePage <= (complaints.length - 20)" @click="logsTablePage += 20">Next</button>
+					<button class="btn-main mr-2" v-show="logsTablePage != 1" @click="logsTablePage -= 22">Prev</button>
+					<button class="btn-main ml-2" v-show="logsTablePage <= (complaints.length - 22)" @click="logsTablePage += 22">Next</button>
 				</div>
-			</div>
-
-			<div v-cloak id="app-page-manage" class="container-fluid p-0" v-show="page === 'manage'">
-				Manage
 			</div>
 		</main>
 	</div>
