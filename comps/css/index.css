@@ -25,29 +25,43 @@ body {
 	}
 	.form-group {
 		position: relative;
-		margin: 0px -30px 28px -30px;
-		padding: 24px;
-		border-radius: 8px;
+		margin: 0 0 22px 0;
+		padding: 22px 22px 12px 22px;
+		border-radius: 5px;
 	}
 	.form-group-title {
 		background-color: white;
-		margin: 4px 0 6px -12px;
+		margin: -15px 100% -1px 2px;
 		padding-right: 20px;
-		color: #4f9fd4;
+		color: #609ac1;
 		font-size: 1.75rem;
 		z-index: 3;
+		user-select: none;
 	}
 	.form-group-divider {
-		position: relative;
-		top: -26px;
+		position: absolute;
+		top: 28px;
 		height: 0px;
-		width: 100%;
+		width: 94%;
+		margin-left: 2px;
 		border-top: 2px solid #a7dcff;
 		z-index: 2;
 	}
+	.form-group-divider-edit {
+		position: absolute;
+		top: -14px;
+		right: 0;
+		height: 24px;
+		width: 60px;
+		background-color: white;
+	}
+	.form-group-divider-edit svg {
+		float: right;
+		color: #609ac1;
+		cursor: pointer;
+	}
 	@media only screen and (min-width: 541px) and (max-width: 900px) {
 		.form-group {
-			margin: -1px -48px;
 			border-width: 1px 0 1px 0;
 			border-radius: 0;
 			box-shadow: none;
@@ -55,7 +69,6 @@ body {
 	}
 	@media only screen and (min-width: 0px) and (max-width: 540px) {
 		.form-group {
-			margin: -1px -33px;
 			border-width: 1px 0 1px 0;
 			border-radius: 0;
 			box-shadow: none;
@@ -65,86 +78,79 @@ body {
 		top: -18px;
 	}
 	.app-page-content-question {
+		margin-top: 11px;
+    	margin-bottom: 11px;
+	}
+	.form-group .app-page-content-question {
 		padding: 0 5px;
-		margin-top: 14px;
-		margin-bottom: 14px;
 	}
 	.input-label-format {
 		position: absolute;
 		top: -12px;
-		left: 14px;
+		left: 22px;
 		z-index: 1;
 		padding: 0px 8px;
 		margin-bottom: 0;
 		background-color: white;
-		color: #767676;
-		font-size: 0.9375rem;
+		color: #4d4d4d;
+		font-size: 0.875rem;
 		border-radius: 10px;
-		box-shadow: 0 0 10px white;
 		user-select: none;
 		transition: all .075s;
 		pointer-events: none;
 	}
+	.form-group .input-label-format {
+		left: 12px;
+	}
 	.input-label-format-null {
-		top: 10px;
-		font-size: 1rem;
+		top: 8px;
+		font-size: 0.875rem;
 	}
 	.input-format:focus ~ .input-label-format-null,
 	.input-format-select:focus ~ .input-label-format-null,
 	.input-format-textarea:focus ~ .input-label-format-null {
 		top: -12px;
-		font-size: 1rem;
-	}
-	.input-help {
-		display: none;
-		position: absolute;
-		top: 50px;
-		left: 28px;
-		max-width: 60%;
-		background-color: #fff7f7;
-		padding: 4px 12px;
-		border-radius: 6px;
-		border: 2px solid #ffacac;
-		z-index: 3;
-		pointer-events: none;
-	}
-	.input-help-triangle {
-		position: absolute;
-		top: -7px;
-		left: 4px;
-		width: 0;
-		height: 0;
-		border-style: solid;
-		border-width: 0 4px 6px 4px;
-		border-color: transparent transparent #f08080 transparent;
-	}
-	input[type=text].input-format-failed:focus ~ .input-help,
-	input[type=tel].input-format-failed:focus ~ .input-help,
-	input[type=email].input-format-failed:focus ~ .input-help {
-		display: block;
-	}
-	input[type=file].input-format-error ~ .input-help {
-		display: block;
-		top: 78px;
+		font-size: 0.875rem;
 	}
 	.input-label-format-required:after {
 		color: red;
 		content: " *";
 	}
 	.input-format, .input-format-select, .input-format-textarea {
-		font-size: 1.2rem;
-		min-height: 42px;
+		font-size: 1.1rem;
 		border-radius: 6px;
 		border: 1px solid #c2c7cb;
 		box-shadow: inset 0 0 2px lightgrey;
 		transition: all .2s;
 	}
+	.input-format:disabled,
+	.input-format-select:disabled,
+	.input-format-textarea:disabled {
+		background-color: #fdfeff;
+		border: none;
+		box-shadow: none;
+		color: black;
+	}
+	.form-group .input-format:disabled ~ .input-label-format,
+	.form-group .input-format-select:disabled ~ .input-label-format,
+	.form-group .input-format-textarea:disabled ~ .input-label-format {
+		top: -12px;
+		left: 4px;
+		background-color: #fdfeff;
+		color: #696969;
+	}
+	.input-format:disabled ~ .input-required-text,
+	.input-format-select:disabled ~ .input-required-select,
+	.input-format-textarea:disabled ~ .input-required-textarea {
+		display: none;
+		height: 0;
+	}
 	.input-format, .input-format-textarea {
 		-webkit-appearance: none;
-		padding: 8px 18px 4px 18px;
+		padding: 7px 12px 2px 12px;
 	}
 	.input-format-select {
-		padding: 10px 14px 7px 14px;
+		padding: 9px 8px 5px 8px;
 	}
 	.input-format-select option {
 		background-color: #eaf4ff;
@@ -240,7 +246,7 @@ body {
 	.input-required-failed ~ .input-required-textarea,
 	.input-required-failed ~ .input-required-select,
 	.input-required-failed ~ .input-required-radio {
-		display: block !important;
+		display: block;
 	}
 
 /* Navigation Bar */
@@ -466,7 +472,7 @@ body {
 		border-collapse: collapse;
 		width: 100%;
 		background-color: #246ef0;
-		border-radius: 8px;
+		border-radius: 6px;
 		border: 2px solid lightgray;
 		overflow: hidden;
 		user-select: none;
@@ -780,7 +786,7 @@ body {
 		padding: 12px 12px;
 			background-color: white;
 		border: 1px solid #90b3f0;
-		border-radius: 8px;
+		border-radius: 6px;
 		box-shadow: 0 0 2px 0px #737373;
 		}
 	/* Notification */
@@ -978,18 +984,24 @@ body {
 	#complaint-view-form {
 		position: relative;
 		top: 40px;
-    	padding: 24px 18px;
+    	padding: 10px 8px;
 		margin: auto;
 		width: 90%;
 		background-color: white;
 		border: 1px solid #a7dcff;
-		border-radius: 14px;
+		border-radius: 6px;
 		box-shadow: 0 0 2px 0px #737373;
 	}
 	.complaint-form-main-title {
 		margin-top: 10px;
 		margin-bottom: 30px;
 		font-size: 1rem;
+		color: #609ac1;
+	}
+	.app-page-content-row-buttons {
+		margin: 0 15px;
+		width: 100%;
+    	text-align: center;
 	}
 
 /* Logs */
@@ -1084,13 +1096,42 @@ body {
 			border: none;
 			box-shadow: none;
 		}
-		.input-label-format {
+		.form-group .input-label-format {
 			top: -12px;
-			left: 10px;
+			left: 4px;
 			font-size: 1rem;
+		}
+		.input-required-text {
+			display: none;
+		}
+		#app-nav {
+			background-color: #ffffff;
+			color: black;
+		}
+		#nav-paths {
+			display: none;
+		}
+		.nav-text {
+			margin-top: 4px;
 		}
 		#app-content {
 			padding-left: 0;
 			padding-right: 0;
+			margin-top: 27px;
+		}
+		.complaint-form-tabs {
+			display: none;
+		}
+		#complaint-view-form {
+			top: 0;
+			width: 100%;
+			border: none;
+			border-radius: 0;
+		}
+		.form-group-divider-edit {
+			display: none;
+		}
+		button {
+			display: none;
 		}
 	}

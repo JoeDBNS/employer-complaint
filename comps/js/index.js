@@ -100,6 +100,7 @@ var MainVue = new Vue({
 		stateEmployeeLogin: false,
 		loadingLogin: false,
 		showLoginError: false,
+		loggedIn: true,
 		dashTablePage: 1,
 		complaints: [
 			{
@@ -592,7 +593,9 @@ var MainVue = new Vue({
 		logsTablePage: 1,
 		logsTableShowFilter: false,
 		logsTableShowPrintPredefinedDrop: false,
-		complaintViewFormTab: 'info'
+		complaintViewFormTab: 'info',
+		complaintViewFormComplainantEdit: false,
+		complaintViewFormRespondantEdit: false
 	},
 	methods: {
 		UpdatePage: function(newPage) {
@@ -620,7 +623,10 @@ window.addEventListener('load', function() {
 
     SetReferenceListeners();
     InitFieldListeners();
-    SubmitButtonListener();
+	SubmitButtonListener();
+	
+	// Check if fields start with values set and set label appropriately
+	Array.from(document.querySelectorAll('.input-format, .input-format-select, .input-format-textarea')).forEach(function(element){CheckFieldChanged(element)})
 });
 
 function GetUrlParams() {
@@ -782,4 +788,24 @@ function SetReferenceListeners() {
             });
         });
     });
+}
+
+function ArrayToCSV(array) {
+	var csvContent = "data:text/csv;charset=utf-8,";
+
+	Array.from(array).forEach(function(infoArray) {
+		dataString = Object.values(infoArray).join(',');
+		csvContent += dataString+ "\n";
+	});
+
+	var encodedUri = encodeURI(csvContent);
+	// window.open(encodedUri);
+
+	// Needed to name the file and add the csv extention
+	var link = document.createElement('a');
+	link.setAttribute('href', encodedUri);
+	link.setAttribute('download', 'my_data.csv');
+	document.body.appendChild(link); // Required for FF
+	link.click();
+	document.body.removeChild(link)
 }
