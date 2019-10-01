@@ -97,6 +97,7 @@ var MainVue = new Vue({
 		],
 		modal: false,
 		page: 0,
+		stateEmployeeLogin: false,
 		loadingLogin: false,
 		showLoginError: false,
 		dashTablePage: 1,

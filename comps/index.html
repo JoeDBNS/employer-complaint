@@ -42,7 +42,7 @@
 							<div class="nav-path-text">Home</div>
 						</div>
 
-						<div tabindex="0" class="nav-path" v-bind:class="{ 'nav-path-selected': page === 'complaint-view' }" @click="UpdatePage('complaint-view')" @keypress.enter="UpdatePage('complaint-view')" @keypress.space="UpdatePage('complaint-view')">
+						<div tabindex="0" class="nav-path" v-bind:class="{ 'nav-path-selected': page === 'complaint' }" @click="UpdatePage('complaint')" @keypress.enter="UpdatePage('complaint')" @keypress.space="UpdatePage('complaint')">
 							<div class="nav-path-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></div>
 							<div class="nav-path-text">Complaint</div>
 						</div>
@@ -68,12 +68,18 @@
 			</div>
 
 			<div v-cloak id="app-page-login" class="container-fluid p-0" v-show="page === 'login'">
-				<div class="row justify-content-center">
-					<div class="login-content col-xl-6 col-lg-8 col-md-10 col-12 mt-md-5 mt-0">
+				<div class="row justify-content-center m-0">
+					<!-- <div class="login-content col-xl-6 col-lg-8 col-md-10 col-12 mt-md-5 mt-0"> -->
+					<div class="login-content col-xl-4 col-lg-8 col-md-10 col-12 mt-md-5 mt-0">
 						<div class="container-fluid">
 							<div class="row">
-								<form class="login-form col-md-7 col-12" method="post" autocomplete="off">
+								<!-- <form class="login-form col-md-7 col-12" method="post" autocomplete="off"> -->
+								<form class="login-form col-12" method="post" autocomplete="off">
 									<div class="container p-0">
+										<div class="row justify-content-center">
+											<h1 class="login-form-header col-12 text-center">Login</h1>
+										</div>
+
 										<div class="row justify-content-center">
 											<div class="form-email col-md-12 col-sm-8 col-12">
 												<label for="login-form-email" class="login-input-label">Email</label>
@@ -88,7 +94,21 @@
 											</div>
 										</div>
 
-										<div class="row justify-content-center mt-5">
+										<div class="row justify-content-center mt-4">
+											<div class="col-12 text-center">
+												<div class="login-checkbox">
+													<label for="login-with-AD">
+														<input type="checkbox" id="login-with-AD" v-model="stateEmployeeLogin">
+														<div class="login-checkbox-display">
+															<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+														</div>
+														<span class="login-checkbox-text">State Employee Login</span>
+													</label>
+												</div>
+											</div>
+										</div>
+
+										<div class="row justify-content-center mt-4">
 											<button id="login-form-submit" class="btn-main text-center" type="button" @click="loadingLogin = !loadingLogin">
 												<span v-show="!loadingLogin">Log In</span>
 												<span v-show="loadingLogin">Loading</span>
@@ -99,21 +119,21 @@
 										</div>
 
 										<div class="row justify-content-center">
-											<a id="forgot-password-link" href="#passwordForgotten" @click="modal = true">Forgot Password?</a>
+											<a id="forgot-password-link" href="#passwordForgotten" @click="modal = true" v-show="!stateEmployeeLogin">Forgot Password?</a>
 										</div>
 									</div>
 								</form>
 
-								<div class="login-help col-md-5 col-12 mt-md-0 mt-5">
+								<!-- <div class="login-help col-md-5 col-12 mt-md-0 mt-5">
 									<div class="login-help-header text-center">Help Center</div>
 									<hr class="login-help-hr">
 									<div class="login-help-content mt-3">
 										<p>Click the button below for assistance.</p>
 										<p class="text-center">
-											<button id="login-form-submit" class="btn-main btn-gray text-center" type="button">Click Me</button>
+											<button class="btn-main btn-gray text-center" type="button">Click Me</button>
 										</p>
 									</div>
-								</div>
+								</div> -->
 							</div>
 						</div>
 					</div>
@@ -130,7 +150,7 @@
 
 							<div class="dash-notif-content container p-0">
 								<div class="notification row">
-									<div class="notification-subject col">Complaint A0012 Needs <b>Pre-Submission Review</b></div>
+									<div class="notification-subject col">A0012 - <b>Pre-Submission Review</b> is required</div>
 									<div class="notification-open">
 										<button class="btn-notification">Open</button>
 									</div>
@@ -138,14 +158,14 @@
 
 								<!-- <div class="notification notification-urgent row"> -->
 								<div class="notification row">
-									<div class="notification-subject col">Complaint C0008 <b>Follow-Up</b> within 8 days</div>
+									<div class="notification-subject col">C0008 - <b>Follow-Up</b> within 8 days</div>
 									<div class="notification-open">
 										<button class="btn-notification">Open</button>
 									</div>
 								</div>
 
 								<div class="notification row">
-									<div class="notification-subject col">Complaint B0004 <b>Expires</b> in 2 days</div>
+									<div class="notification-subject col">B0004 - <b>Expires</b> in 2 days</div>
 									<div class="notification-open">
 										<button class="btn-notification">Open</button>
 									</div>
@@ -168,15 +188,15 @@
 						</div>
 					</div>
 
-					<div id="dash-report" class="col-lg-6 col-12">
+					<!-- <div id="dash-report" class="col-lg-6 col-12">
 						<div class="container text-center p-0 mb-3">
 							<button class="btn-main col-8" @click="UpdatePage('complaint')" @keypress.enter="UpdatePage('complaint')" @keypress.space="UpdatePage('complaint')">Create New Complaint</button>
 						</div>
 
-						<!-- <div class="dash-content container">
+						<div class="dash-content container">
 							<div class="dash-report-title">Reports</div>
-						</div> -->
-					</div>
+						</div>
+					</div> -->
 				</div>
 
 				<div class="row">
@@ -206,7 +226,7 @@
 							</thead>
 
 							<tbody class="table-body">
-								<tr tabindex="0" class="table-row dataRow" v-for="(complaint, index) in complaints_dashboard" v-show="index - dashTablePage < 14 && index + 1 >= dashTablePage">
+								<tr tabindex="0" class="table-row dataRow" v-for="(complaint, index) in complaints_dashboard" v-show="index - dashTablePage < 14 && index + 1 >= dashTablePage" @click="UpdatePage('complaint-view')" @keypress.enter="UpdatePage('complaint-view')" @keypress.space="UpdatePage('complaint-view')">
 									<td class="row-col-1 row-id text-center">{{complaint.id}}</td>
 									<td class="row-col-2 row-status text-center">
 										<div class="status-marker">
@@ -239,9 +259,122 @@
 						<p>Please provide the required information as labeled with an asterisk so that we may contact you to discuss your request.</p>
 					</div>
 
-					<div class="complaint-form-page-content container justify-content-center">
+					<div class="complaint-form-page-content container-float justify-content-center p-0">
 						<div class="container">
 							<div class="form-group row">
+								<div class="form-group-title">Claimanant</div>
+								<div class="form-group-divider"></div>
+
+								<div class="app-page-content-question col-md-4 col-sm-12">
+									<input type="text" id="inputFirstName2" name="first_name" class="col input-field input-format input-required" aria-label="* First Name">
+									<label for="inputFirstName2" class="input-label-format input-label-format-null input-label-format-required">First Name</label>
+									<div class="input-required-text">* First Name is required</div>
+								</div>
+
+								<div class="app-page-content-question col-md-3 col-sm-12">
+									<input type="text" id="inputMiddleInitial2" name="middle_initial" class="col input-field input-format" maxlength="1">
+									<label for="inputMiddleInitial2" class="input-label-format input-label-format-null">Middle Initial</label>
+								</div>
+
+								<div class="app-page-content-question col-md-5 col-sm-12">
+									<input type="text" id="inputLastName2" name="last_name" class="col input-field input-format input-required" aria-label="* Last Name">
+									<label for="inputLastName2" class="input-label-format input-label-format-null input-label-format-required">Last Name</label>
+									<div class="input-required-text">* Last Name is required</div>
+								</div>
+
+								<div class="app-page-content-question col-md-7 col-sm-12">
+									<input type="email" id="inputEmail2" name="email" class="col input-field input-format">
+									<label for="inputEmail2" class="input-label-format input-label-format-null">Email</label>
+								</div>
+
+								<div class="app-page-content-question col-md-5 col-sm-12">
+									<input type="tel" id="inputPhone2" name="phone" class="col input-field input-format input-field-phone">
+									<label for="inputPhone2" class="input-label-format input-label-format-null">Phone Number</label>
+								</div>
+
+								<div class="app-page-content-question col-md-7 col-sm-12">
+									<input type="text" id="inputAddressLine12" name="address_line_1" class="col input-field input-format input-required" aria-label="* Address Line 1">
+									<label for="inputAddressLine12" class="input-label-format input-label-format-null input-label-format-required">Address Line 1</label>
+									<div class="input-required-text">* Address Line 1 is required</div>
+								</div>
+
+								<div class="app-page-content-question col-md-5 col-sm-12">
+									<input type="text" id="inputAddressLine22" name="address_line_2" class="col input-field input-format">
+									<label for="inputAddressLine22" class="input-label-format input-label-format-null">Address Line 2</label>
+								</div>
+
+								<div class="app-page-content-question col-md-7 col-sm-12">
+									<input type="text" id="inputCity2" name="city" class="col input-field input-format input-required" aria-label="* City">
+									<label for="inputCity2" class="input-label-format input-label-format-null input-label-format-required">City</label>
+									<div class="input-required-text">* City is required</div>
+								</div>
+
+								<div class="app-page-content-question col-md-5 col-sm-12">
+									<select id="inputState2" name="state" class="col input-field input-format-select input-required" aria-label="* State">
+										<option></option>
+										<option>Alabama</option>
+										<option>Alaska</option>
+										<option>Arizona</option>
+										<option>Arkansas</option>
+										<option>California</option>
+										<option>Colorado</option>
+										<option>Connecticut</option>
+										<option>Delaware</option>
+										<option>Florida</option>
+										<option>Georgia</option>
+										<option>Hawaii</option>
+										<option>Idaho</option>
+										<option>Illinois</option>
+										<option>Indiana</option>
+										<option>Iowa</option>
+										<option>Kansas</option>
+										<option>Kentucky</option>
+										<option>Louisiana</option>
+										<option>Maine</option>
+										<option>Maryland</option>
+										<option>Massachusetts</option>
+										<option>Michigan</option>
+										<option>Minnesota</option>
+										<option>Mississippi</option>
+										<option>Missouri</option>
+										<option>Montana</option>
+										<option>Nebraska</option>
+										<option>Nevada</option>
+										<option>New Hampshire</option>
+										<option>New Jersey</option>
+										<option>New Mexico</option>
+										<option>New York</option>
+										<option>North Carolina</option>
+										<option>North Dakota</option>
+										<option>Ohio</option>
+										<option>Oklahoma</option>
+										<option>Oregon</option>
+										<option>Pennsylvania</option>
+										<option>Rhode Island</option>
+										<option>South Carolina</option>
+										<option>South Dakota</option>
+										<option>Tennessee</option>
+										<option>Texas</option>
+										<option>Utah</option>
+										<option>Vermont</option>
+										<option>Virginia</option>
+										<option>Washington</option>
+										<option>West Virginia</option>
+										<option>Wisconsin</option>
+										<option>Wyoming</option>
+									</select>
+									<label for="inputState2" class="input-label-format selectLabel input-label-format-null input-label-format-required">State</label>
+									<div class="input-required-select">* State is required</div>
+								</div>
+
+								<div class="app-page-content-question col-md-5 col-sm-12">
+									<input type="text" id="inputZip2" name="zip" class="col input-field input-format input-required input-field-zip" aria-label="* Zip">
+									<label for="inputZip2" class="input-label-format input-label-format-null input-label-format-required">Zip</label>
+									<div class="input-required-text">* Zip is required</div>
+								</div>
+							</div>
+
+							<div class="row">
 								<div class="app-page-content-question col-md-4 col-sm-12">
 									<input type="text" id="inputFirstName" name="first_name" class="col input-field input-format input-required" aria-label="* First Name">
 									<label for="inputFirstName" class="input-label-format input-label-format-null input-label-format-required">First Name</label>
@@ -260,7 +393,7 @@
 								</div>
 							</div>
 
-							<div class="form-group row mt-5">
+							<div class="row mt-5">
 								<div class="app-page-content-question col-md-7 col-sm-12">
 									<input type="text" id="inputAddressLine1" name="address_line_1" class="col input-field input-format input-required" aria-label="* Address Line 1">
 									<label for="inputAddressLine1" class="input-label-format input-label-format-null input-label-format-required">Address Line 1</label>
@@ -273,7 +406,7 @@
 								</div>
 							</div>
 
-							<div class="form-group row">
+							<div class="row">
 								<div class="app-page-content-question col-md-7 col-sm-12">
 									<input type="text" id="inputCity" name="city" class="col input-field input-format input-required" aria-label="* City">
 									<label for="inputCity" class="input-label-format input-label-format-null input-label-format-required">City</label>
@@ -345,7 +478,7 @@
 								</div>
 							</div>
 
-							<div class="form-group row mt-5">
+							<div class="row mt-5">
 								<div class="app-page-content-question col-md-5 col-sm-12">
 									<input type="text" id="inputDateOfHarm" name="date_of_harm" class="col input-field input-format input-required input-field-date" placeholder="mm/dd/yyyy" aria-label="* Most Recent Date Of Harm">
 									<label for="inputDateOfHarm" class="input-label-format input-label-format-null input-label-format-required">Most Recent Date Of Harm</label>
@@ -365,7 +498,7 @@
 								</div>
 							</div>
 
-							<div class="form-group row">
+							<div class="row">
 								<div class="app-page-content-question col-12">
 									<textarea id="inputRequestReason" name="request_reason" class="col input-format-textarea input-field input-required" maxlength="4000" rows="6" cols="1000" aria-label="* Describe Your Request"></textarea>
 									<label for="inputRequestReason" class="input-label-format input-label-format-required input-label-format-null">Describe Your Request</label>
@@ -373,7 +506,7 @@
 								</div>
 							</div>
 
-							<div class="form-group row justify-content-center">
+							<div class="row justify-content-center">
 								<div class="row col-md-12 col-sm-12 justify-content-center">
 									<fieldset id="inputRequestedBy" class="input-label-format-set container">
 										<legend class="input-label-format-set input-label-format-required row text-center justify-content-center" for="inputRequestedBy" aria-label="* Are you contacting us for yourself, or on behalf of an organization?">Are you contacting us for yourself, or on behalf of an organization?</legend>
@@ -391,13 +524,13 @@
 							</div>
 
 							<div data-input-reference="inputRequestedBy" data-input-pass="org" class="app-page-content-row-hidden" hidden>
-								<div class="form-group row mt-5">
+								<div class="row mt-5">
 									<div class="app-page-content-question col-md-12 col-sm-12">
 										<p class="text-center font-weight-bold">Please provide the following information for the company or organization for which you are making this request.</p>
 									</div>
 								</div>
 
-								<div class="form-group row mt-4">
+								<div class="row mt-4">
 									<div class="app-page-content-question col-md-12 col-sm-12">
 										<input type="text" id="inputOrgName" name="org_name" class="col input-field input-format input-required-nocheck" aria-label="* Organization Name">
 										<label for="inputOrgName" class="input-label-format input-label-format-null input-label-format-required">Organization Name</label>
@@ -405,7 +538,7 @@
 									</div>
 								</div>
 
-								<div class="form-group row mt-5">
+								<div class="row mt-5">
 									<div class="app-page-content-question col-md-7 col-sm-12">
 										<input type="email" id="inputOrgEmail" name="org_email" class="col input-field input-format">
 										<label for="inputOrgEmail" class="input-label-format input-label-format-null">Email</label>
@@ -417,7 +550,7 @@
 									</div>
 								</div>
 
-								<div class="form-group row mt-5">
+								<div class="row mt-5">
 									<div class="app-page-content-question col-md-7 col-sm-12">
 										<input type="text" id="inputOrgAddressLine1" name="org_address_line_1" class="col input-field input-format input-required-nocheck" aria-label="* Address Line 1">
 										<label for="inputOrgAddressLine1" class="input-label-format input-label-format-null input-label-format-required">Address Line 1</label>
@@ -430,7 +563,7 @@
 									</div>
 								</div>
 
-								<div class="form-group row">
+								<div class="row">
 									<div class="app-page-content-question col-md-7 col-sm-12">
 										<input type="text" id="inputOrgCity" name="org_city" class="col input-field input-format input-required-nocheck" aria-label="* City">
 										<label for="inputOrgCity" class="input-label-format input-label-format-null input-label-format-required">City</label>
@@ -496,7 +629,7 @@
 									</div>
 								</div>
 
-								<div class="form-group row">
+								<div class="row">
 									<div class="app-page-content-question col-md-5 col-sm-12">
 										<input type="text" id="inputOrgZip" name="org_zip" class="col input-field input-format input-required-nocheck input-field-zip" aria-label="* Zip">
 										<label for="inputOrgZip" class="input-label-format input-label-format-null input-label-format-required">Zip</label>
@@ -524,13 +657,16 @@
 					</div>
 
 					<div v-show="complaintViewFormTab === 'info'">
-						<div class="complaint-form-main-title container justify-content-center text-center">
-							<h1>Complaint View Form</h1>
-						</div>
+						<!-- <div class="complaint-form-main-title container justify-content-center text-center">
+						<h1>Complaint View Form</h1>
+						</div> -->
 
 						<div class="complaint-form-page-content container justify-content-center">
 							<div class="container">
 								<div class="form-group row">
+									<div class="form-group-title">Claimanant</div>
+									<div class="form-group-divider"></div>
+
 									<div class="app-page-content-question col-md-4 col-sm-12">
 										<input type="text" id="inputFirstName2" name="first_name" class="col input-field input-format input-required" aria-label="* First Name">
 										<label for="inputFirstName2" class="input-label-format input-label-format-null input-label-format-required">First Name</label>
@@ -547,9 +683,7 @@
 										<label for="inputLastName2" class="input-label-format input-label-format-null input-label-format-required">Last Name</label>
 										<div class="input-required-text">* Last Name is required</div>
 									</div>
-								</div>
 
-								<div class="form-group row mt-5">
 									<div class="app-page-content-question col-md-7 col-sm-12">
 										<input type="email" id="inputEmail2" name="email" class="col input-field input-format">
 										<label for="inputEmail2" class="input-label-format input-label-format-null">Email</label>
@@ -559,9 +693,7 @@
 										<input type="tel" id="inputPhone2" name="phone" class="col input-field input-format input-field-phone">
 										<label for="inputPhone2" class="input-label-format input-label-format-null">Phone Number</label>
 									</div>
-								</div>
 
-								<div class="form-group row">
 									<div class="app-page-content-question col-md-7 col-sm-12">
 										<input type="text" id="inputAddressLine12" name="address_line_1" class="col input-field input-format input-required" aria-label="* Address Line 1">
 										<label for="inputAddressLine12" class="input-label-format input-label-format-null input-label-format-required">Address Line 1</label>
@@ -572,9 +704,7 @@
 										<input type="text" id="inputAddressLine22" name="address_line_2" class="col input-field input-format">
 										<label for="inputAddressLine22" class="input-label-format input-label-format-null">Address Line 2</label>
 									</div>
-								</div>
 
-								<div class="form-group row">
 									<div class="app-page-content-question col-md-7 col-sm-12">
 										<input type="text" id="inputCity2" name="city" class="col input-field input-format input-required" aria-label="* City">
 										<label for="inputCity2" class="input-label-format input-label-format-null input-label-format-required">City</label>
@@ -647,6 +777,119 @@
 								</div>
 
 								<div class="form-group row">
+									<div class="form-group-title">Respondent</div>
+									<div class="form-group-divider"></div>
+
+									<div class="app-page-content-question col-md-4 col-sm-12">
+										<input type="text" id="inputFirstName3" name="first_name" class="col input-field input-format input-required" aria-label="* First Name">
+										<label for="inputFirstName3" class="input-label-format input-label-format-null input-label-format-required">First Name</label>
+										<div class="input-required-text">* First Name is required</div>
+									</div>
+
+									<div class="app-page-content-question col-md-3 col-sm-12">
+										<input type="text" id="inputMiddleInitial3" name="middle_initial" class="col input-field input-format" maxlength="1">
+										<label for="inputMiddleInitial3" class="input-label-format input-label-format-null">Middle Initial</label>
+									</div>
+
+									<div class="app-page-content-question col-md-5 col-sm-12">
+										<input type="text" id="inputLastName3" name="last_name" class="col input-field input-format input-required" aria-label="* Last Name">
+										<label for="inputLastName3" class="input-label-format input-label-format-null input-label-format-required">Last Name</label>
+										<div class="input-required-text">* Last Name is required</div>
+									</div>
+
+									<div class="app-page-content-question col-md-7 col-sm-12">
+										<input type="email" id="inputEmail3" name="email" class="col input-field input-format">
+										<label for="inputEmail3" class="input-label-format input-label-format-null">Email</label>
+									</div>
+
+									<div class="app-page-content-question col-md-5 col-sm-12">
+										<input type="tel" id="inputPhone3" name="phone" class="col input-field input-format input-field-phone">
+										<label for="inputPhone3" class="input-label-format input-label-format-null">Phone Number</label>
+									</div>
+
+									<div class="app-page-content-question col-md-7 col-sm-12">
+										<input type="text" id="inputAddressLine13" name="address_line_1" class="col input-field input-format input-required" aria-label="* Address Line 1">
+										<label for="inputAddressLine13" class="input-label-format input-label-format-null input-label-format-required">Address Line 1</label>
+										<div class="input-required-text">* Address Line 1 is required</div>
+									</div>
+
+									<div class="app-page-content-question col-md-5 col-sm-12">
+										<input type="text" id="inputAddressLine23" name="address_line_2" class="col input-field input-format">
+										<label for="inputAddressLine23" class="input-label-format input-label-format-null">Address Line 2</label>
+									</div>
+
+									<div class="app-page-content-question col-md-7 col-sm-12">
+										<input type="text" id="inputCity3" name="city" class="col input-field input-format input-required" aria-label="* City">
+										<label for="inputCity3" class="input-label-format input-label-format-null input-label-format-required">City</label>
+										<div class="input-required-text">* City is required</div>
+									</div>
+
+									<div class="app-page-content-question col-md-5 col-sm-12">
+										<select id="inputState3" name="state" class="col input-field input-format-select input-required" aria-label="* State">
+											<option></option>
+											<option>Alabama</option>
+											<option>Alaska</option>
+											<option>Arizona</option>
+											<option>Arkansas</option>
+											<option>California</option>
+											<option>Colorado</option>
+											<option>Connecticut</option>
+											<option>Delaware</option>
+											<option>Florida</option>
+											<option>Georgia</option>
+											<option>Hawaii</option>
+											<option>Idaho</option>
+											<option>Illinois</option>
+											<option>Indiana</option>
+											<option>Iowa</option>
+											<option>Kansas</option>
+											<option>Kentucky</option>
+											<option>Louisiana</option>
+											<option>Maine</option>
+											<option>Maryland</option>
+											<option>Massachusetts</option>
+											<option>Michigan</option>
+											<option>Minnesota</option>
+											<option>Mississippi</option>
+											<option>Missouri</option>
+											<option>Montana</option>
+											<option>Nebraska</option>
+											<option>Nevada</option>
+											<option>New Hampshire</option>
+											<option>New Jersey</option>
+											<option>New Mexico</option>
+											<option>New York</option>
+											<option>North Carolina</option>
+											<option>North Dakota</option>
+											<option>Ohio</option>
+											<option>Oklahoma</option>
+											<option>Oregon</option>
+											<option>Pennsylvania</option>
+											<option>Rhode Island</option>
+											<option>South Carolina</option>
+											<option>South Dakota</option>
+											<option>Tennessee</option>
+											<option>Texas</option>
+											<option>Utah</option>
+											<option>Vermont</option>
+											<option>Virginia</option>
+											<option>Washington</option>
+											<option>West Virginia</option>
+											<option>Wisconsin</option>
+											<option>Wyoming</option>
+										</select>
+										<label for="inputState3" class="input-label-format selectLabel input-label-format-null input-label-format-required">State</label>
+										<div class="input-required-select">* State is required</div>
+									</div>
+
+									<div class="app-page-content-question col-md-5 col-sm-12">
+										<input type="text" id="inputZip3" name="zip" class="col input-field input-format input-required input-field-zip" aria-label="* Zip">
+										<label for="inputZip3" class="input-label-format input-label-format-null input-label-format-required">Zip</label>
+										<div class="input-required-text">* Zip is required</div>
+									</div>
+								</div>
+
+								<div class="row">
 									<div class="app-page-content-question col-12">
 										<textarea id="inputRequestReason2" name="request_reason" class="col input-format-textarea input-field input-required" maxlength="4000" rows="6" cols="1000" aria-label="* Describe Your Request"></textarea>
 										<label for="inputRequestReason2" class="input-label-format input-label-format-required input-label-format-null">Describe Your Request</label>
@@ -662,117 +905,117 @@
 					</div>
 
 					<div v-show="complaintViewFormTab === 'followup'">
-						<div class="complaint-form-main-title container justify-content-center text-center">
+						<!-- <div class="complaint-form-main-title container justify-content-center text-center">
 							<h1>Follow-Up</h1>
-						</div>
+						</div> -->
 
 						<div class="complaint-form-page-content container justify-content-center">
 							<div class="container">
-								<div class="form-group row">
+								<div class="row">
 									<div class="app-page-content-question col-12">
-										<textarea id="inputRequestReason2" name="request_reason" class="col input-format-textarea input-field input-required" maxlength="4000" rows="6" cols="1000" aria-label="* Describe Your Request"></textarea>
-										<label for="inputRequestReason2" class="input-label-format input-label-format-required input-label-format-null">Describe Your Request</label>
+										<textarea id="inputRequestReason3" name="request_reason" class="col input-format-textarea input-field input-required" maxlength="4000" rows="6" cols="1000" aria-label="* Describe Your Request"></textarea>
+										<label for="inputRequestReason3" class="input-label-format input-label-format-required input-label-format-null">Describe Your Request</label>
 										<div class="input-required-textarea">* Request Description is required</div>
 									</div>
 								</div>
 
 								<div class="app-page-content-row-buttons row justify-content-center">
-									<button id="btn-complaint-update" class="btn-main text-center btn-submit" type="button">Save & Update</button>
+									<button id="btn-complaint-update1" class="btn-main text-center btn-submit" type="button">Save & Update</button>
 								</div>
 							</div>
 						</div>
 					</div>
 
 					<div v-show="complaintViewFormTab === 'resolution'">
-						<div class="complaint-form-main-title container justify-content-center text-center">
+						<!-- <div class="complaint-form-main-title container justify-content-center text-center">
 							<h1>Resolution</h1>
-						</div>
+						</div> -->
 
 						<div class="complaint-form-page-content container justify-content-center">
 							<div class="container">
-								<div class="form-group row">
+								<div class="row">
 									<div class="app-page-content-question col-md-4 col-sm-12">
-										<input type="text" id="inputFirstName2" name="first_name" class="col input-field input-format input-required" aria-label="* First Name">
-										<label for="inputFirstName2" class="input-label-format input-label-format-null input-label-format-required">First Name</label>
+										<input type="text" id="inputFirstName4" name="first_name" class="col input-field input-format input-required" aria-label="* First Name">
+										<label for="inputFirstName4" class="input-label-format input-label-format-null input-label-format-required">First Name</label>
 										<div class="input-required-text">* First Name is required</div>
 									</div>
 
 									<div class="app-page-content-question col-md-3 col-sm-12">
-										<input type="text" id="inputMiddleInitial2" name="middle_initial" class="col input-field input-format" maxlength="1">
-										<label for="inputMiddleInitial2" class="input-label-format input-label-format-null">Middle Initial</label>
+										<input type="text" id="inputMiddleInitial4" name="middle_initial" class="col input-field input-format" maxlength="1">
+										<label for="inputMiddleInitial4" class="input-label-format input-label-format-null">Middle Initial</label>
 									</div>
 
 									<div class="app-page-content-question col-md-5 col-sm-12">
-										<input type="text" id="inputLastName2" name="last_name" class="col input-field input-format input-required" aria-label="* Last Name">
-										<label for="inputLastName2" class="input-label-format input-label-format-null input-label-format-required">Last Name</label>
+										<input type="text" id="inputLastName4" name="last_name" class="col input-field input-format input-required" aria-label="* Last Name">
+										<label for="inputLastName4" class="input-label-format input-label-format-null input-label-format-required">Last Name</label>
 										<div class="input-required-text">* Last Name is required</div>
 									</div>
 								</div>
 
-								<div class="form-group row">
+								<div class="row">
 									<div class="app-page-content-question col-12">
-										<textarea id="inputRequestReason2" name="request_reason" class="col input-format-textarea input-field input-required" maxlength="4000" rows="6" cols="1000" aria-label="* Describe Your Request"></textarea>
-										<label for="inputRequestReason2" class="input-label-format input-label-format-required input-label-format-null">Describe Your Request</label>
+										<textarea id="inputRequestReason4" name="request_reason" class="col input-format-textarea input-field input-required" maxlength="4000" rows="6" cols="1000" aria-label="* Describe Your Request"></textarea>
+										<label for="inputRequestReason4" class="input-label-format input-label-format-required input-label-format-null">Describe Your Request</label>
 										<div class="input-required-textarea">* Request Description is required</div>
 									</div>
 								</div>
 
 								<div class="app-page-content-row-buttons row justify-content-center">
-									<button id="btn-complaint-update" class="btn-main text-center btn-submit" type="button">Save & Update</button>
+									<button id="btn-complaint-update2" class="btn-main text-center btn-submit" type="button">Save & Update</button>
 								</div>
 							</div>
 						</div>
 					</div>
 
 					<div v-show="complaintViewFormTab === 'notes'">
-						<div class="complaint-form-main-title container justify-content-center text-center">
+						<!-- <div class="complaint-form-main-title container justify-content-center text-center">
 							<h1>Notes</h1>
-						</div>
+						</div> -->
 
 						<div class="complaint-form-page-content container justify-content-center">
 							<div class="container">
-								<div class="form-group row">
+								<div class="row">
 									<div class="app-page-content-question col-md-4 col-sm-12">
-										<input type="text" id="inputFirstName2" name="first_name" class="col input-field input-format input-required" aria-label="* First Name">
-										<label for="inputFirstName2" class="input-label-format input-label-format-null input-label-format-required">First Name</label>
+										<input type="text" id="inputFirstName5" name="first_name" class="col input-field input-format input-required" aria-label="* First Name">
+										<label for="inputFirstName5" class="input-label-format input-label-format-null input-label-format-required">First Name</label>
 										<div class="input-required-text">* First Name is required</div>
 									</div>
 
 									<div class="app-page-content-question col-md-3 col-sm-12">
-										<input type="text" id="inputMiddleInitial2" name="middle_initial" class="col input-field input-format" maxlength="1">
-										<label for="inputMiddleInitial2" class="input-label-format input-label-format-null">Middle Initial</label>
+										<input type="text" id="inputMiddleInitial5" name="middle_initial" class="col input-field input-format" maxlength="1">
+										<label for="inputMiddleInitial5" class="input-label-format input-label-format-null">Middle Initial</label>
 									</div>
 
 									<div class="app-page-content-question col-md-5 col-sm-12">
-										<input type="text" id="inputLastName2" name="last_name" class="col input-field input-format input-required" aria-label="* Last Name">
-										<label for="inputLastName2" class="input-label-format input-label-format-null input-label-format-required">Last Name</label>
+										<input type="text" id="inputLastName5" name="last_name" class="col input-field input-format input-required" aria-label="* Last Name">
+										<label for="inputLastName5" class="input-label-format input-label-format-null input-label-format-required">Last Name</label>
 										<div class="input-required-text">* Last Name is required</div>
 									</div>
 								</div>
 
 								<div class="app-page-content-row-buttons row justify-content-center">
-									<button id="btn-complaint-update" class="btn-main text-center btn-submit" type="button">Save & Update</button>
+									<button id="btn-complaint-update3" class="btn-main text-center btn-submit" type="button">Save & Update</button>
 								</div>
 							</div>
 						</div>
 					</div>
 
 					<div v-show="complaintViewFormTab === 'history'">
-						<div class="complaint-form-main-title container justify-content-center text-center">
+						<!-- <div class="complaint-form-main-title container justify-content-center text-center">
 							<h1>History</h1>
-						</div>
+						</div> -->
 
 						<div class="complaint-form-page-content container justify-content-center">
 							<div class="container">
-								<div class="form-group row">
+								<div class="row">
 									<div class="app-page-content-question col-md-3 col-sm-12">
-										<input type="text" id="inputMiddleInitial2" name="middle_initial" class="col input-field input-format" maxlength="1">
-										<label for="inputMiddleInitial2" class="input-label-format input-label-format-null">Middle Initial</label>
+										<input type="text" id="inputMiddleInitial6" name="middle_initial" class="col input-field input-format" maxlength="1">
+										<label for="inputMiddleInitial6" class="input-label-format input-label-format-null">Middle Initial</label>
 									</div>
 								</div>
 
 								<div class="app-page-content-row-buttons row justify-content-center">
-									<button id="btn-complaint-update" class="btn-main text-center btn-submit" type="button">Save & Update</button>
+									<button id="btn-complaint-update4" class="btn-main text-center btn-submit" type="button">Save & Update</button>
 								</div>
 							</div>
 						</div>
@@ -791,8 +1034,8 @@
 								</div>
 
 								<div class="col-6 p-0 text-right">
-									<button class="btn-main" @click="modal = true">Print Logs</button> <!-- if there is not a filter -->
-									<button class="btn-main" @click="modal = true" hidden>Print Logs From Filter</button> <!-- if there is a filter -->
+							<button class="btn-main" @click="modal = true">Print Logs</button> <!-- if there is not a filter -->
+							<button class="btn-main" @click="modal = true" hidden>Print Logs From Filter</button> <!-- if there is a filter -->
 
 									<div class="drop-menu">
 										<div class="drop-menu-trigger">
@@ -855,7 +1098,7 @@
 						</thead>
 	
 						<tbody class="table-body">
-							<tr tabindex="0" class="table-row dataRow" v-for="(complaint, index) in complaints" v-show="index - logsTablePage < 21 && index + 1 >= logsTablePage">
+							<tr tabindex="0" class="table-row dataRow" v-for="(complaint, index) in complaints" v-show="index - logsTablePage < 21 && index + 1 >= logsTablePage" @click="UpdatePage('complaint-view')" @keypress.enter="UpdatePage('complaint-view')" @keypress.space="UpdatePage('complaint-view')">
 								<td class="row-col-1 row-id text-center">{{complaint.id}}</td>
 								<td class="row-col-2 row-status text-center">
 									<div class="status-marker">
