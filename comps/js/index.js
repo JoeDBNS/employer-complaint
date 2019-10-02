@@ -595,7 +595,8 @@ var MainVue = new Vue({
 		logsTableShowPrintPredefinedDrop: false,
 		complaintViewFormTab: 'info',
 		complaintViewFormComplainantEdit: false,
-		complaintViewFormRespondantEdit: false
+		complaintViewFormRespondantEdit: false,
+		complaintViewFormDescriptionEdit: false
 	},
 	methods: {
 		UpdatePage: function(newPage) {
