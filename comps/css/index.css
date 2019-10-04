@@ -1,5 +1,6 @@
 body {
-	background-color: #ECEAEA;
+	/* background: linear-gradient(158deg, rgba(255,8,0,1) 0%, rgba(255,166,0,1) 16%, rgba(245,255,0,1) 34%, rgba(143,231,129,1) 50%, rgba(0,9,255,1) 64%, rgba(136,0,255,1) 78%, rgba(189,51,93,1) 93%); */
+	background-color: #f9f9ff;
 	font-family: sans-serif;
 }
 
@@ -24,16 +25,19 @@ body {
 		text-decoration: underline;
 	}
 	.form-group {
+		background-color: white;
 		position: relative;
-		margin: 0 0 60px 0;
-		padding: 22px 22px 12px 22px;
-		border-radius: 5px;
+		margin: 0 0 8px 0;
+		padding: 21px 22px 12px 22px;
+		border: 2px solid #60a7d3;
+		border-radius: 6px;
+		box-shadow: 0 0 3px -1px darkgray inset;
 	}
 	.form-group-title {
-		margin: -15px 0 -1px 2px;
+		margin: -15px 0 -1px -6px;
 		padding-right: 20px;
 		width: 100%;
-		color: #609ac1;
+		color: #39759d;
 		font-size: 1.75rem;
 		z-index: 3;
 		user-select: none;
@@ -47,12 +51,10 @@ body {
 		top: 28px;
 		height: 0px;
 		width: 94%;
-		margin-left: 2px;
-		border-top: 2px solid #a7dcff;
 	}
 	.form-group-divider-edit {
 		position: absolute;
-		top: -14px;
+		top: -16px;
 		right: 0;
 		height: 24px;
 		width: 60px;
@@ -63,20 +65,7 @@ body {
 		float: right;
 		color: #609ac1;
 		cursor: pointer;
-	}
-	@media only screen and (min-width: 541px) and (max-width: 900px) {
-		.form-group {
-			border-width: 1px 0 1px 0;
-			border-radius: 0;
-			box-shadow: none;
-		}
-	}
-	@media only screen and (min-width: 0px) and (max-width: 540px) {
-		.form-group {
-			border-width: 1px 0 1px 0;
-			border-radius: 0;
-			box-shadow: none;
-		}
+		user-select: none;
 	}
 	#complaint-form .form-group-divider {
 		top: -18px;
@@ -100,8 +89,8 @@ body {
 		font-size: 0.875rem;
 		border-radius: 10px;
 		user-select: none;
-		transition: all .075s;
 		pointer-events: none;
+		transition: linear all .1s;
 	}
 	.form-group .input-label-format {
 		left: 12px;
@@ -125,7 +114,7 @@ body {
 		border-radius: 6px;
 		border: 1px solid #c2c7cb;
 		box-shadow: inset 0 0 2px lightgrey;
-		transition: all .2s;
+		transition: linear all .1s;
 	}
 	.input-format:disabled,
 	.input-format-select:disabled,
@@ -151,10 +140,10 @@ body {
 	}
 	.input-format, .input-format-textarea {
 		-webkit-appearance: none;
-		padding: 7px 12px 2px 12px;
+		padding: 5px 12px 2px 12px;
 	}
 	.input-format-select {
-		padding: 9px 8px 5px 8px;
+		padding: 6px 8px 4px 8px;
 	}
 	.input-format-select option {
 		background-color: #eaf4ff;
@@ -252,20 +241,16 @@ body {
 	.input-required-failed ~ .input-required-radio {
 		display: block;
 	}
+	.input-fieldset-checkbox:disabled input[type="checkbox"]:not(:checked), .input-fieldset-checkbox:disabled input[type="checkbox"]:not(:checked) ~ * {
+		opacity: 0;
+		height: 0;
+		margin-top: -28px;
+	}
 	.input-fieldset-checkbox-label {
-		/* position: absolute; */
-		/* top: -12px; */
-		/* left: 22px; */
-		/* z-index: 1; */
 		padding: 0px 8px;
-		/* margin-bottom: 0; */
-		/* background-color: white; */
 		color: #4d4d4d;
 		font-size: 0.875rem;
-		/* border-radius: 10px; */
 		user-select: none;
-		/* transition: all .075s; */
-		/* pointer-events: none; */
 	}
 	input[type="checkbox"] {
 		opacity: 0;
@@ -273,26 +258,31 @@ body {
 		width: 0;
 	}
 	.input-label-format-checkbox {
+		width: 100%;
+		margin-bottom: 0;
 		padding: 0px 12px;
 		cursor: pointer;
 		user-select: none;
+		display: flex;
 	}
 	.input-label-format-checkbox-text {
 		position: relative;
-		top: 1px;
+		top: 5px;
 		left: 5px;
 	}
 	.input-format-checkbox-display {
 		display: inline-block;
-		height: 28px;
-		width: 28px;
-		padding: 1px;
+		height: 25px;
+		width: 25px;
+		margin: 3px 0px;
+		padding: 0;
 		border: 1px solid #accbff;
 		border-radius: 6px;
 		box-shadow: 0 0 2px -1px #246ef0;
 		cursor: pointer;
 	}
 	.input-format-checkbox-display svg {
+		margin-top: -1px;
 		opacity: 0;
 		color: #144497;
 		transition: linear .075s all;
@@ -341,7 +331,7 @@ body {
 		outline: none;
 	}
 	.nav-path-selected, .nav-path-selected:hover {
-		background-color: #ECEAEA;
+		background-color: #f9f9ff;
 		color: #1b5ac7;
 		border: solid #1b5ac7;
 		border-width: 1px 1px 0 1px;
@@ -356,6 +346,43 @@ body {
 	}
 	.nav-path-text {
 		font-size: 0.75rem;
+	}
+	.nav-path-user-popup {
+		position: absolute;
+		margin-top: 8px;
+		width: 240px;
+		margin-left: -100px;
+		background-color: white;
+		color: black;
+		border: 2px solid #0089e4;
+		border-radius: 10px;
+		z-index: 98;
+	}
+	.popup-triangle {
+		position: relative;
+		top: -10px;
+		left: 108px;
+		width: 0;
+		height: 0;
+		margin-bottom: -10px;
+		border-style: solid;
+		border-width: 0 10px 10px 10px;
+		border-color: transparent transparent #0089e4 transparent;
+	}
+	.popup-content {
+		position: relative;
+	}
+	.popup-content-user {
+		font-size: 1.25rem;
+	}
+	.popup-content-role {
+		font-size: 1.15rem;
+	}
+	.popup-content-agency {
+		font-size: 1rem;
+	}
+	.popup-content-branch {
+		font-size: 0.855em;
 	}
 	@media only screen and (min-width: 0px) and (max-width: 575px) {
 		#app-nav {
@@ -523,7 +550,7 @@ body {
 	.app-table {
 		border-collapse: collapse;
 		width: 100%;
-		background-color: #246ef0;
+		background-color: #007acb;
 		border-radius: 6px;
 		border: 2px solid lightgray;
 		overflow: hidden;
@@ -533,7 +560,7 @@ body {
 		color: white;
 	}
 	.table-head th {
-		background-color: #246ef0;
+		background-color: #007acb;
 		padding: 4px 0 3px 0;
 		font-size: 0.875rem;
 	}
@@ -713,8 +740,8 @@ body {
 	.login-content {
 		background-color: white;
 		padding: 18px;
-		border: 1px solid #76b3ff;
-		border-radius: 50px;
+		border: 2px solid #60a7d3;
+		border-radius: 36px;
 		box-shadow: 0 0 4px -1px #bad4ff;
 	}
 	@media only screen and (min-width: 0px) and (max-width: 575px) {
@@ -837,9 +864,9 @@ body {
 	.dash-content {
 		padding: 12px 12px;
 		background-color: white;
-		border: 1px solid #90b3f0;
+		border: 2px solid #60a7d3;
 		border-radius: 6px;
-		box-shadow: 0 0 2px 0px #737373;
+		box-shadow: 0 0 3px -1px darkgray;
 	}
 	/* Notification */
 		#dash-notif .dash-content {
@@ -984,33 +1011,37 @@ body {
 	.complaint-form-tabs {
 		position: absolute;
 		top: -33px;
+		left: 0px;
+		width: 100%;
+		padding: 0 8px;
 		user-select: none;
 	}
 	.form-tab {
 		float: left;
 		padding: 4px 14px 1px 14px;
 		margin: 0 2px;
-		background-color: #ececec;
-		border-color: #a7dcff;
+		background-color: #edf0f1;
+		border-color: #60a7d3;
 		border-style: solid;
 		border-width: 2px;
-		border-radius: 10px 10px 0 0;
+		border-radius: 20px;
 		cursor: pointer;
-		transition: all linear .075s;
+		transition: all linear .1s;
 	}
-	.form-tab:focus {
-		box-shadow: 0 0 1px 1px rgb(144, 144, 255);
+	.form-tab-right {
+		float: right;
+	}
+	.form-tab:focus, .form-tab:hover {
 		outline: none;
 	}
 	.form-tab-active {
 		background-color: white;
-		border-bottom: 1px solid white;
-		padding: 6px 14px 3px 14px;
-    	margin-top: -3px;
+		border: 2px solid #60a7d3;
+		border-radius: 6px;
 		z-index: 1;
 	}
-	.form-tab-active:focus {
-		box-shadow: 0px 1px 0px 1px rgb(190, 190, 255) inset;
+	.form-tab-active:focus, .form-tab-active:hover {
+		/* box-shadow: 0px 1px 0px 1px rgb(190, 190, 255) inset; */
 		outline: none;
 	}
 	@media only screen and (min-width: 0px) and (max-width: 540px) {
@@ -1030,19 +1061,17 @@ body {
 	}
 
 /* Complaint View Form */
-	#app-page-complaint-view {
-		margin-bottom: 40px;
-	}
 	#complaint-view-form {
 		position: relative;
-		top: 40px;
-    	padding: 10px 8px;
+    	padding: 10px 8px 2px 8px;
 		margin: auto;
 		width: 90%;
-		background-color: white;
-		border: 1px solid #a7dcff;
 		border-radius: 6px;
-		box-shadow: 0 0 2px 0px #737373;
+	}
+	@media only screen and (min-width: 0px) and (max-width: 1150px) {
+		#complaint-view-form {
+			width: 100%;
+		}
 	}
 	.complaint-form-main-title {
 		margin-top: 10px;
@@ -1079,7 +1108,7 @@ body {
 		color: white;
 	}
 	#app-table-logs .table-head th {
-		background-color: #246ef0;
+		background-color: #007acb;
 	}
 	#app-table-logs .table-head .table-row-search th {
 		padding: 2px 0 3px 0;
@@ -1089,7 +1118,7 @@ body {
 		margin-top: -2px;
 		height: 24px;
 		padding: 1px 10px;
-		border: 1px solid #246ef0;
+		border: 1px solid #007acb;
 		border-radius: 3px;
 		vertical-align: top;
 		transition: linear .075s all;
@@ -1135,15 +1164,11 @@ body {
 	}
 	#app-table-logs .row-icons {
 		width: 120px;
+		display: none;
 	}
-
-
 
 /* Print Formatting */
 	@media only print {
-		.page-break {
-			page-break-after: always;
-		}
 		html {
 			-webkit-print-color-adjust: exact;
 		}
@@ -1188,5 +1213,8 @@ body {
 		}
 		button {
 			display: none;
+		}
+		#complaint_description {
+			height: 5in;
 		}
 	}

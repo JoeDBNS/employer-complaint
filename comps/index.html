@@ -37,9 +37,42 @@
 							<div class="nav-path-text">Login</div>
 						</div>
 
-						<div tabindex="0" v-cloak class="nav-path" v-show="loggedIn" @click="loggedIn = !loggedIn; UpdatePage('login')" @keypress.enter="loggedIn = !loggedIn; UpdatePage('login')" @keypress.space="loggedIn = !loggedIn; UpdatePage('login')">
+						<div tabindex="0" v-cloak class="nav-path" v-show="loggedIn" @click="showUserPopup = !showUserPopup" @keypress.enter="showUserPopup = !showUserPopup" @keypress.space="showUserPopup = !showUserPopup">
 							<div class="nav-path-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
 							<div class="nav-path-text">User</div>
+
+							<div class="nav-path-user-popup" v-show="showUserPopup">
+								<div class="popup-triangle"></div>
+								<div class="popup-content">
+									<table>
+										<tbody>
+											<tr>
+												<td></td>
+												<td class="popup-content-user text-left pl-3">Joseph Davis</td>
+											</tr>
+											<tr>
+												<td class="text-right" style="color: #696969;font-size: 0.875rem;">Role:</td>
+												<td class="popup-content-role text-left pl-3">SMA</td>
+											</tr>
+											<tr>
+												<td class="text-right" style="color: #696969;font-size: 0.875rem;">Agency:</td>
+												<td class="popup-content-agency text-left pl-3">R</td>
+											</tr>
+											<tr>
+												<td class="text-right" style="color: #696969;font-size: 0.875rem;">Branch:</td>
+												<td class="popup-content-branch text-left pl-3">East Lansing Okemos MichiganWorks!</td>
+											</tr>
+										</tbody>
+									</table>
+
+									<!-- <div class="popup-content-user">Joseph Davis</div>
+									<div class="popup-content-role">SMA</div>
+									<div class="popup-content-agency">R</div>
+									<div class="popup-content-branch">East Lansing Okemos MichiganWorks!</div> -->
+
+									<button @click="loggedIn = !loggedIn; UpdatePage('login')" @keypress.enter="loggedIn = !loggedIn; UpdatePage('login')" @keypress.space="loggedIn = !loggedIn; UpdatePage('login')">Logout</button>
+								</div>
+							</div>
 						</div>
 
 						<div tabindex="0" v-cloak class="nav-path" v-show="loggedIn" v-bind:class="{ 'nav-path-selected': page === 'index' }" @click="UpdatePage('index')" @keypress.enter="UpdatePage('index')" @keypress.space="UpdatePage('index')">
@@ -147,7 +180,7 @@
 
 			<div v-cloak id="app-page-dash" class="container-fluid p-0" v-show="page === 'index'">
 				<div class="row">
-					<div id="dash-notif" class="col-lg-6 col-12">
+					<div id="dash-notif" class="col-xl-5 col-lg-7 col-12">
 						<div class="dash-content container">
 							<!-- <div class="dash-notif-title">Notifications</div> -->
 
@@ -240,7 +273,7 @@
 										<div class="status-text text-left">{{complaint.status}}</div>
 									</td>
 									<td class="row-col-3 row-type text-center">{{complaint.type}}</td>
-									<td class="row-col-4 row-complainant">{{complaint.claimanant}}</td>
+									<td class="row-col-4 row-complainant">{{complaint.complainant}}</td>
 									<td class="row-col-5 row-respondent">{{complaint.respondent}}</td>
 									<td class="row-col-6 row-msfw text-center">{{complaint.msfw}}</td>
 									<td class="row-col-7 row-filed-date text-center">{{complaint.filed_date}}</td>
@@ -424,7 +457,7 @@
 
 								<div class="row mt-4">
 									<div class="app-page-content-question col-md-12 col-sm-12">
-										<input type="text" id="inputOrgName" name="org_name" class="col input-field input-format input-required-nocheck" aria-label="* Organization Name">
+										<input type="text" id="inputOrgName" name="org_name" class="col input-field input-format" aria-label="* Organization Name">
 										<label for="inputOrgName" class="input-label-format input-label-format-null input-label-format-required">Organization Name</label>
 										<div class="input-required-text">* Organization Name is required</div>
 									</div>
@@ -444,7 +477,7 @@
 
 								<div class="row mt-5">
 									<div class="app-page-content-question col-md-7 col-sm-12">
-										<input type="text" id="inputOrgAddressLine1" name="org_address_line_1" class="col input-field input-format input-required-nocheck" aria-label="* Address Line 1">
+										<input type="text" id="inputOrgAddressLine1" name="org_address_line_1" class="col input-field input-format" aria-label="* Address Line 1">
 										<label for="inputOrgAddressLine1" class="input-label-format input-label-format-null input-label-format-required">Address Line 1</label>
 										<div class="input-required-text">* Address Line 1 is required</div>
 									</div>
@@ -457,13 +490,13 @@
 
 								<div class="row">
 									<div class="app-page-content-question col-md-7 col-sm-12">
-										<input type="text" id="inputOrgCity" name="org_city" class="col input-field input-format input-required-nocheck" aria-label="* City">
+										<input type="text" id="inputOrgCity" name="org_city" class="col input-field input-format" aria-label="* City">
 										<label for="inputOrgCity" class="input-label-format input-label-format-null input-label-format-required">City</label>
 										<div class="input-required-text">* City is required</div>
 									</div>
 
 									<div class="app-page-content-question col-md-5 col-sm-12">
-										<select id="inputOrgState" name="org_state" class="col input-field input-format-select input-required-nocheck" aria-label="* State">
+										<select id="inputOrgState" name="org_state" class="col input-field input-format-select" aria-label="* State">
 											<option></option>
 											<option>Alabama</option>
 											<option>Alaska</option>
@@ -523,7 +556,7 @@
 
 								<div class="row">
 									<div class="app-page-content-question col-md-5 col-sm-12">
-										<input type="text" id="inputOrgZip" name="org_zip" class="col input-field input-format input-required-nocheck input-field-zip" aria-label="* Zip">
+										<input type="text" id="inputOrgZip" name="org_zip" class="col input-field input-format input-field-zip" aria-label="* Zip">
 										<label for="inputOrgZip" class="input-label-format input-label-format-null input-label-format-required">Zip</label>
 										<div class="input-required-text">* Zip is required</div>
 									</div>
@@ -540,145 +573,204 @@
 
 			<div v-cloak id="app-page-complaint-view" class="container-fluid p-0" v-show="page === 'complaint-view'">
 				<form id="complaint-view-form" method="post" autocomplete="off">
-					<div class="complaint-form-tabs">
-						<div tabindex="0" class="form-tab" v-bind:class="{'form-tab-active': complaintViewFormTab === 'info'}" @click="complaintViewFormTab = 'info'" @keypress.enter="complaintViewFormTab = 'info'" @keypress.space="complaintViewFormTab = 'info'">Info</div>
-						<div tabindex="0" class="form-tab" v-bind:class="{'form-tab-active': complaintViewFormTab === 'referrals'}" @click="complaintViewFormTab = 'referrals'" @keypress.enter="complaintViewFormTab = 'referrals'" @keypress.space="complaintViewFormTab = 'referrals'">Referrals</div>
-						<div tabindex="0" class="form-tab" v-bind:class="{'form-tab-active': complaintViewFormTab === 'notes'}" @click="complaintViewFormTab = 'notes'" @keypress.enter="complaintViewFormTab = 'notes'" @keypress.space="complaintViewFormTab = 'notes'">Notes</div>
-						<div tabindex="0" class="form-tab" v-bind:class="{'form-tab-active': complaintViewFormTab === 'history'}" @click="complaintViewFormTab = 'history'" @keypress.enter="complaintViewFormTab = 'history'" @keypress.space="complaintViewFormTab = 'history'">History</div>
-					</div>
+					<!-- <div class="complaint-form-main-title container justify-content-center text-center">
+						<h1>Complaint</h1>
+					</div> -->
 
-					<div v-show="complaintViewFormTab === 'info'">
-						<!-- <div class="complaint-form-main-title container justify-content-center text-center">
-							<h1>Complaint</h1>
-						</div> -->
+					<div class="complaint-form-page-content container-fluid justify-content-center">
+						<div class="row">
+							<div class="form-group row col-12">
+								<div class="form-group-title mb-3">
+									<span class="form-group-title-text">Complaint Info</span>
+								</div>
 
-						<div class="complaint-form-page-content container-fluid justify-content-center">
-							<div class="row">
-								<div class="form-group row col-12">
-									<div class="form-group-title mb-3">
-										<span class="form-group-title-text">Complaint Info</span>
-									</div>
-
-									<div class="form-group-divider"></div>
-
-									<div class="app-page-content-question col-md-3 col-sm-12">
-										<input type="text" id="filing_agency" name="filing_agency" class="col input-field input-format" disabled value="D">
-										<label for="filing_agency" class="input-label-format input-label-format-null">Filing Agency</label>
-									</div>
-
-									<div class="app-page-content-question col-md-6 col-sm-12">
-										<input type="text" id="filing_office" name="filing_office" class="col input-field input-format" disabled value="East Lansing Okemos MichiganWorks!">
-										<label for="filing_office" class="input-label-format input-label-format-null">Filing Office</label>
-									</div>
-
-									<div class="app-page-content-question col-md-3 col-sm-12">
-										<input type="text" id="date_submitted" name="date_submitted" class="col input-field input-format input-required" disabled value="01/16/2019">
-										<label for="date_submitted" class="input-label-format input-label-format-null">Date Submitted</label>
-									</div>
-
-									<div class="app-page-content-question col-md-3 col-sm-12">
-										<input type="text" id="complaint_number" name="complaint_number" class="col input-field input-format input-required" disabled value="D000123">
-										<label for="complaint_number" class="input-label-format input-label-format-null">Complaint Number</label>
-									</div>
-
-									<div class="app-page-content-question col-md-6 col-sm-12">
-										<input type="text" id="complaint_type" name="complaint_type" class="col input-field input-format" disabled value="Complaint">
-										<label for="complaint_type" class="input-label-format input-label-format-null">Complaint Type</label>
-									</div>
-
-									<div class="app-page-content-question col-md-3 col-sm-12">
-										<input type="text" id="msfw" name="msfw" class="col input-field input-format" disabled value="Yes">
-										<label for="msfw" class="input-label-format input-label-format-null">MSFW</label>
-									</div>
-
-									<div class="app-page-content-question col-md-6 col-sm-12">
-										<fieldset class="input-fieldset-checkbox">
-											<legend class="input-fieldset-checkbox-label">Employment Service Related</legend>
-
-											<label class="input-label-format-checkbox" for="employment_service_related_against_agency">
-												<input type="checkbox" id="employment_service_related_against_agency" disabled checked>
-												<div class="input-format-checkbox-display">
-													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
-												</div>
-												<span class="input-label-format-checkbox-text">Against Agency</span>
-											</label>
-											<br>
-											<label class="input-label-format-checkbox" for="employment_service_related_against_employer">
-												<input type="checkbox" id="employment_service_related_against_employer" disabled>
-												<div class="input-format-checkbox-display">
-													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
-												</div>
-												<span class="input-label-format-checkbox-text">Against Employer</span>
-											</label>
-											<br>
-											<label class="input-label-format-checkbox" for="employment_service_related_es_regulation">
-												<input type="checkbox" id="employment_service_related_es_regulation" disabled>
-												<div class="input-format-checkbox-display">
-													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
-												</div>
-												<span class="input-label-format-checkbox-text">ES Regulation</span>
-											</label>
-											<br>
-											<label class="input-label-format-checkbox" for="employment_service_related_employment_related_law">
-												<input type="checkbox" id="employment_service_related_employment_related_law" disabled>
-												<div class="input-format-checkbox-display">
-													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
-												</div>
-												<span class="input-label-format-checkbox-text">Employment Related Law</span>
-											</label>
-										</fieldset>
-									</div>
-
-									<div class="app-page-content-question col-md-6 col-sm-12">
-										<fieldset class="input-fieldset-checkbox">
-											<legend class="input-fieldset-checkbox-label">Type of Complaint/Violation</legend>
-
-											<label class="input-label-format-checkbox" for="type_of_complaint_child_labor">
-												<input type="checkbox" id="type_of_complaint_child_labor" disabled checked>
-												<div class="input-format-checkbox-display">
-													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
-												</div>
-												<span class="input-label-format-checkbox-text">Child Labor</span>
-											</label>
-											<br>
-											<label class="input-label-format-checkbox" for="type_of_complaint_housing">
-												<input type="checkbox" id="type_of_complaint_housing" disabled>
-												<div class="input-format-checkbox-display">
-													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
-												</div>
-												<span class="input-label-format-checkbox-text">Housing</span>
-											</label>
-											<br>
-											<label class="input-label-format-checkbox" for="type_of_complaint_wages">
-												<input type="checkbox" id="type_of_complaint_wages" disabled checked>
-												<div class="input-format-checkbox-display">
-													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
-												</div>
-												<span class="input-label-format-checkbox-text">Wages</span>
-											</label>
-											<br>
-											<label class="input-label-format-checkbox" for="type_of_complaint_discrimination_housing_employment">
-												<input type="checkbox" id="type_of_complaint_discrimination_housing_employment" disabled>
-												<div class="input-format-checkbox-display">
-													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
-												</div>
-												<span class="input-label-format-checkbox-text">Discrimination Housing/Employment</span>
-											</label>
-											<br>
-											<label class="input-label-format-checkbox" for="type_of_complaint_human_trafficking">
-												<input type="checkbox" id="type_of_complaint_human_trafficking" disabled>
-												<div class="input-format-checkbox-display">
-													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
-												</div>
-												<span class="input-label-format-checkbox-text">Human Trafficking</span>
-											</label>
-										</fieldset>
+								<div class="form-group-divider">
+									<div class="form-group-divider-edit" v-cloak>
+										<svg v-show="!complaintViewFormComplaintEdit" @click="complaintViewFormComplaintEdit = !complaintViewFormComplaintEdit" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+										<svg v-show="complaintViewFormComplaintEdit" @click="complaintViewFormComplaintEdit = !complaintViewFormComplaintEdit"  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-square"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="9" x2="15" y2="15"></line><line x1="15" y1="9" x2="9" y2="15"></line></svg>
 									</div>
 								</div>
 
-								<div class="form-group row col-12">
-									<div class="form-group-title" v-bind:class="{'mb-2': complaintViewFormComplainantEdit, 'mb-3': !complaintViewFormComplainantEdit}">
-										<span class="form-group-title-text">Claimanant</span>
+								<div class="app-page-content-question col-md-4 col-sm-12">
+									<input type="text" id="complaint_number" name="complaint_number" class="col input-field input-format" disabled value="D000123">
+									<label for="complaint_number" class="input-label-format input-label-format-null">Complaint Number</label>
+								</div>
+
+								<div class="app-page-content-question col-md-3 col-sm-12">
+									<input type="text" id="date_submitted" name="date_submitted" class="col input-field input-format" disabled value="01/16/2019">
+									<label for="date_submitted" class="input-label-format input-label-format-null">Date Submitted</label>
+								</div>
+
+								<div class="app-page-content-question col-md-5 col-sm-12">
+									<select id="complaint_type" name="complaint_type" class="col input-field input-format-select" v-bind:disabled="!complaintViewFormComplaintEdit">
+										<option></option>
+										<option>Apparent Violation</option>
+										<option selected>Complaint</option>
+									</select>
+									<label for="complaint_type" class="input-label-format input-label-format-null">Complaint Type</label>
+								</div>
+
+								<div class="app-page-content-question col-md-4 col-sm-12">
+									<input type="text" id="filing_agency" name="filing_agency" class="col input-field input-format" disabled value="D">
+									<label for="filing_agency" class="input-label-format input-label-format-null">Filing Agency</label>
+								</div>
+
+								<div class="app-page-content-question col-md-8 col-sm-12">
+									<input type="text" id="filing_office" name="filing_office" class="col input-field input-format" disabled value="East Lansing Okemos MichiganWorks!">
+									<label for="filing_office" class="input-label-format input-label-format-null">Filing Office</label>
+								</div>
+
+								<div class="app-page-content-question col-md-4 col-sm-12">
+									<select id="h2a_criteria_employer" name="h2a_criteria_employer" class="col input-field input-format-select" v-bind:disabled="!complaintViewFormComplaintEdit">
+										<option></option>
+										<option>U.S. Domestic Worker</option>
+										<option>H-2A Worker</option>
+										<option>Wages</option>
+										<option>Transportation</option>
+										<option selected>Meals</option>
+										<option>Housing</option>
+										<option>Other</option>
+									</select>
+									<label for="h2a_criteria_employer" class="input-label-format input-label-format-null">H-2A/Criteria Employer</label>
+								</div>
+
+								<div class="app-page-content-question col-md-8 col-sm-12">
+									<input type="text" id="h2a_criteria_employer_description" name="h2a_criteria_employer_description" class="col input-field input-format" v-bind:disabled="!complaintViewFormComplaintEdit">
+									<label for="h2a_criteria_employer_description" class="input-label-format input-label-format-null">H-2A/Criteria Employer Description</label>
+								</div>
+
+								<div class="app-page-content-question col-md-4 col-sm-12">
+									<select id="msfw" name="msfw" class="col input-field input-format-select" v-bind:disabled="!complaintViewFormComplaintEdit">
+										<option></option>
+										<option selected>Yes</option>
+										<option>No</option>
+									</select>
+									<label for="msfw" class="input-label-format input-label-format-null">MSFW</label>
+								</div>
+
+								<div class="col-md-8"></div>
+
+								<div class="app-page-content-question col-md-4 col-sm-12">
+									<fieldset class="input-fieldset-checkbox" v-bind:disabled="!complaintViewFormComplaintEdit">
+										<legend class="input-fieldset-checkbox-label">Employment Service Related</legend>
+
+										<label class="input-label-format-checkbox" for="employment_service_related_against_agency">
+											<input type="checkbox" id="employment_service_related_against_agency">
+											<div class="input-format-checkbox-display">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+											</div>
+											<span class="input-label-format-checkbox-text">Against Agency</span>
+										</label>
+
+										<label class="input-label-format-checkbox" for="employment_service_related_against_employer">
+											<input type="checkbox" id="employment_service_related_against_employer" checked>
+											<div class="input-format-checkbox-display">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+											</div>
+											<span class="input-label-format-checkbox-text">Against Employer</span>
+										</label>
+
+										<label class="input-label-format-checkbox" for="employment_service_related_es_regulation">
+											<input type="checkbox" id="employment_service_related_es_regulation">
+											<div class="input-format-checkbox-display">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+											</div>
+											<span class="input-label-format-checkbox-text">ES Regulation</span>
+										</label>
+
+										<label class="input-label-format-checkbox" for="employment_service_related_employment_related_law">
+											<input type="checkbox" id="employment_service_related_employment_related_law">
+											<div class="input-format-checkbox-display">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+											</div>
+											<span class="input-label-format-checkbox-text">Employment Related Law</span>
+										</label>
+									</fieldset>
+								</div>
+
+								<div class="app-page-content-question col-md-8 col-sm-12">
+									<fieldset class="input-fieldset-checkbox" disabled>
+										<legend class="input-fieldset-checkbox-label">Type of Complaint/Violation</legend>
+
+										<label class="input-label-format-checkbox" for="type_of_complaint_child_labor">
+											<input type="checkbox" id="type_of_complaint_child_labor" checked>
+											<div class="input-format-checkbox-display">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+											</div>
+											<span class="input-label-format-checkbox-text">Child Labor</span>
+										</label>
+
+										<label class="input-label-format-checkbox" for="type_of_complaint_housing">
+											<input type="checkbox" id="type_of_complaint_housing">
+											<div class="input-format-checkbox-display">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+											</div>
+											<span class="input-label-format-checkbox-text">Housing</span>
+										</label>
+
+										<label class="input-label-format-checkbox" for="type_of_complaint_wages">
+											<input type="checkbox" id="type_of_complaint_wages" checked>
+											<div class="input-format-checkbox-display">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+											</div>
+											<span class="input-label-format-checkbox-text">Wages</span>
+										</label>
+
+										<label class="input-label-format-checkbox" for="type_of_complaint_discrimination_housing_employment">
+											<input type="checkbox" id="type_of_complaint_discrimination_housing_employment">
+											<div class="input-format-checkbox-display">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+											</div>
+											<span class="input-label-format-checkbox-text">Discrimination Housing/Employment</span>
+										</label>
+
+										<label class="input-label-format-checkbox" for="type_of_complaint_human_trafficking">
+											<input type="checkbox" id="type_of_complaint_human_trafficking">
+											<div class="input-format-checkbox-display">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+											</div>
+											<span class="input-label-format-checkbox-text">Human Trafficking</span>
+										</label>
+
+										<label class="input-label-format-checkbox" for="type_of_complaint_pesticides">
+											<input type="checkbox" id="type_of_complaint_pesticides">
+											<div class="input-format-checkbox-display">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+											</div>
+											<span class="input-label-format-checkbox-text">Pesticides</span>
+										</label>
+
+										<label class="input-label-format-checkbox" for="type_of_complaint_health_safety">
+											<input type="checkbox" id="type_of_complaint_health_safety" checked>
+											<div class="input-format-checkbox-display">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+											</div>
+											<span class="input-label-format-checkbox-text">Health Safety</span>
+										</label>
+
+										<label class="input-label-format-checkbox" for="type_of_complaint_mspa">
+											<input type="checkbox" id="type_of_complaint_mspa">
+											<div class="input-format-checkbox-display">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+											</div>
+											<span class="input-label-format-checkbox-text">Migrant and Seasonal Agriculture Worker Protection Act (MSPA)</span>
+										</label>
+
+										<label class="input-label-format-checkbox" for="type_of_complaint_disability_discrimination">
+											<input type="checkbox" id="type_of_complaint_disability_discrimination">
+											<div class="input-format-checkbox-display">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+											</div>
+											<span class="input-label-format-checkbox-text">Disability Discrimination</span>
+										</label>
+									</fieldset>
+								</div>
+							</div>
+
+							<div class="row col-lg-6 col-12 m-0 pl-0 pr-md-1 pr-0">
+								<div class="form-group row">
+									<div class="form-group-title mb-3">
+										<span class="form-group-title-text">Complainant</span>
 									</div>
 
 									<div class="form-group-divider">
@@ -688,52 +780,43 @@
 										</div>
 									</div>
 
-									<div class="app-page-content-question col-md-4 col-sm-12">
-										<input type="text" id="complainant_first_name" name="complainant_first_name" class="col input-field input-format input-required" v-bind:disabled="!complaintViewFormComplainantEdit" value="Joe">
+									<div class="app-page-content-question col-md-6 col-sm-12">
+										<input type="text" id="complainant_first_name" name="complainant_first_name" class="col input-field input-format" v-bind:disabled="!complaintViewFormComplainantEdit" value="Joe">
 										<label for="complainant_first_name" class="input-label-format input-label-format-null">First Name</label>
-										<div class="input-required-text">* First Name is required</div>
 									</div>
 
-									<div class="app-page-content-question col-md-3 col-sm-12">
-										<input type="text" id="complainant_middle_initial" name="complainant_middle_initial" class="col input-field input-format" maxlength="1" v-bind:disabled="!complaintViewFormComplainantEdit" value="X">
-										<label for="complainant_middle_initial" class="input-label-format input-label-format-null">Middle Initial</label>
-									</div>
-
-									<div class="app-page-content-question col-md-5 col-sm-12">
-										<input type="text" id="complainant_last_name" name="complainant_last_name" class="col input-field input-format input-required" v-bind:disabled="!complaintViewFormComplainantEdit" value="Davis">
+									<div class="app-page-content-question col-md-6 col-sm-12">
+										<input type="text" id="complainant_last_name" name="complainant_last_name" class="col input-field input-format" v-bind:disabled="!complaintViewFormComplainantEdit" value="Davis">
 										<label for="complainant_last_name" class="input-label-format input-label-format-null">Last Name</label>
-										<div class="input-required-text">* Last Name is required</div>
 									</div>
 
-									<div class="app-page-content-question col-md-7 col-sm-12">
+									<div class="app-page-content-question col-md-6 col-sm-12">
 										<input type="email" id="complainant_email" name="complainant_email" class="col input-field input-format" v-bind:disabled="!complaintViewFormComplainantEdit" value="davisj38@michgian.gov">
 										<label for="complainant_email" class="input-label-format input-label-format-null">Email</label>
 									</div>
 
-									<div class="app-page-content-question col-md-5 col-sm-12">
+									<div class="app-page-content-question col-md-6 col-sm-12">
 										<input type="tel" id="complainant_phone" name="complainant_phone" class="col input-field input-format input-field-phone" v-bind:disabled="!complaintViewFormComplainantEdit" value="(517) 555-1325">
 										<label for="complainant_phone" class="input-label-format input-label-format-null">Phone Number</label>
 									</div>
 
-									<div class="app-page-content-question col-md-7 col-sm-12">
-										<input type="text" id="complainant_address_line_1" name="complainant_address_line_1" class="col input-field input-format input-required" aria-label="* Address Line 1" v-bind:disabled="!complaintViewFormComplainantEdit" value="123 West State St">
+									<div class="app-page-content-question col-md-6 col-sm-12">
+										<input type="text" id="complainant_address_line_1" name="complainant_address_line_1" class="col input-field input-format" v-bind:disabled="!complaintViewFormComplainantEdit" value="123 West State St">
 										<label for="complainant_address_line_1" class="input-label-format input-label-format-null">Address Line 1</label>
-										<div class="input-required-text">* Address Line 1 is required</div>
 									</div>
 
-									<div class="app-page-content-question col-md-5 col-sm-12">
+									<div class="app-page-content-question col-md-6 col-sm-12">
 										<input type="text" id="complainant_address_line_2" name="complainant_address_line_2" class="col input-field input-format" v-bind:disabled="!complaintViewFormComplainantEdit" value="N/A">
 										<label for="complainant_address_line_2" class="input-label-format input-label-format-null">Address Line 2</label>
 									</div>
 
-									<div class="app-page-content-question col-md-7 col-sm-12">
-										<input type="text" id="complainant_city" name="complainant_city" class="col input-field input-format input-required" aria-label="* City" v-bind:disabled="!complaintViewFormComplainantEdit" value="Potterville">
+									<div class="app-page-content-question col-md-6 col-sm-12">
+										<input type="text" id="complainant_city" name="complainant_city" class="col input-field input-format" v-bind:disabled="!complaintViewFormComplainantEdit" value="Potterville">
 										<label for="complainant_city" class="input-label-format input-label-format-null">City</label>
-										<div class="input-required-text">* City is required</div>
 									</div>
 
-									<div class="app-page-content-question col-md-5 col-sm-12">
-										<select id="complainant_state" name="complainant_state" class="col input-field input-format-select input-required" aria-label="* State" v-bind:disabled="!complaintViewFormComplainantEdit">
+									<div class="app-page-content-question col-md-6 col-sm-12">
+										<select id="complainant_state" name="complainant_state" class="col input-field input-format-select" v-bind:disabled="!complaintViewFormComplainantEdit">
 											<option></option>
 											<option>Alabama</option>
 											<option>Alaska</option>
@@ -787,18 +870,283 @@
 											<option>Wyoming</option>
 										</select>
 										<label for="complainant_state" class="input-label-format selectLabel input-label-format-null">State</label>
-										<div class="input-required-select">* State is required</div>
 									</div>
 
-									<div class="app-page-content-question col-md-5 col-sm-12">
-										<input type="text" id="complainant_zip" name="complainant_zip" class="col input-field input-format input-required input-field-zip" aria-label="* Zip" v-bind:disabled="!complaintViewFormComplainantEdit" value="48876">
+									<div class="app-page-content-question col-md-6 col-sm-12">
+										<input type="text" id="complainant_zip" name="complainant_zip" class="col input-field input-format input-field-zip" v-bind:disabled="!complaintViewFormComplainantEdit" value="48876">
 										<label for="complainant_zip" class="input-label-format input-label-format-null">Zip</label>
-										<div class="input-required-text">* Zip is required</div>
+									</div>
+
+									<div class="app-page-content-question col-md-6 col-sm-12">
+										<!-- <input type="text" id="complainant_country" name="complainant_country" class="col input-field input-format input-field-zip" v-bind:disabled="!complaintViewFormComplainantEdit" value="United States">
+										<label for="complainant_country" class="input-label-format input-label-format-null">Country</label> -->
+
+										<select id="complainant_country" name="complainant_country" class="col input-field input-format-select" v-bind:disabled="!complaintViewFormComplainantEdit">
+											<option></option>
+											<option>Afghanistan</option>
+											<option>Åland Islands</option>
+											<option>Albania</option>
+											<option>Algeria</option>
+											<option>American Samoa</option>
+											<option>Andorra</option>
+											<option>Angola</option>
+											<option>Anguilla</option>
+											<option>Antarctica</option>
+											<option>Antigua & Barbuda</option>
+											<option>Argentina</option>
+											<option>Armenia</option>
+											<option>Aruba</option>
+											<option>Ascension Island</option>
+											<option>Australia</option>
+											<option>Austria</option>
+											<option>Azerbaijan</option>
+											<option>Bahamas</option>
+											<option>Bahrain</option>
+											<option>Bangladesh</option>
+											<option>Barbados</option>
+											<option>Belarus</option>
+											<option>Belgium</option>
+											<option>Belize</option>
+											<option>Benin</option>
+											<option>Bermuda</option>
+											<option>Bhutan</option>
+											<option>Bolivia</option>
+											<option>Bosnia & Herzegovina</option>
+											<option>Botswana</option>
+											<option>Brazil</option>
+											<option>British Indian Ocean Territory</option>
+											<option>British Virgin Islands</option>
+											<option>Brunei</option>
+											<option>Bulgaria</option>
+											<option>Burkina Faso</option>
+											<option>Burundi</option>
+											<option>Cambodia</option>
+											<option>Cameroon</option>
+											<option>Canada</option>
+											<option>Canary Islands</option>
+											<option>Cape Verde</option>
+											<option>Caribbean Netherlands</option>
+											<option>Cayman Islands</option>
+											<option>Central African Republic</option>
+											<option>Ceuta & Melilla</option>
+											<option>Chad</option>
+											<option>Chile</option>
+											<option>China</option>
+											<option>Christmas Island</option>
+											<option>Cocos (Keeling) Islands</option>
+											<option>Colombia</option>
+											<option>Comoros</option>
+											<option>Congo - Brazzaville</option>
+											<option>Congo - Kinshasa</option>
+											<option>Cook Islands</option>
+											<option>Costa Rica</option>
+											<option>Côte d’Ivoire</option>
+											<option>Croatia</option>
+											<option>Cuba</option>
+											<option>Curaçao</option>
+											<option>Cyprus</option>
+											<option>Czechia</option>
+											<option>Denmark</option>
+											<option>Diego Garcia</option>
+											<option>Djibouti</option>
+											<option>Dominica</option>
+											<option>Dominican Republic</option>
+											<option>Ecuador</option>
+											<option>Egypt</option>
+											<option>El Salvador</option>
+											<option>Equatorial Guinea</option>
+											<option>Eritrea</option>
+											<option>Estonia</option>
+											<option>Eswatini</option>
+											<option>Ethiopia</option>
+											<option>Falkland Islands</option>
+											<option>Faroe Islands</option>
+											<option>Fiji</option>
+											<option>Finland</option>
+											<option>France</option>
+											<option>French Guiana</option>
+											<option>French Polynesia</option>
+											<option>French Southern Territories</option>
+											<option>Gabon</option>
+											<option>Gambia</option>
+											<option>Georgia</option>
+											<option>Germany</option>
+											<option>Ghana</option>
+											<option>Gibraltar</option>
+											<option>Greece</option>
+											<option>Greenland</option>
+											<option>Grenada</option>
+											<option>Guadeloupe</option>
+											<option>Guam</option>
+											<option>Guatemala</option>
+											<option>Guernsey</option>
+											<option>Guinea</option>
+											<option>Guinea-Bissau</option>
+											<option>Guyana</option>
+											<option>Haiti</option>
+											<option>Honduras</option>
+											<option>Hong Kong SAR China</option>
+											<option>Hungary</option>
+											<option>Iceland</option>
+											<option>India</option>
+											<option>Indonesia</option>
+											<option>Iran</option>
+											<option>Iraq</option>
+											<option>Ireland</option>
+											<option>Isle of Man</option>
+											<option>Israel</option>
+											<option>Italy</option>
+											<option>Jamaica</option>
+											<option>Japan</option>
+											<option>Jersey</option>
+											<option>Jordan</option>
+											<option>Kazakhstan</option>
+											<option>Kenya</option>
+											<option>Kiribati</option>
+											<option>Kosovo</option>
+											<option>Kuwait</option>
+											<option>Kyrgyzstan</option>
+											<option>Laos</option>
+											<option>Latvia</option>
+											<option>Lebanon</option>
+											<option>Lesotho</option>
+											<option>Liberia</option>
+											<option>Libya</option>
+											<option>Liechtenstein</option>
+											<option>Lithuania</option>
+											<option>Luxembourg</option>
+											<option>Macao SAR China</option>
+											<option>Madagascar</option>
+											<option>Malawi</option>
+											<option>Malaysia</option>
+											<option>Maldives</option>
+											<option>Mali</option>
+											<option>Malta</option>
+											<option>Marshall Islands</option>
+											<option>Martinique</option>
+											<option>Mauritania</option>
+											<option>Mauritius</option>
+											<option>Mayotte</option>
+											<option>Mexico</option>
+											<option>Micronesia</option>
+											<option>Moldova</option>
+											<option>Monaco</option>
+											<option>Mongolia</option>
+											<option>Montenegro</option>
+											<option>Montserrat</option>
+											<option>Morocco</option>
+											<option>Mozambique</option>
+											<option>Myanmar (Burma)</option>
+											<option>Namibia</option>
+											<option>Nauru</option>
+											<option>Nepal</option>
+											<option>Netherlands</option>
+											<option>New Caledonia</option>
+											<option>New Zealand</option>
+											<option>Nicaragua</option>
+											<option>Niger</option>
+											<option>Nigeria</option>
+											<option>Niue</option>
+											<option>Norfolk Island</option>
+											<option>North Korea</option>
+											<option>North Macedonia</option>
+											<option>Northern Mariana Islands</option>
+											<option>Norway</option>
+											<option>Oman</option>
+											<option>Pakistan</option>
+											<option>Palau</option>
+											<option>Palestinian Territories</option>
+											<option>Panama</option>
+											<option>Papua New Guinea</option>
+											<option>Paraguay</option>
+											<option>Peru</option>
+											<option>Philippines</option>
+											<option>Pitcairn Islands</option>
+											<option>Poland</option>
+											<option>Portugal</option>
+											<option>Pseudo-Accents</option>
+											<option>Pseudo-Bidi</option>
+											<option>Puerto Rico</option>
+											<option>Qatar</option>
+											<option>Réunion</option>
+											<option>Romania</option>
+											<option>Russia</option>
+											<option>Rwanda</option>
+											<option>Samoa</option>
+											<option>San Marino</option>
+											<option>São Tomé & Príncipe</option>
+											<option>Saudi Arabia</option>
+											<option>Senegal</option>
+											<option>Serbia</option>
+											<option>Seychelles</option>
+											<option>Sierra Leone</option>
+											<option>Singapore</option>
+											<option>Sint Maarten</option>
+											<option>Slovakia</option>
+											<option>Slovenia</option>
+											<option>Solomon Islands</option>
+											<option>Somalia</option>
+											<option>South Africa</option>
+											<option>South Georgia & South Sandwich Islands</option>
+											<option>South Korea</option>
+											<option>South Sudan</option>
+											<option>Spain</option>
+											<option>Sri Lanka</option>
+											<option>St. Barthélemy</option>
+											<option>St. Helena</option>
+											<option>St. Kitts & Nevis</option>
+											<option>St. Lucia</option>
+											<option>St. Martin</option>
+											<option>St. Pierre & Miquelon</option>
+											<option>St. Vincent & Grenadines</option>
+											<option>Sudan</option>
+											<option>Suriname</option>
+											<option>Svalbard & Jan Mayen</option>
+											<option>Sweden</option>
+											<option>Switzerland</option>
+											<option>Syria</option>
+											<option>Taiwan</option>
+											<option>Tajikistan</option>
+											<option>Tanzania</option>
+											<option>Thailand</option>
+											<option>Timor-Leste</option>
+											<option>Togo</option>
+											<option>Tokelau</option>
+											<option>Tonga</option>
+											<option>Trinidad & Tobago</option>
+											<option>Tristan da Cunha</option>
+											<option>Tunisia</option>
+											<option>Turkey</option>
+											<option>Turkmenistan</option>
+											<option>Turks & Caicos Islands</option>
+											<option>Tuvalu</option>
+											<option>U.S. Outlying Islands</option>
+											<option>U.S. Virgin Islands</option>
+											<option>Uganda</option>
+											<option>Ukraine</option>
+											<option>United Arab Emirates</option>
+											<option>United Kingdom</option>
+											<option selected>United States</option>
+											<option>Uruguay</option>
+											<option>Uzbekistan</option>
+											<option>Vanuatu</option>
+											<option>Vatican City</option>
+											<option>Venezuela</option>
+											<option>Vietnam</option>
+											<option>Wallis & Futuna</option>
+											<option>Western Sahara</option>
+											<option>Yemen</option>
+											<option>Zambia</option>
+											<option>Zimbabwe</option>
+										</select>
+										<label for="complainant_country" class="input-label-format selectLabel input-label-format-null">Country</label>
 									</div>
 								</div>
+							</div>
 
-								<div class="form-group row col-12">
-									<div class="form-group-title" v-bind:class="{'mb-2': complaintViewFormRespondantEdit, 'mb-3': !complaintViewFormRespondantEdit}">
+							<div class="row col-lg-6 col-12 m-0 pl-md-1 pl-0 pr-0">
+								<div class="form-group row">
+									<div class="form-group-title mb-3">
 										<span class="form-group-title-text">Respondent</span>
 									</div>
 
@@ -809,52 +1157,38 @@
 										</div>
 									</div>
 
-									<div class="app-page-content-question col-md-4 col-sm-12">
-										<input type="text" id="respondent_first_name" name="respondent_first_name" class="col input-field input-format input-required" aria-label="* First Name" v-bind:disabled="!complaintViewFormRespondantEdit">
-										<label for="respondent_first_name" class="input-label-format input-label-format-null input-label-format-required">First Name</label>
-										<div class="input-required-text">* First Name is required</div>
+									<div class="app-page-content-question col-md-12 col-sm-12">
+										<input type="text" id="respondent_organization_name" name="respondent_organization_name" class="col input-field input-format" v-bind:disabled="!complaintViewFormRespondantEdit">
+										<label for="respondent_organization_name" class="input-label-format input-label-format-null">Organization Name</label>
 									</div>
 
-									<div class="app-page-content-question col-md-3 col-sm-12">
-										<input type="text" id="respondent_middle_initial" name="respondent_middle_initial" class="col input-field input-format" maxlength="1" v-bind:disabled="!complaintViewFormRespondantEdit">
-										<label for="respondent_middle_initial" class="input-label-format input-label-format-null">Middle Initial</label>
-									</div>
-
-									<div class="app-page-content-question col-md-5 col-sm-12">
-										<input type="text" id="respondent_last_name" name="respondent_last_name" class="col input-field input-format input-required" aria-label="* Last Name" v-bind:disabled="!complaintViewFormRespondantEdit">
-										<label for="respondent_last_name" class="input-label-format input-label-format-null input-label-format-required">Last Name</label>
-										<div class="input-required-text">* Last Name is required</div>
-									</div>
-
-									<div class="app-page-content-question col-md-7 col-sm-12">
+									<div class="app-page-content-question col-md-6 col-sm-12">
 										<input type="email" id="respondent_email" name="respondent_email" class="col input-field input-format" v-bind:disabled="!complaintViewFormRespondantEdit">
 										<label for="respondent_email" class="input-label-format input-label-format-null">Email</label>
 									</div>
 
-									<div class="app-page-content-question col-md-5 col-sm-12">
+									<div class="app-page-content-question col-md-6 col-sm-12">
 										<input type="tel" id="respondent_phone" name="respondent_phone" class="col input-field input-format input-field-phone" v-bind:disabled="!complaintViewFormRespondantEdit">
 										<label for="respondent_phone" class="input-label-format input-label-format-null">Phone Number</label>
 									</div>
 
-									<div class="app-page-content-question col-md-7 col-sm-12">
-										<input type="text" id="respondent_address_line_1" name="respondent_address_line_1" class="col input-field input-format input-required" aria-label="* Address Line 1" v-bind:disabled="!complaintViewFormRespondantEdit">
-										<label for="respondent_address_line_1" class="input-label-format input-label-format-null input-label-format-required">Address Line 1</label>
-										<div class="input-required-text">* Address Line 1 is required</div>
+									<div class="app-page-content-question col-md-6 col-sm-12">
+										<input type="text" id="respondent_address_line_1" name="respondent_address_line_1" class="col input-field input-format" v-bind:disabled="!complaintViewFormRespondantEdit">
+										<label for="respondent_address_line_1" class="input-label-format input-label-format-null">Address Line 1</label>
 									</div>
 
-									<div class="app-page-content-question col-md-5 col-sm-12">
+									<div class="app-page-content-question col-md-6 col-sm-12">
 										<input type="text" id="respondent_address_line_2" name="respondent_address_line_2" class="col input-field input-format" v-bind:disabled="!complaintViewFormRespondantEdit">
 										<label for="respondent_address_line_2" class="input-label-format input-label-format-null">Address Line 2</label>
 									</div>
 
-									<div class="app-page-content-question col-md-7 col-sm-12">
-										<input type="text" id="respondent_city" name="respondent_city" class="col input-field input-format input-required" aria-label="* City" v-bind:disabled="!complaintViewFormRespondantEdit">
-										<label for="respondent_city" class="input-label-format input-label-format-null input-label-format-required">City</label>
-										<div class="input-required-text">* City is required</div>
+									<div class="app-page-content-question col-md-6 col-sm-12">
+										<input type="text" id="respondent_city" name="respondent_city" class="col input-field input-format" v-bind:disabled="!complaintViewFormRespondantEdit">
+										<label for="respondent_city" class="input-label-format input-label-format-null">City</label>
 									</div>
 
-									<div class="app-page-content-question col-md-5 col-sm-12">
-										<select id="respondent_state" name="respondent_state" class="col input-field input-format-select input-required" aria-label="* State" v-bind:disabled="!complaintViewFormRespondantEdit">
+									<div class="app-page-content-question col-md-6 col-sm-12">
+										<select id="respondent_state" name="respondent_state" class="col input-field input-format-select" v-bind:disabled="!complaintViewFormRespondantEdit">
 											<option></option>
 											<option>Alabama</option>
 											<option>Alaska</option>
@@ -907,156 +1241,453 @@
 											<option>Wisconsin</option>
 											<option>Wyoming</option>
 										</select>
-										<label for="respondent_state" class="input-label-format selectLabel input-label-format-null input-label-format-required">State</label>
-										<div class="input-required-select">* State is required</div>
+										<label for="respondent_state" class="input-label-format selectLabel input-label-format-null">State</label>
+									</div>
+
+									<div class="app-page-content-question col-md-6 col-sm-12">
+										<input type="text" id="respondent_zip" name="respondent_zip" class="col input-field input-format input-field-zip" v-bind:disabled="!complaintViewFormRespondantEdit">
+										<label for="respondent_zip" class="input-label-format input-label-format-null">Zip</label>
+									</div>
+
+									<div class="app-page-content-question col-md-6 col-sm-12">
+										<select id="respondent_country" name="respondent_country" class="col input-field input-format-select" v-bind:disabled="!complaintViewFormRespondantEdit">
+											<option></option>
+											<option>Afghanistan</option>
+											<option>Åland Islands</option>
+											<option>Albania</option>
+											<option>Algeria</option>
+											<option>American Samoa</option>
+											<option>Andorra</option>
+											<option>Angola</option>
+											<option>Anguilla</option>
+											<option>Antarctica</option>
+											<option>Antigua & Barbuda</option>
+											<option>Argentina</option>
+											<option>Armenia</option>
+											<option>Aruba</option>
+											<option>Ascension Island</option>
+											<option>Australia</option>
+											<option>Austria</option>
+											<option>Azerbaijan</option>
+											<option>Bahamas</option>
+											<option>Bahrain</option>
+											<option>Bangladesh</option>
+											<option>Barbados</option>
+											<option>Belarus</option>
+											<option>Belgium</option>
+											<option>Belize</option>
+											<option>Benin</option>
+											<option>Bermuda</option>
+											<option>Bhutan</option>
+											<option>Bolivia</option>
+											<option>Bosnia & Herzegovina</option>
+											<option>Botswana</option>
+											<option>Brazil</option>
+											<option>British Indian Ocean Territory</option>
+											<option>British Virgin Islands</option>
+											<option>Brunei</option>
+											<option>Bulgaria</option>
+											<option>Burkina Faso</option>
+											<option>Burundi</option>
+											<option>Cambodia</option>
+											<option>Cameroon</option>
+											<option>Canada</option>
+											<option>Canary Islands</option>
+											<option>Cape Verde</option>
+											<option>Caribbean Netherlands</option>
+											<option>Cayman Islands</option>
+											<option>Central African Republic</option>
+											<option>Ceuta & Melilla</option>
+											<option>Chad</option>
+											<option>Chile</option>
+											<option>China</option>
+											<option>Christmas Island</option>
+											<option>Cocos (Keeling) Islands</option>
+											<option>Colombia</option>
+											<option>Comoros</option>
+											<option>Congo - Brazzaville</option>
+											<option>Congo - Kinshasa</option>
+											<option>Cook Islands</option>
+											<option>Costa Rica</option>
+											<option>Côte d’Ivoire</option>
+											<option>Croatia</option>
+											<option>Cuba</option>
+											<option>Curaçao</option>
+											<option>Cyprus</option>
+											<option>Czechia</option>
+											<option>Denmark</option>
+											<option>Diego Garcia</option>
+											<option>Djibouti</option>
+											<option>Dominica</option>
+											<option>Dominican Republic</option>
+											<option>Ecuador</option>
+											<option>Egypt</option>
+											<option>El Salvador</option>
+											<option>Equatorial Guinea</option>
+											<option>Eritrea</option>
+											<option>Estonia</option>
+											<option>Eswatini</option>
+											<option>Ethiopia</option>
+											<option>Falkland Islands</option>
+											<option>Faroe Islands</option>
+											<option>Fiji</option>
+											<option>Finland</option>
+											<option>France</option>
+											<option>French Guiana</option>
+											<option>French Polynesia</option>
+											<option>French Southern Territories</option>
+											<option>Gabon</option>
+											<option>Gambia</option>
+											<option>Georgia</option>
+											<option>Germany</option>
+											<option>Ghana</option>
+											<option>Gibraltar</option>
+											<option>Greece</option>
+											<option>Greenland</option>
+											<option>Grenada</option>
+											<option>Guadeloupe</option>
+											<option>Guam</option>
+											<option>Guatemala</option>
+											<option>Guernsey</option>
+											<option>Guinea</option>
+											<option>Guinea-Bissau</option>
+											<option>Guyana</option>
+											<option>Haiti</option>
+											<option>Honduras</option>
+											<option>Hong Kong SAR China</option>
+											<option>Hungary</option>
+											<option>Iceland</option>
+											<option>India</option>
+											<option>Indonesia</option>
+											<option>Iran</option>
+											<option>Iraq</option>
+											<option>Ireland</option>
+											<option>Isle of Man</option>
+											<option>Israel</option>
+											<option>Italy</option>
+											<option>Jamaica</option>
+											<option>Japan</option>
+											<option>Jersey</option>
+											<option>Jordan</option>
+											<option>Kazakhstan</option>
+											<option>Kenya</option>
+											<option>Kiribati</option>
+											<option>Kosovo</option>
+											<option>Kuwait</option>
+											<option>Kyrgyzstan</option>
+											<option>Laos</option>
+											<option>Latvia</option>
+											<option>Lebanon</option>
+											<option>Lesotho</option>
+											<option>Liberia</option>
+											<option>Libya</option>
+											<option>Liechtenstein</option>
+											<option>Lithuania</option>
+											<option>Luxembourg</option>
+											<option>Macao SAR China</option>
+											<option>Madagascar</option>
+											<option>Malawi</option>
+											<option>Malaysia</option>
+											<option>Maldives</option>
+											<option>Mali</option>
+											<option>Malta</option>
+											<option>Marshall Islands</option>
+											<option>Martinique</option>
+											<option>Mauritania</option>
+											<option>Mauritius</option>
+											<option>Mayotte</option>
+											<option>Mexico</option>
+											<option>Micronesia</option>
+											<option>Moldova</option>
+											<option>Monaco</option>
+											<option>Mongolia</option>
+											<option>Montenegro</option>
+											<option>Montserrat</option>
+											<option>Morocco</option>
+											<option>Mozambique</option>
+											<option>Myanmar (Burma)</option>
+											<option>Namibia</option>
+											<option>Nauru</option>
+											<option>Nepal</option>
+											<option>Netherlands</option>
+											<option>New Caledonia</option>
+											<option>New Zealand</option>
+											<option>Nicaragua</option>
+											<option>Niger</option>
+											<option>Nigeria</option>
+											<option>Niue</option>
+											<option>Norfolk Island</option>
+											<option>North Korea</option>
+											<option>North Macedonia</option>
+											<option>Northern Mariana Islands</option>
+											<option>Norway</option>
+											<option>Oman</option>
+											<option>Pakistan</option>
+											<option>Palau</option>
+											<option>Palestinian Territories</option>
+											<option>Panama</option>
+											<option>Papua New Guinea</option>
+											<option>Paraguay</option>
+											<option>Peru</option>
+											<option>Philippines</option>
+											<option>Pitcairn Islands</option>
+											<option>Poland</option>
+											<option>Portugal</option>
+											<option>Pseudo-Accents</option>
+											<option>Pseudo-Bidi</option>
+											<option>Puerto Rico</option>
+											<option>Qatar</option>
+											<option>Réunion</option>
+											<option>Romania</option>
+											<option>Russia</option>
+											<option>Rwanda</option>
+											<option>Samoa</option>
+											<option>San Marino</option>
+											<option>São Tomé & Príncipe</option>
+											<option>Saudi Arabia</option>
+											<option>Senegal</option>
+											<option>Serbia</option>
+											<option>Seychelles</option>
+											<option>Sierra Leone</option>
+											<option>Singapore</option>
+											<option>Sint Maarten</option>
+											<option>Slovakia</option>
+											<option>Slovenia</option>
+											<option>Solomon Islands</option>
+											<option>Somalia</option>
+											<option>South Africa</option>
+											<option>South Georgia & South Sandwich Islands</option>
+											<option>South Korea</option>
+											<option>South Sudan</option>
+											<option>Spain</option>
+											<option>Sri Lanka</option>
+											<option>St. Barthélemy</option>
+											<option>St. Helena</option>
+											<option>St. Kitts & Nevis</option>
+											<option>St. Lucia</option>
+											<option>St. Martin</option>
+											<option>St. Pierre & Miquelon</option>
+											<option>St. Vincent & Grenadines</option>
+											<option>Sudan</option>
+											<option>Suriname</option>
+											<option>Svalbard & Jan Mayen</option>
+											<option>Sweden</option>
+											<option>Switzerland</option>
+											<option>Syria</option>
+											<option>Taiwan</option>
+											<option>Tajikistan</option>
+											<option>Tanzania</option>
+											<option>Thailand</option>
+											<option>Timor-Leste</option>
+											<option>Togo</option>
+											<option>Tokelau</option>
+											<option>Tonga</option>
+											<option>Trinidad & Tobago</option>
+											<option>Tristan da Cunha</option>
+											<option>Tunisia</option>
+											<option>Turkey</option>
+											<option>Turkmenistan</option>
+											<option>Turks & Caicos Islands</option>
+											<option>Tuvalu</option>
+											<option>U.S. Outlying Islands</option>
+											<option>U.S. Virgin Islands</option>
+											<option>Uganda</option>
+											<option>Ukraine</option>
+											<option>United Arab Emirates</option>
+											<option>United Kingdom</option>
+											<option selected>United States</option>
+											<option>Uruguay</option>
+											<option>Uzbekistan</option>
+											<option>Vanuatu</option>
+											<option>Vatican City</option>
+											<option>Venezuela</option>
+											<option>Vietnam</option>
+											<option>Wallis & Futuna</option>
+											<option>Western Sahara</option>
+											<option>Yemen</option>
+											<option>Zambia</option>
+											<option>Zimbabwe</option>
+										</select>
+										<label for="respondent_country" class="input-label-format selectLabel input-label-format-null">Country</label>
+									</div>
+
+									<!-- <div class="app-page-content-question col-md-7 col-sm-12">
+										<input type="text" id="respondent_first_name" name="respondent_first_name" class="col input-field input-format" v-bind:disabled="!complaintViewFormRespondantEdit">
+										<label for="respondent_first_name" class="input-label-format input-label-format-null">First Name</label>
 									</div>
 
 									<div class="app-page-content-question col-md-5 col-sm-12">
-										<input type="text" id="respondent_zip" name="respondent_zip" class="col input-field input-format input-required input-field-zip" aria-label="* Zip" v-bind:disabled="!complaintViewFormRespondantEdit">
-										<label for="respondent_zip" class="input-label-format input-label-format-null input-label-format-required">Zip</label>
-										<div class="input-required-text">* Zip is required</div>
-									</div>
-								</div>
-
-								<div class="form-group row">
-									<div class="form-group-title" v-bind:class="{'mb-2': complaintViewFormDescriptionEdit, 'mb-3': !complaintViewFormDescriptionEdit}">
-										<span class="form-group-title-text">Complaint Description</span>
+										<input type="text" id="respondent_last_name" name="respondent_last_name" class="col input-field input-format" v-bind:disabled="!complaintViewFormRespondantEdit">
+										<label for="respondent_last_name" class="input-label-format input-label-format-null">Last Name</label>
 									</div>
 
-									<div class="form-group-divider">
-										<div class="form-group-divider-edit" v-cloak>
-											<svg v-show="!complaintViewFormDescriptionEdit" @click="complaintViewFormDescriptionEdit = !complaintViewFormDescriptionEdit" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
-											<svg v-show="complaintViewFormDescriptionEdit" @click="complaintViewFormDescriptionEdit = !complaintViewFormDescriptionEdit"  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-square"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="9" x2="15" y2="15"></line><line x1="15" y1="9" x2="9" y2="15"></line></svg>
-										</div>
-									</div>
-
-									<div class="app-page-content-question col-12">
-										<textarea id="complaint_description" name="complaint_description" class="col input-format-textarea input-field input-required" maxlength="4000" rows="6" cols="1000" aria-label="* Describe Your Request" v-bind:disabled="!complaintViewFormDescriptionEdit">This is a test Complaint Description. This is where a Complaint Description will go.</textarea>
-										<label for="complaint_description" class="input-label-format input-label-format-required input-label-format-null">Complaint Description</label>
-									</div>
-								</div>
-
-								<div class="app-page-content-row-buttons row justify-content-center">
-									<button id="btn-complaint-update" class="btn-main text-center btn-submit" type="button">Save & Update</button>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div v-show="complaintViewFormTab === 'followup'">
-						<!-- <div class="complaint-form-main-title container justify-content-center text-center">
-							<h1>Follow-Up</h1>
-						</div> -->
-
-						<div class="complaint-form-page-content container justify-content-center">
-							<div class="container">
-								<div class="row">
-									<div class="app-page-content-question col-12">
-										<textarea id="inputRequestReason3" name="request_reason" class="col input-format-textarea input-field input-required" maxlength="4000" rows="6" cols="1000" aria-label="* Describe Your Request"></textarea>
-										<label for="inputRequestReason3" class="input-label-format input-label-format-required input-label-format-null">Describe Your Request</label>
-										<div class="input-required-textarea">* Request Description is required</div>
-									</div>
-								</div>
-
-								<div class="app-page-content-row-buttons row justify-content-center">
-									<button id="btn-complaint-update1" class="btn-main text-center btn-submit" type="button">Save & Update</button>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div v-show="complaintViewFormTab === 'referrals'">
-						<!-- <div class="complaint-form-main-title container justify-content-center text-center">
-							<h1>Referrals</h1>
-						</div> -->
-
-						<div class="complaint-form-page-content container justify-content-center">
-							<div class="container">
-								<div class="row">
-									<div class="app-page-content-question col-md-4 col-sm-12">
-										<input type="text" id="inputFirstName4" name="first_name" class="col input-field input-format input-required" aria-label="* First Name">
-										<label for="inputFirstName4" class="input-label-format input-label-format-null input-label-format-required">First Name</label>
-										<div class="input-required-text">* First Name is required</div>
-									</div>
-
-									<div class="app-page-content-question col-md-3 col-sm-12">
-										<input type="text" id="inputMiddleInitial4" name="middle_initial" class="col input-field input-format" maxlength="1">
-										<label for="inputMiddleInitial4" class="input-label-format input-label-format-null">Middle Initial</label>
+									<div class="app-page-content-question col-md-7 col-sm-12">
+										<input type="email" id="respondent_email" name="respondent_email" class="col input-field input-format" v-bind:disabled="!complaintViewFormRespondantEdit">
+										<label for="respondent_email" class="input-label-format input-label-format-null">Email</label>
 									</div>
 
 									<div class="app-page-content-question col-md-5 col-sm-12">
-										<input type="text" id="inputLastName4" name="last_name" class="col input-field input-format input-required" aria-label="* Last Name">
-										<label for="inputLastName4" class="input-label-format input-label-format-null input-label-format-required">Last Name</label>
-										<div class="input-required-text">* Last Name is required</div>
-									</div>
-								</div>
-
-								<div class="row">
-									<div class="app-page-content-question col-12">
-										<textarea id="inputRequestReason4" name="request_reason" class="col input-format-textarea input-field input-required" maxlength="4000" rows="6" cols="1000" aria-label="* Describe Your Request"></textarea>
-										<label for="inputRequestReason4" class="input-label-format input-label-format-required input-label-format-null">Describe Your Request</label>
-										<div class="input-required-textarea">* Request Description is required</div>
-									</div>
-								</div>
-
-								<div class="app-page-content-row-buttons row justify-content-center">
-									<button id="btn-complaint-update2" class="btn-main text-center btn-submit" type="button">Save & Update</button>
+										<input type="tel" id="respondent_phone" name="respondent_phone" class="col input-field input-format input-field-phone" v-bind:disabled="!complaintViewFormRespondantEdit">
+										<label for="respondent_phone" class="input-label-format input-label-format-null">Phone Number</label>
+									</div> -->
 								</div>
 							</div>
-						</div>
-					</div>
 
-					<div v-show="complaintViewFormTab === 'notes'">
-						<!-- <div class="complaint-form-main-title container justify-content-center text-center">
-							<h1>Notes</h1>
-						</div> -->
+							<div class="form-group row col-12">
+								<div class="form-group-title mb-3">
+									<span class="form-group-title-text">Complaint Description</span>
+								</div>
 
-						<div class="complaint-form-page-content container justify-content-center">
-							<div class="container">
-								<div class="row">
-									<div class="app-page-content-question col-md-4 col-sm-12">
-										<input type="text" id="inputFirstName5" name="first_name" class="col input-field input-format input-required" aria-label="* First Name">
-										<label for="inputFirstName5" class="input-label-format input-label-format-null input-label-format-required">First Name</label>
-										<div class="input-required-text">* First Name is required</div>
-									</div>
-
-									<div class="app-page-content-question col-md-3 col-sm-12">
-										<input type="text" id="inputMiddleInitial5" name="middle_initial" class="col input-field input-format" maxlength="1">
-										<label for="inputMiddleInitial5" class="input-label-format input-label-format-null">Middle Initial</label>
-									</div>
-
-									<div class="app-page-content-question col-md-5 col-sm-12">
-										<input type="text" id="inputLastName5" name="last_name" class="col input-field input-format input-required" aria-label="* Last Name">
-										<label for="inputLastName5" class="input-label-format input-label-format-null input-label-format-required">Last Name</label>
-										<div class="input-required-text">* Last Name is required</div>
+								<div class="form-group-divider">
+									<div class="form-group-divider-edit" v-cloak>
+										<svg v-show="!complaintViewFormDescriptionEdit" @click="complaintViewFormDescriptionEdit = !complaintViewFormDescriptionEdit" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+										<svg v-show="complaintViewFormDescriptionEdit" @click="complaintViewFormDescriptionEdit = !complaintViewFormDescriptionEdit"  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-square"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="9" x2="15" y2="15"></line><line x1="15" y1="9" x2="9" y2="15"></line></svg>
 									</div>
 								</div>
 
-								<div class="app-page-content-row-buttons row justify-content-center">
-									<button id="btn-complaint-update3" class="btn-main text-center btn-submit" type="button">Save & Update</button>
+								<div class="app-page-content-question col-12">
+									<textarea id="complaint_description" name="complaint_description" class="col input-format-textarea input-field input-required" maxlength="4000" rows="6" cols="1000" v-bind:disabled="!complaintViewFormDescriptionEdit">This is a test Complaint Description. This is where a Complaint Description will go. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga exercitationem quibusdam quis dolore! Vel quas nam, animi saepe ab praesentium fugiat eum quia atque eligendi, sed cum deleniti neque voluptatum. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga exercitationem quibusdam quis dolore! Vel quas nam, animi saepe ab praesentium fugiat eum quia atque eligendi, sed cum deleniti neque voluptatum. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga exercitationem quibusdam quis dolore! Vel quas nam, animi saepe ab praesentium fugiat eum quia atque eligendi, sed cum deleniti neque voluptatum.</textarea>
+									<label for="complaint_description" class="input-label-format input-label-format-required input-label-format-null">Complaint Description</label>
 								</div>
 							</div>
-						</div>
-					</div>
 
-					<div v-show="complaintViewFormTab === 'history'">
-						<!-- <div class="complaint-form-main-title container justify-content-center text-center">
-							<h1>History</h1>
-						</div> -->
-
-						<div class="complaint-form-page-content container justify-content-center">
-							<div class="container">
-								<div class="row">
-									<div class="app-page-content-question col-md-3 col-sm-12">
-										<input type="text" id="inputMiddleInitial6" name="middle_initial" class="col input-field input-format" maxlength="1">
-										<label for="inputMiddleInitial6" class="input-label-format input-label-format-null">Middle Initial</label>
-									</div>
+							<div class="form-group row col-12">
+								<div class="form-group-title mb-2">
+									<span class="form-group-title-text">Referrals</span>
 								</div>
 
-								<div class="app-page-content-row-buttons row justify-content-center">
-									<button id="btn-complaint-update4" class="btn-main text-center btn-submit" type="button">Save & Update</button>
+								<div class="form-group-divider"></div>
+
+								<!-- <div class="app-page-content-question col-6">
+									<input type="text" id="date_of_referral_usdol" name="date_of_referral_usdol" class="col input-field input-format input-field-date" placeholder="mm/dd/yyyy">
+									<label for="date_of_referral_usdol" class="input-label-format input-label-format-null">referral_usdol</label>
+								</div>
+
+								<div class="app-page-content-question col-6">
+									<input type="text" id="date_of_referral_osha" name="date_of_referral_osha" class="col input-field input-format input-field-date" placeholder="mm/dd/yyyy">
+									<label for="date_of_referral_osha" class="input-label-format input-label-format-null">referral_osha</label>
+								</div>
+
+								<div class="app-page-content-question col-6">
+									<input type="text" id="date_of_referral_mdard" name="date_of_referral_mdard" class="col input-field input-format input-field-date" placeholder="mm/dd/yyyy">
+									<label for="date_of_referral_mdard" class="input-label-format input-label-format-null">referral_mdard</label>
+								</div>
+
+								<div class="app-page-content-question col-6">
+									<input type="text" id="date_of_referral_lara" name="date_of_referral_lara" class="col input-field input-format input-field-date" placeholder="mm/dd/yyyy">
+									<label for="date_of_referral_lara" class="input-label-format input-label-format-null">referral_lara</label>
+								</div>
+
+								<div class="app-page-content-question col-6">
+									<input type="text" id="date_of_referral_mdcr" name="date_of_referral_mdcr" class="col input-field input-format input-field-date" placeholder="mm/dd/yyyy">
+									<label for="date_of_referral_mdcr" class="input-label-format input-label-format-null">referral_mdcr</label>
+								</div>
+
+								<div class="app-page-content-question col-6">
+									<input type="text" id="date_of_referral_eeoc" name="date_of_referral_eeoc" class="col input-field input-format input-field-date" placeholder="mm/dd/yyyy">
+									<label for="date_of_referral_eeoc" class="input-label-format input-label-format-null">referral_eeoc</label>
+								</div>
+
+								<div class="app-page-content-question col-6">
+									<input type="text" id="date_of_referral_other" name="date_of_referral_other" class="col input-field input-format input-field-date" placeholder="mm/dd/yyyy">
+									<label for="date_of_referral_other" class="input-label-format input-label-format-null">referral_other</label>
+								</div> -->
+
+								<div class="app-page-content-question col-6">
+									<fieldset class="input-fieldset-checkbox">
+										<legend class="input-fieldset-checkbox-label">Referred To</legend>
+
+										<label class="input-label-format-checkbox" for="referral_usdol">
+											<input type="checkbox" id="referral_usdol">
+											<div class="input-format-checkbox-display">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+											</div>
+											<span class="input-label-format-checkbox-text">Employment Standards (USDOL)</span>
+										</label>
+
+										<label class="input-label-format-checkbox" for="referral_osha">
+											<input type="checkbox" id="referral_osha">
+											<div class="input-format-checkbox-display">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+											</div>
+											<span class="input-label-format-checkbox-text">OSHA</span>
+										</label>
+
+										<label class="input-label-format-checkbox" for="referral_mdard">
+											<input type="checkbox" id="referral_mdard">
+											<div class="input-format-checkbox-display">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+											</div>
+											<span class="input-label-format-checkbox-text">MDARD</span>
+										</label>
+
+										<label class="input-label-format-checkbox" for="referral_lara">
+											<input type="checkbox" id="referral_lara">
+											<div class="input-format-checkbox-display">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+											</div>
+											<span class="input-label-format-checkbox-text">LARA Wage Hour</span>
+										</label>
+
+										<label class="input-label-format-checkbox" for="referral_mdcr">
+											<input type="checkbox" id="referral_mdcr">
+											<div class="input-format-checkbox-display">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+											</div>
+											<span class="input-label-format-checkbox-text">MDCR</span>
+										</label>
+
+										<label class="input-label-format-checkbox" for="referral_eeoc">
+											<input type="checkbox" id="referral_eeoc">
+											<div class="input-format-checkbox-display">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+											</div>
+											<span class="input-label-format-checkbox-text">EEOC</span>
+										</label>
+
+										<label class="input-label-format-checkbox" for="referral_other">
+											<input type="checkbox" id="referral_other">
+											<div class="input-format-checkbox-display">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+											</div>
+											<span class="input-label-format-checkbox-text">Other</span>
+										</label>
+									</fieldset>
+								</div>
+
+								<div class="app-page-content-question col-12">
+									<input type="text" id="referred_to_other_description" name="referred_to_other_description" class="col input-field input-format">
+									<label for="referred_to_other_description" class="input-label-format input-label-format-null">Referred To Other Description</label>
 								</div>
 							</div>
+
+							<div class="form-group row col-12">
+								<div class="form-group-title mb-2">
+									<span class="form-group-title-text">Notes</span>
+								</div>
+
+								<div class="form-group-divider"></div>
+
+								<div class="app-page-content-question col-12">
+									notes
+								</div>
+							</div>
+
+							<div class="form-group row col-12">
+								<div class="form-group-title mb-2">
+									<span class="form-group-title-text">History</span>
+								</div>
+
+								<div class="form-group-divider"></div>
+
+								<div class="app-page-content-question col-12">
+									history
+								</div>
+							</div>
+
+							<!-- <div class="app-page-content-row-buttons row justify-content-center">
+								<button id="btn-complaint-update" class="btn-main text-center btn-submit" type="button">Save & Update</button>
+							</div> -->
 						</div>
 					</div>
 
@@ -1145,7 +1776,7 @@
 									<div class="status-text text-left">{{complaint.status}}</div>
 								</td>
 								<td class="row-col-3 row-type text-center">{{complaint.type}}</td>
-								<td class="row-col-4 row-complainant">{{complaint.claimanant}}</td>
+								<td class="row-col-4 row-complainant">{{complaint.complainant}}</td>
 								<td class="row-col-5 row-respondent">{{complaint.respondent}}</td>
 								<td class="row-col-6 row-msfw text-center">{{complaint.msfw}}</td>
 								<td class="row-col-7 row-filed-date text-center">{{complaint.filed_date}}</td>

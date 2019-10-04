@@ -92,8 +92,7 @@ var MainVue = new Vue({
 			'index',
 			'complaint',
 			'complaint-view',
-			'logs',
-			'manage'
+			'logs'
 		],
 		modal: false,
 		page: 0,
@@ -101,12 +100,13 @@ var MainVue = new Vue({
 		loadingLogin: false,
 		showLoginError: false,
 		loggedIn: true,
+		showUserPopup: false,
 		dashTablePage: 1,
 		complaints: [
 			{
 				id: '1',
 				type: 'complaint',
-				claimanant: 'Neils Millard',
+				complainant: 'Neils Millard',
 				respondent: 'Fivebridge',
 				msfw: 'No',
 				filed_date: '02/17/2019',
@@ -115,7 +115,7 @@ var MainVue = new Vue({
 			{
 				id: '2',
 				type: 'complaint',
-				claimanant: 'Briant Gascoyen',
+				complainant: 'Briant Gascoyen',
 				respondent: 'Jamia',
 				msfw: 'No',
 				filed_date: '11/25/2018',
@@ -124,7 +124,7 @@ var MainVue = new Vue({
 			{
 				id: '3',
 				type: 'pending',
-				claimanant: 'Evyn Carrel',
+				complainant: 'Evyn Carrel',
 				respondent: 'Tagopia',
 				msfw: 'Yes',
 				filed_date: '02/05/2019',
@@ -133,7 +133,7 @@ var MainVue = new Vue({
 			{
 				id: '4',
 				type: 'violation',
-				claimanant: 'Roxanne Wogan',
+				complainant: 'Roxanne Wogan',
 				respondent: 'Kaymbo',
 				msfw: 'No',
 				filed_date: '12/15/2018',
@@ -142,7 +142,7 @@ var MainVue = new Vue({
 			{
 				id: '5',
 				type: 'complaint',
-				claimanant: 'Nikolaos Badcock',
+				complainant: 'Nikolaos Badcock',
 				respondent: 'Shufflebeat',
 				msfw: 'Yes',
 				filed_date: '11/28/2018',
@@ -151,7 +151,7 @@ var MainVue = new Vue({
 			{
 				id: '6',
 				type: 'complaint',
-				claimanant: 'Kelcey Hanks',
+				complainant: 'Kelcey Hanks',
 				respondent: 'Gabtune',
 				msfw: 'No',
 				filed_date: '06/17/2019',
@@ -160,7 +160,7 @@ var MainVue = new Vue({
 			{
 				id: '7',
 				type: 'complaint',
-				claimanant: 'Karyl Vanyushin',
+				complainant: 'Karyl Vanyushin',
 				respondent: 'Realfire',
 				msfw: 'Yes',
 				filed_date: '03/13/2019',
@@ -169,7 +169,7 @@ var MainVue = new Vue({
 			{
 				id: '8',
 				type: 'violation',
-				claimanant: 'Artie Algate',
+				complainant: 'Artie Algate',
 				respondent: 'Gabtype',
 				msfw: 'No',
 				filed_date: '11/09/2018',
@@ -178,7 +178,7 @@ var MainVue = new Vue({
 			{
 				id: '9',
 				type: 'pending',
-				claimanant: 'Theodoric Langland',
+				complainant: 'Theodoric Langland',
 				respondent: 'Tazz',
 				msfw: 'Yes',
 				filed_date: '05/16/2019',
@@ -187,7 +187,7 @@ var MainVue = new Vue({
 			{
 				id: '10',
 				type: 'violation',
-				claimanant: 'Tansy Ebbrell',
+				complainant: 'Tansy Ebbrell',
 				respondent: 'Yacero',
 				msfw: 'No',
 				filed_date: '11/11/2018',
@@ -196,7 +196,7 @@ var MainVue = new Vue({
 			{
 				id: '11',
 				type: 'complaint',
-				claimanant: 'Sharity Lenz',
+				complainant: 'Sharity Lenz',
 				respondent: 'Twitterwire',
 				msfw: 'Yes',
 				filed_date: '08/24/2018',
@@ -205,7 +205,7 @@ var MainVue = new Vue({
 			{
 				id: '12',
 				type: 'complaint',
-				claimanant: 'Perle Greedier',
+				complainant: 'Perle Greedier',
 				respondent: 'Agimba',
 				msfw: 'No',
 				filed_date: '10/10/2018',
@@ -214,7 +214,7 @@ var MainVue = new Vue({
 			{
 				id: '13',
 				type: 'complaint',
-				claimanant: 'Tomasina Burgh',
+				complainant: 'Tomasina Burgh',
 				respondent: 'Leexo',
 				msfw: 'Yes',
 				filed_date: '04/23/2019',
@@ -223,7 +223,7 @@ var MainVue = new Vue({
 			{
 				id: '14',
 				type: 'complaint',
-				claimanant: 'Kippy Dransfield',
+				complainant: 'Kippy Dransfield',
 				respondent: 'Leenti',
 				msfw: 'No',
 				filed_date: '08/14/2019',
@@ -232,7 +232,7 @@ var MainVue = new Vue({
 			{
 				id: '15',
 				type: 'complaint',
-				claimanant: 'Wendell Saltmarshe',
+				complainant: 'Wendell Saltmarshe',
 				respondent: 'Livepath',
 				msfw: 'No',
 				filed_date: '10/22/2018',
@@ -241,7 +241,7 @@ var MainVue = new Vue({
 			{
 				id: '16',
 				type: 'violation',
-				claimanant: 'Josias Titman',
+				complainant: 'Josias Titman',
 				respondent: 'Topicstorm',
 				msfw: 'No',
 				filed_date: '04/29/2019',
@@ -250,7 +250,7 @@ var MainVue = new Vue({
 			{
 				id: '17',
 				type: 'violation',
-				claimanant: 'Nelie Hyrons',
+				complainant: 'Nelie Hyrons',
 				respondent: 'Gevee',
 				msfw: 'Yes',
 				filed_date: '12/13/2018',
@@ -259,7 +259,7 @@ var MainVue = new Vue({
 			{
 				id: '18',
 				type: 'complaint',
-				claimanant: 'Batholomew Whacket',
+				complainant: 'Batholomew Whacket',
 				respondent: 'Feedbug',
 				msfw: 'Yes',
 				filed_date: '05/28/2019',
@@ -268,7 +268,7 @@ var MainVue = new Vue({
 			{
 				id: '19',
 				type: 'violation',
-				claimanant: 'Isaak Pealing',
+				complainant: 'Isaak Pealing',
 				respondent: 'Myworks',
 				msfw: 'No',
 				filed_date: '11/17/2018',
@@ -277,7 +277,7 @@ var MainVue = new Vue({
 			{
 				id: '20',
 				type: 'complaint',
-				claimanant: 'Codee Rispin',
+				complainant: 'Codee Rispin',
 				respondent: 'Layo',
 				msfw: 'No',
 				filed_date: '04/16/2019',
@@ -286,7 +286,7 @@ var MainVue = new Vue({
 			{
 				id: '21',
 				type: 'complaint',
-				claimanant: 'Carly Lace',
+				complainant: 'Carly Lace',
 				respondent: 'Realfire',
 				msfw: 'No',
 				filed_date: '04/29/2019',
@@ -295,7 +295,7 @@ var MainVue = new Vue({
 			{
 				id: '22',
 				type: 'complaint',
-				claimanant: 'Marchelle Menauteau',
+				complainant: 'Marchelle Menauteau',
 				respondent: 'Zava',
 				msfw: 'Yes',
 				filed_date: '01/13/2019',
@@ -304,7 +304,7 @@ var MainVue = new Vue({
 			{
 				id: '23',
 				type: 'violation',
-				claimanant: 'Beltran Philipet',
+				complainant: 'Beltran Philipet',
 				respondent: 'Quatz',
 				msfw: 'No',
 				filed_date: '04/17/2019',
@@ -313,7 +313,7 @@ var MainVue = new Vue({
 			{
 				id: '24',
 				type: 'violation',
-				claimanant: 'Robbyn Calken',
+				complainant: 'Robbyn Calken',
 				respondent: 'Riffpath',
 				msfw: 'No',
 				filed_date: '11/16/2018',
@@ -322,7 +322,7 @@ var MainVue = new Vue({
 			{
 				id: '25',
 				type: 'complaint',
-				claimanant: 'Hyacinthie Tudball',
+				complainant: 'Hyacinthie Tudball',
 				respondent: 'Skimia',
 				msfw: 'Yes',
 				filed_date: '09/03/2018',
@@ -331,7 +331,7 @@ var MainVue = new Vue({
 			{
 				id: '26',
 				type: 'complaint',
-				claimanant: 'Robinett Schultes',
+				complainant: 'Robinett Schultes',
 				respondent: 'Yozio',
 				msfw: 'No',
 				filed_date: '02/25/2019',
@@ -340,7 +340,7 @@ var MainVue = new Vue({
 			{
 				id: '27',
 				type: 'complaint',
-				claimanant: 'Urbanus Tattershall',
+				complainant: 'Urbanus Tattershall',
 				respondent: 'Tazzy',
 				msfw: 'No',
 				filed_date: '09/05/2018',
@@ -349,7 +349,7 @@ var MainVue = new Vue({
 			{
 				id: '28',
 				type: 'violation',
-				claimanant: 'Tristam Candey',
+				complainant: 'Tristam Candey',
 				respondent: 'Wikizz',
 				msfw: 'No',
 				filed_date: '10/18/2018',
@@ -358,7 +358,7 @@ var MainVue = new Vue({
 			{
 				id: '29',
 				type: 'complaint',
-				claimanant: 'Imojean Spicer',
+				complainant: 'Imojean Spicer',
 				respondent: 'Browsetype',
 				msfw: 'Yes',
 				filed_date: '04/21/2019',
@@ -367,7 +367,7 @@ var MainVue = new Vue({
 			{
 				id: '30',
 				type: 'complaint',
-				claimanant: 'Giffer Parlet',
+				complainant: 'Giffer Parlet',
 				respondent: 'Latz',
 				msfw: 'No',
 				filed_date: '02/10/2019',
@@ -376,7 +376,7 @@ var MainVue = new Vue({
 			{
 				id: '31',
 				type: 'complaint',
-				claimanant: 'Asher Courtman',
+				complainant: 'Asher Courtman',
 				respondent: 'Oyondu',
 				msfw: 'No',
 				filed_date: '06/24/2019',
@@ -385,7 +385,7 @@ var MainVue = new Vue({
 			{
 				id: '32',
 				type: 'violation',
-				claimanant: 'Estrella Tschierse',
+				complainant: 'Estrella Tschierse',
 				respondent: 'Camimbo',
 				msfw: 'No',
 				filed_date: '06/30/2019',
@@ -394,7 +394,7 @@ var MainVue = new Vue({
 			{
 				id: '33',
 				type: 'complaint',
-				claimanant: 'Fleurette Duesbury',
+				complainant: 'Fleurette Duesbury',
 				respondent: 'Kazu',
 				msfw: 'No',
 				filed_date: '02/02/2019',
@@ -403,7 +403,7 @@ var MainVue = new Vue({
 			{
 				id: '34',
 				type: 'complaint',
-				claimanant: 'Nancie Alexandrou',
+				complainant: 'Nancie Alexandrou',
 				respondent: 'Gabtune',
 				msfw: 'Yes',
 				filed_date: '12/23/2018',
@@ -412,7 +412,7 @@ var MainVue = new Vue({
 			{
 				id: '35',
 				type: 'complaint',
-				claimanant: 'Margaretha Youngs',
+				complainant: 'Margaretha Youngs',
 				respondent: 'Blogtag',
 				msfw: 'No',
 				filed_date: '06/08/2019',
@@ -421,7 +421,7 @@ var MainVue = new Vue({
 			{
 				id: '36',
 				type: 'complaint',
-				claimanant: 'Skelly Allsop',
+				complainant: 'Skelly Allsop',
 				respondent: 'Geba',
 				msfw: 'No',
 				filed_date: '10/19/2018',
@@ -430,7 +430,7 @@ var MainVue = new Vue({
 			{
 				id: '37',
 				type: 'complaint',
-				claimanant: 'Andreana Dunbleton',
+				complainant: 'Andreana Dunbleton',
 				respondent: 'Chatterpoint',
 				msfw: 'No',
 				filed_date: '07/08/2019',
@@ -439,7 +439,7 @@ var MainVue = new Vue({
 			{
 				id: '38',
 				type: 'complaint',
-				claimanant: 'Artie Algate',
+				complainant: 'Artie Algate',
 				respondent: 'Gabtype',
 				msfw: 'Yes',
 				filed_date: '11/09/2018',
@@ -448,7 +448,7 @@ var MainVue = new Vue({
 			{
 				id: '39',
 				type: 'complaint',
-				claimanant: 'Theodoric Langland',
+				complainant: 'Theodoric Langland',
 				respondent: 'Tazz',
 				msfw: 'No',
 				filed_date: '05/16/2019',
@@ -457,7 +457,7 @@ var MainVue = new Vue({
 			{
 				id: '40',
 				type: 'violation',
-				claimanant: 'Tansy Ebbrell',
+				complainant: 'Tansy Ebbrell',
 				respondent: 'Yacero',
 				msfw: 'No',
 				filed_date: '11/11/2018',
@@ -466,7 +466,7 @@ var MainVue = new Vue({
 			{
 				id: '41',
 				type: 'complaint',
-				claimanant: 'Sharity Lenz',
+				complainant: 'Sharity Lenz',
 				respondent: 'Twitterwire',
 				msfw: 'No',
 				filed_date: '08/24/2018',
@@ -475,7 +475,7 @@ var MainVue = new Vue({
 			{
 				id: '42',
 				type: 'complaint',
-				claimanant: 'Perle Greedier',
+				complainant: 'Perle Greedier',
 				respondent: 'Agimba',
 				msfw: 'No',
 				filed_date: '10/10/2018',
@@ -484,7 +484,7 @@ var MainVue = new Vue({
 			{
 				id: '43',
 				type: 'violation',
-				claimanant: 'Tomasina Burgh',
+				complainant: 'Tomasina Burgh',
 				respondent: 'Leexo',
 				msfw: 'Yes',
 				filed_date: '04/23/2019',
@@ -493,7 +493,7 @@ var MainVue = new Vue({
 			{
 				id: '44',
 				type: 'complaint',
-				claimanant: 'Kippy Dransfield',
+				complainant: 'Kippy Dransfield',
 				respondent: 'Leenti',
 				msfw: 'No',
 				filed_date: '08/14/2019',
@@ -502,7 +502,7 @@ var MainVue = new Vue({
 			{
 				id: '45',
 				type: 'violation',
-				claimanant: 'Wendell Saltmarshe',
+				complainant: 'Wendell Saltmarshe',
 				respondent: 'Livepath',
 				msfw: 'Yes',
 				filed_date: '10/22/2018',
@@ -511,7 +511,7 @@ var MainVue = new Vue({
 			{
 				id: '46',
 				type: 'complaint',
-				claimanant: 'Josias Titman',
+				complainant: 'Josias Titman',
 				respondent: 'Topicstorm',
 				msfw: 'Yes',
 				filed_date: '04/29/2019',
@@ -520,7 +520,7 @@ var MainVue = new Vue({
 			{
 				id: '47',
 				type: 'complaint',
-				claimanant: 'Nelie Hyrons',
+				complainant: 'Nelie Hyrons',
 				respondent: 'Gevee',
 				msfw: 'No',
 				filed_date: '12/13/2018',
@@ -529,7 +529,7 @@ var MainVue = new Vue({
 			{
 				id: '48',
 				type: 'complaint',
-				claimanant: 'Batholomew Whacket',
+				complainant: 'Batholomew Whacket',
 				respondent: 'Feedbug',
 				msfw: 'No',
 				filed_date: '05/28/2019',
@@ -538,7 +538,7 @@ var MainVue = new Vue({
 			{
 				id: '49',
 				type: 'complaint',
-				claimanant: 'Isaak Pealing',
+				complainant: 'Isaak Pealing',
 				respondent: 'Myworks',
 				msfw: 'Yes',
 				filed_date: '11/17/2018',
@@ -547,7 +547,7 @@ var MainVue = new Vue({
 			{
 				id: '50',
 				type: 'complaint',
-				claimanant: 'Codee Rispin',
+				complainant: 'Codee Rispin',
 				respondent: 'Layo',
 				msfw: 'No',
 				filed_date: '04/16/2019',
@@ -556,7 +556,7 @@ var MainVue = new Vue({
 			{
 				id: '51',
 				type: 'violation',
-				claimanant: 'Carly Lace',
+				complainant: 'Carly Lace',
 				respondent: 'Realfire',
 				msfw: 'No',
 				filed_date: '04/29/2019',
@@ -565,7 +565,7 @@ var MainVue = new Vue({
 			{
 				id: '52',
 				type: 'violation',
-				claimanant: 'Marchelle Menauteau',
+				complainant: 'Marchelle Menauteau',
 				respondent: 'Zava',
 				msfw: 'No',
 				filed_date: '01/13/2019',
@@ -574,7 +574,7 @@ var MainVue = new Vue({
 			{
 				id: '53',
 				type: 'complaint',
-				claimanant: 'Beltran Philipet',
+				complainant: 'Beltran Philipet',
 				respondent: 'Quatz',
 				msfw: 'No',
 				filed_date: '04/17/2019',
@@ -583,7 +583,7 @@ var MainVue = new Vue({
 			{
 				id: '54',
 				type: 'complaint',
-				claimanant: 'Robbyn Calken',
+				complainant: 'Robbyn Calken',
 				respondent: 'Riffpath',
 				msfw: 'No',
 				filed_date: '11/16/2018',
@@ -594,6 +594,7 @@ var MainVue = new Vue({
 		logsTableShowFilter: false,
 		logsTableShowPrintPredefinedDrop: false,
 		complaintViewFormTab: 'info',
+		complaintViewFormComplaintEdit: false,
 		complaintViewFormComplainantEdit: false,
 		complaintViewFormRespondantEdit: false,
 		complaintViewFormDescriptionEdit: false
@@ -606,7 +607,7 @@ var MainVue = new Vue({
 	},
 	computed: {
 		complaints_dashboard: function() {
-			return this.complaints.concat().sort((a, b) => (a.status > b.status) ? 1 : (a.status === b.status) ? ((parseInt(a.id) > parseInt(b.id)) ? 1 : -1) : -1 ).slice(0, 17);
+			return this.complaints.concat().sort((a, b) => (a.status > b.status) ? 1 : (a.status === b.status) ? ((parseInt(a.id) > parseInt(b.id)) ? 1 : -1) : -1 ).slice(0, 15);
 		}
 	}
 });
@@ -627,7 +628,7 @@ window.addEventListener('load', function() {
 	SubmitButtonListener();
 	
 	// Check if fields start with values set and set label appropriately
-	Array.from(document.querySelectorAll('.input-format, .input-format-select, .input-format-textarea')).forEach(function(element){CheckFieldChanged(element)})
+	Array.from(document.querySelectorAll('.input-format, .input-format-select, .input-format-textarea')).forEach(function(element) { CheckFieldChanged(element) });
 });
 
 function GetUrlParams() {
@@ -668,7 +669,7 @@ function InitFieldListeners() {
 }
 
 function SubmitButtonListener() {
-	Array.from(document.getElementsByClassName('btn-submit')).forEach(function(submit_button) {
+	Array.from(document.getElementsByClassName('btn-submit_test')).forEach(function(submit_button) {
 		submit_button.addEventListener('click', function() {
 			var parentForm = this.parentElement.parentElement.parentElement.parentElement;
 
