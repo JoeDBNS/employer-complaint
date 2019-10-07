@@ -591,179 +591,191 @@
 									</div>
 								</div>
 
-								<div class="app-page-content-question col-md-4 col-sm-12">
-									<input type="text" id="complaint_number" name="complaint_number" class="col input-field input-format" disabled value="D000123">
-									<label for="complaint_number" class="input-label-format input-label-format-null">Complaint Number</label>
-								</div>
-
-								<div class="app-page-content-question col-md-3 col-sm-12">
-									<input type="text" id="date_submitted" name="date_submitted" class="col input-field input-format" disabled value="01/16/2019">
-									<label for="date_submitted" class="input-label-format input-label-format-null">Date Submitted</label>
-								</div>
-
-								<div class="app-page-content-question col-md-5 col-sm-12">
-									<select id="complaint_type" name="complaint_type" class="col input-field input-format-select" v-bind:disabled="!complaintViewFormComplaintEdit">
-										<option></option>
-										<option>Apparent Violation</option>
-										<option selected>Complaint</option>
-									</select>
-									<label for="complaint_type" class="input-label-format input-label-format-null">Complaint Type</label>
-								</div>
-
-								<div class="app-page-content-question col-md-4 col-sm-12">
-									<input type="text" id="filing_agency" name="filing_agency" class="col input-field input-format" disabled value="D">
-									<label for="filing_agency" class="input-label-format input-label-format-null">Filing Agency</label>
-								</div>
-
-								<div class="app-page-content-question col-md-8 col-sm-12">
-									<input type="text" id="filing_office" name="filing_office" class="col input-field input-format" disabled value="East Lansing Okemos MichiganWorks!">
-									<label for="filing_office" class="input-label-format input-label-format-null">Filing Office</label>
-								</div>
-
-								<div class="app-page-content-question col-md-4 col-sm-12">
-									<select id="h2a_criteria_employer" name="h2a_criteria_employer" class="col input-field input-format-select" v-bind:disabled="!complaintViewFormComplaintEdit">
-										<option></option>
-										<option>U.S. Domestic Worker</option>
-										<option>H-2A Worker</option>
-										<option>Wages</option>
-										<option>Transportation</option>
-										<option selected>Meals</option>
-										<option>Housing</option>
-										<option>Other</option>
-									</select>
-									<label for="h2a_criteria_employer" class="input-label-format input-label-format-null">H-2A/Criteria Employer</label>
-								</div>
-
-								<div class="app-page-content-question col-md-8 col-sm-12">
-									<input type="text" id="h2a_criteria_employer_description" name="h2a_criteria_employer_description" class="col input-field input-format" v-bind:disabled="!complaintViewFormComplaintEdit">
-									<label for="h2a_criteria_employer_description" class="input-label-format input-label-format-null">H-2A/Criteria Employer Description</label>
-								</div>
-
-								<div class="app-page-content-question col-md-4 col-sm-12">
-									<select id="msfw" name="msfw" class="col input-field input-format-select" v-bind:disabled="!complaintViewFormComplaintEdit">
-										<option></option>
-										<option selected>Yes</option>
-										<option>No</option>
-									</select>
-									<label for="msfw" class="input-label-format input-label-format-null">MSFW</label>
-								</div>
-
-								<div class="col-md-8"></div>
-
-								<div class="app-page-content-question col-md-4 col-sm-12">
-									<fieldset class="input-fieldset-checkbox" v-bind:disabled="!complaintViewFormComplaintEdit">
-										<legend class="input-fieldset-checkbox-label">Employment Service Related</legend>
-
-										<label class="input-label-format-checkbox" for="employment_service_related_against_agency">
-											<input type="checkbox" id="employment_service_related_against_agency">
-											<div class="input-format-checkbox-display">
-												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+								<div class="container-fluid">
+									<div class="row">
+										<div class="col-md-8 col-12">
+											<div class="row">
+												<div class="app-page-content-question col-md-4 col-sm-12">
+													<input type="text" id="complaint_number" name="complaint_number" class="col input-field input-format" disabled value="D000123">
+													<label for="complaint_number" class="input-label-format input-label-format-null">Complaint Number</label>
+												</div>
+				
+												<div class="app-page-content-question col-md-3 col-sm-12">
+													<input type="text" id="date_submitted" name="date_submitted" class="col input-field input-format" disabled value="01/16/2019">
+													<label for="date_submitted" class="input-label-format input-label-format-null">Date Submitted</label>
+												</div>
+				
+												<div class="app-page-content-question col-md-5 col-sm-12">
+													<select id="complaint_type" name="complaint_type" class="col input-field input-format-select" v-bind:disabled="!complaintViewFormComplaintEdit">
+														<option></option>
+														<option>Apparent Violation</option>
+														<option selected>Complaint</option>
+													</select>
+													<label for="complaint_type" class="input-label-format input-label-format-null">Complaint Type</label>
+												</div>
+				
+												<div class="app-page-content-question col-md-4 col-sm-12">
+													<input type="text" id="filing_agency" name="filing_agency" class="col input-field input-format" disabled value="D">
+													<label for="filing_agency" class="input-label-format input-label-format-null">Filing Agency</label>
+												</div>
+				
+												<div class="app-page-content-question col-md-8 col-sm-12">
+													<input type="text" id="filing_office" name="filing_office" class="col input-field input-format" disabled value="East Lansing Okemos MichiganWorks!">
+													<label for="filing_office" class="input-label-format input-label-format-null">Filing Office</label>
+												</div>
+				
+												<div class="app-page-content-question col-md-4 col-sm-12">
+													<select id="h2a_criteria_employer" name="h2a_criteria_employer" class="col input-field input-format-select" v-bind:disabled="!complaintViewFormComplaintEdit">
+														<option></option>
+														<option>U.S. Domestic Worker</option>
+														<option>H-2A Worker</option>
+														<option>Wages</option>
+														<option>Transportation</option>
+														<option selected>Meals</option>
+														<option>Housing</option>
+														<option>Other</option>
+													</select>
+													<label for="h2a_criteria_employer" class="input-label-format input-label-format-null">H-2A/Criteria Employer</label>
+												</div>
+				
+												<div class="app-page-content-question col-md-8 col-sm-12">
+													<input type="text" id="h2a_criteria_employer_description" name="h2a_criteria_employer_description" class="col input-field input-format" v-bind:disabled="!complaintViewFormComplaintEdit">
+													<label for="h2a_criteria_employer_description" class="input-label-format input-label-format-null">H-2A/Criteria Employer Description</label>
+												</div>
+				
+												<div class="app-page-content-question col-md-4 col-sm-12">
+													<select id="msfw" name="msfw" class="col input-field input-format-select" v-bind:disabled="!complaintViewFormComplaintEdit">
+														<option></option>
+														<option selected>Yes</option>
+														<option>No</option>
+													</select>
+													<label for="msfw" class="input-label-format input-label-format-null">MSFW</label>
+												</div>
+				
+												<div class="col-md-8"></div>
 											</div>
-											<span class="input-label-format-checkbox-text">Against Agency</span>
-										</label>
+										</div>
 
-										<label class="input-label-format-checkbox" for="employment_service_related_against_employer">
-											<input type="checkbox" id="employment_service_related_against_employer" checked>
-											<div class="input-format-checkbox-display">
-												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+										<div class="col-md-4 col-12">
+											<div class="row">
+												<div class="app-page-content-question col-12">
+													<fieldset class="input-fieldset-checkbox" v-bind:disabled="!complaintViewFormComplaintEdit">
+														<legend class="input-fieldset-checkbox-label">Employment Service Related</legend>
+				
+														<label class="input-label-format-checkbox" for="employment_service_related_against_agency">
+															<input type="checkbox" id="employment_service_related_against_agency">
+															<div class="input-format-checkbox-display">
+																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+															</div>
+															<span class="input-label-format-checkbox-text">Against Agency</span>
+														</label>
+				
+														<label class="input-label-format-checkbox" for="employment_service_related_against_employer">
+															<input type="checkbox" id="employment_service_related_against_employer" checked>
+															<div class="input-format-checkbox-display">
+																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+															</div>
+															<span class="input-label-format-checkbox-text">Against Employer</span>
+														</label>
+				
+														<label class="input-label-format-checkbox" for="employment_service_related_es_regulation">
+															<input type="checkbox" id="employment_service_related_es_regulation">
+															<div class="input-format-checkbox-display">
+																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+															</div>
+															<span class="input-label-format-checkbox-text">ES Regulation</span>
+														</label>
+				
+														<label class="input-label-format-checkbox" for="employment_service_related_employment_related_law">
+															<input type="checkbox" id="employment_service_related_employment_related_law">
+															<div class="input-format-checkbox-display">
+																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+															</div>
+															<span class="input-label-format-checkbox-text">Employment Related Law</span>
+														</label>
+													</fieldset>
+												</div>
+				
+												<div class="app-page-content-question col-12">
+													<fieldset class="input-fieldset-checkbox" disabled>
+														<legend class="input-fieldset-checkbox-label">Type of Complaint/Violation</legend>
+				
+														<label class="input-label-format-checkbox" for="type_of_complaint_child_labor">
+															<input type="checkbox" id="type_of_complaint_child_labor" checked>
+															<div class="input-format-checkbox-display">
+																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+															</div>
+															<span class="input-label-format-checkbox-text">Child Labor</span>
+														</label>
+				
+														<label class="input-label-format-checkbox" for="type_of_complaint_housing">
+															<input type="checkbox" id="type_of_complaint_housing">
+															<div class="input-format-checkbox-display">
+																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+															</div>
+															<span class="input-label-format-checkbox-text">Housing</span>
+														</label>
+				
+														<label class="input-label-format-checkbox" for="type_of_complaint_wages">
+															<input type="checkbox" id="type_of_complaint_wages" checked>
+															<div class="input-format-checkbox-display">
+																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+															</div>
+															<span class="input-label-format-checkbox-text">Wages</span>
+														</label>
+				
+														<label class="input-label-format-checkbox" for="type_of_complaint_discrimination_housing_employment">
+															<input type="checkbox" id="type_of_complaint_discrimination_housing_employment">
+															<div class="input-format-checkbox-display">
+																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+															</div>
+															<span class="input-label-format-checkbox-text">Discrimination Housing/Employment</span>
+														</label>
+				
+														<label class="input-label-format-checkbox" for="type_of_complaint_human_trafficking">
+															<input type="checkbox" id="type_of_complaint_human_trafficking">
+															<div class="input-format-checkbox-display">
+																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+															</div>
+															<span class="input-label-format-checkbox-text">Human Trafficking</span>
+														</label>
+				
+														<label class="input-label-format-checkbox" for="type_of_complaint_pesticides">
+															<input type="checkbox" id="type_of_complaint_pesticides">
+															<div class="input-format-checkbox-display">
+																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+															</div>
+															<span class="input-label-format-checkbox-text">Pesticides</span>
+														</label>
+				
+														<label class="input-label-format-checkbox" for="type_of_complaint_health_safety">
+															<input type="checkbox" id="type_of_complaint_health_safety" checked>
+															<div class="input-format-checkbox-display">
+																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+															</div>
+															<span class="input-label-format-checkbox-text">Health Safety</span>
+														</label>
+				
+														<label class="input-label-format-checkbox" for="type_of_complaint_mspa">
+															<input type="checkbox" id="type_of_complaint_mspa">
+															<div class="input-format-checkbox-display">
+																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+															</div>
+															<span class="input-label-format-checkbox-text">Migrant and Seasonal Agriculture Worker Protection Act (MSPA)</span>
+														</label>
+				
+														<label class="input-label-format-checkbox" for="type_of_complaint_disability_discrimination">
+															<input type="checkbox" id="type_of_complaint_disability_discrimination">
+															<div class="input-format-checkbox-display">
+																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+															</div>
+															<span class="input-label-format-checkbox-text">Disability Discrimination</span>
+														</label>
+													</fieldset>
+												</div>
 											</div>
-											<span class="input-label-format-checkbox-text">Against Employer</span>
-										</label>
-
-										<label class="input-label-format-checkbox" for="employment_service_related_es_regulation">
-											<input type="checkbox" id="employment_service_related_es_regulation">
-											<div class="input-format-checkbox-display">
-												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
-											</div>
-											<span class="input-label-format-checkbox-text">ES Regulation</span>
-										</label>
-
-										<label class="input-label-format-checkbox" for="employment_service_related_employment_related_law">
-											<input type="checkbox" id="employment_service_related_employment_related_law">
-											<div class="input-format-checkbox-display">
-												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
-											</div>
-											<span class="input-label-format-checkbox-text">Employment Related Law</span>
-										</label>
-									</fieldset>
-								</div>
-
-								<div class="app-page-content-question col-md-8 col-sm-12">
-									<fieldset class="input-fieldset-checkbox" disabled>
-										<legend class="input-fieldset-checkbox-label">Type of Complaint/Violation</legend>
-
-										<label class="input-label-format-checkbox" for="type_of_complaint_child_labor">
-											<input type="checkbox" id="type_of_complaint_child_labor" checked>
-											<div class="input-format-checkbox-display">
-												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
-											</div>
-											<span class="input-label-format-checkbox-text">Child Labor</span>
-										</label>
-
-										<label class="input-label-format-checkbox" for="type_of_complaint_housing">
-											<input type="checkbox" id="type_of_complaint_housing">
-											<div class="input-format-checkbox-display">
-												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
-											</div>
-											<span class="input-label-format-checkbox-text">Housing</span>
-										</label>
-
-										<label class="input-label-format-checkbox" for="type_of_complaint_wages">
-											<input type="checkbox" id="type_of_complaint_wages" checked>
-											<div class="input-format-checkbox-display">
-												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
-											</div>
-											<span class="input-label-format-checkbox-text">Wages</span>
-										</label>
-
-										<label class="input-label-format-checkbox" for="type_of_complaint_discrimination_housing_employment">
-											<input type="checkbox" id="type_of_complaint_discrimination_housing_employment">
-											<div class="input-format-checkbox-display">
-												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
-											</div>
-											<span class="input-label-format-checkbox-text">Discrimination Housing/Employment</span>
-										</label>
-
-										<label class="input-label-format-checkbox" for="type_of_complaint_human_trafficking">
-											<input type="checkbox" id="type_of_complaint_human_trafficking">
-											<div class="input-format-checkbox-display">
-												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
-											</div>
-											<span class="input-label-format-checkbox-text">Human Trafficking</span>
-										</label>
-
-										<label class="input-label-format-checkbox" for="type_of_complaint_pesticides">
-											<input type="checkbox" id="type_of_complaint_pesticides">
-											<div class="input-format-checkbox-display">
-												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
-											</div>
-											<span class="input-label-format-checkbox-text">Pesticides</span>
-										</label>
-
-										<label class="input-label-format-checkbox" for="type_of_complaint_health_safety">
-											<input type="checkbox" id="type_of_complaint_health_safety" checked>
-											<div class="input-format-checkbox-display">
-												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
-											</div>
-											<span class="input-label-format-checkbox-text">Health Safety</span>
-										</label>
-
-										<label class="input-label-format-checkbox" for="type_of_complaint_mspa">
-											<input type="checkbox" id="type_of_complaint_mspa">
-											<div class="input-format-checkbox-display">
-												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
-											</div>
-											<span class="input-label-format-checkbox-text">Migrant and Seasonal Agriculture Worker Protection Act (MSPA)</span>
-										</label>
-
-										<label class="input-label-format-checkbox" for="type_of_complaint_disability_discrimination">
-											<input type="checkbox" id="type_of_complaint_disability_discrimination">
-											<div class="input-format-checkbox-display">
-												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
-											</div>
-											<span class="input-label-format-checkbox-text">Disability Discrimination</span>
-										</label>
-									</fieldset>
+										</div>
+									</div>
 								</div>
 							</div>
 
