@@ -593,7 +593,7 @@ var MainVue = new Vue({
 		logsTablePage: 1,
 		logsTableShowFilter: false,
 		logsTableShowPrintPredefinedDrop: false,
-		complaintViewFormTab: 'info',
+		complaintViewFormShowSave: false,
 		complaintViewFormComplaintEdit: false,
 		complaintViewFormComplainantEdit: false,
 		complaintViewFormRespondantEdit: false,

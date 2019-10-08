@@ -41,7 +41,7 @@
 							<div class="nav-path-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
 							<div class="nav-path-text">User</div>
 
-							<div class="nav-path-user-popup" v-show="showUserPopup">
+							<div class="nav-path-user-popup" v-bind:class="{'nav-path-user-popup-show': showUserPopup}">
 								<div class="popup-triangle"></div>
 								<div class="popup-content">
 									<table>
@@ -70,7 +70,7 @@
 									<div class="popup-content-agency">R</div>
 									<div class="popup-content-branch">East Lansing Okemos MichiganWorks!</div> -->
 
-									<button @click="loggedIn = !loggedIn; UpdatePage('login')" @keypress.enter="loggedIn = !loggedIn; UpdatePage('login')" @keypress.space="loggedIn = !loggedIn; UpdatePage('login')">Logout</button>
+									<button type="button" class="btn-main mt-3" @click="loggedIn = !loggedIn; UpdatePage('login')" @keypress.enter="loggedIn = !loggedIn; UpdatePage('login')" @keypress.space="loggedIn = !loggedIn; UpdatePage('login')">Logout</button>
 								</div>
 							</div>
 						</div>
@@ -146,7 +146,7 @@
 											</div>
 										</div>
 
-										<div class="row justify-content-center mt-4">
+										<div class="row justify-content-center mt-5">
 											<button id="login-form-submit" class="btn-main text-center" type="button" @click="loadingLogin = !loadingLogin">
 												<span v-show="!loadingLogin">Log In</span>
 												<span v-show="loadingLogin" @click="loggedIn = !loggedIn; UpdatePage('index')">Loading</span>
@@ -297,7 +297,7 @@
 						<p>Please provide the required information as labeled with an asterisk so that we may contact you to discuss your request.</p>
 					</div>
 
-					<div class="complaint-form-page-content container-float justify-content-center p-0">
+					<div class="complaint-form-content container-float justify-content-center p-0">
 						<div class="container">
 							<div class="row">
 								<div class="app-page-content-question col-md-4 col-sm-12">
@@ -577,7 +577,38 @@
 						<h1>Complaint</h1>
 					</div> -->
 
-					<div class="complaint-form-page-content container-fluid justify-content-center">
+					<div class="complaint-form-header">
+						<div class="container">
+							<div class="row">
+								<div class="col-4 text-center">
+									<div class="complaint-form-header-status">
+										<select id="status" name="status" class="col input-field input-format-select">
+											<option selected>In Progress</option>
+											<option>Attempting Local Resolution</option>
+											<option>Local Resolution Complete</option>
+										</select>
+										<label for="status" class="input-label-format input-label-format-null">Status</label>
+									</div>
+								</div>
+
+								<div class="col-4 text-center">
+									<div class="complaint-form-header-alert" v-bind:class="{'complaint-form-header-alert-success': complaintViewFormShowSave}">
+										Complaint Has Been Updated
+									</div>
+								</div>
+
+								<div class="col-2 text-center">
+									<button type="button" class="btn-main complaint-form-header-button-save" @click="complaintViewFormShowSave = !complaintViewFormShowSave" @keypress.enter="complaintViewFormShowSave = !complaintViewFormShowSave" @keypress.space="complaintViewFormShowSave = !complaintViewFormShowSave">Save</button>
+								</div>
+
+								<div class="col-2 text-center">
+									<button type="button" class="btn-main complaint-form-header-button-file">File with WDA</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="complaint-form-content container-fluid justify-content-center">
 						<div class="row">
 							<div class="form-group row col-12">
 								<div class="form-group-title mb-3">
@@ -601,8 +632,8 @@
 												</div>
 				
 												<div class="app-page-content-question col-md-3 col-sm-12">
-													<input type="text" id="date_submitted" name="date_submitted" class="col input-field input-format" disabled value="01/16/2019">
-													<label for="date_submitted" class="input-label-format input-label-format-null">Date Submitted</label>
+													<input type="text" id="date_filed" name="date_filed" class="col input-field input-format" disabled value="01/16/2019">
+													<label for="date_filed" class="input-label-format input-label-format-null">Date Filed</label>
 												</div>
 				
 												<div class="app-page-content-question col-md-5 col-sm-12">
